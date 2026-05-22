@@ -8,9 +8,11 @@ if (menuToggle) {
     });
 }
 
+// 2. බුකින් ෆෝම් සහ නොටිෆිකේෂන් සඳහා කේතය
 const form = document.querySelector('.booking-form');
 const notification = document.getElementById('notification');
 
+// පණිවිඩය වහන Function එක
 function closeNotification() {
     notification.classList.remove('show');
 }
@@ -30,11 +32,6 @@ if (form) {
                 
                 // Notification එක පෙන්වීම
                 notification.classList.add('show');
-                
-                // තත්පර 5කින් ස්වයංක්‍රීයව සැඟවීම
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 5000);
             } else {
                 alert("Something went wrong!");
             }
@@ -46,3 +43,10 @@ if (form) {
     });
 }
 
+// 3. පණිවිඩය පේන වෙලාවේ ඕනෑම තැනක ක්ලික් කළොත් වහන්න
+window.addEventListener('click', function(e) {
+    // පණිවිඩය පේනවා නම් සහ ක්ලික් කරපු තැන පණිවිඩය ඇතුලේ නැත්නම්
+    if (notification && notification.classList.contains('show') && !notification.contains(e.target)) {
+        closeNotification();
+    }
+});
