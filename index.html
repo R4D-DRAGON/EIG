@@ -177,12 +177,23 @@
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Email Address">
 <input type="date">
-<select>
-<option>Select Package</option>
-<option>Ella Scenic Journey</option>
-<option>Cultural Triangle Tour</option>
-<option>Southern Beach Escape</option>
-</select>
+<div class="form-group" style="margin: 20px 0; padding: 15px; background: #fff; border-radius: 10px; border: 1px solid #ddd;">
+            <label style="display: block; margin-bottom: 15px; font-weight: bold; color: #2d5a27;">
+                Select Destinations (Click to Select/Unselect):
+            </label>
+            <div class="checkbox-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Sigiriya"> Sigiriya</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Kandy"> Kandy</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Ella"> Ella</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Galle"> Galle</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Nuwara Eliya"> Nuwara Eliya</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Yala"> Yala</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Polonnaruwa"> Polonnaruwa</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Anuradhapura"> Anuradhapura</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Mirissa"> Mirissa</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Adams Peak"> Adam's Peak</label>
+            </div>
+        </div>
 <textarea placeholder="Your Message"></textarea>
 <button type="submit">Send Booking Request</button>
 </form>
