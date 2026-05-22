@@ -222,14 +222,14 @@ flex-direction:column;
 gap:20px;
 }
 
-.booking-form input,.booking-form select{
+.booking-form input,.booking-form select,.booking-form textarea{
 padding:18px;
 border-radius:15px;
 border:1px solid #ccc;
 }
 
 .booking-form textarea{
-height:100px;
+height:80px;
 }
 
 footer{
