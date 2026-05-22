@@ -197,11 +197,12 @@
     <textarea name="Message" placeholder="Your Message"></textarea>
     <button type="submit">Send Booking Request</button>
 </form>
-<div id="successMessage" class="success-msg" style="display:none; text-align:center; color:green; font-weight:bold; margin-top:15px;">
-            Thank you! Your booking request has been sent successfully.
-</div>
 </section>
 
+<div id="notification">
+    <p>Your booking request has been sent successfully!</p>
+    <span onclick="closeNotification()">×</span>
+</div>
 
 <footer id="contact">
 <div class="footer-grid">
