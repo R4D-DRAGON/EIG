@@ -32,8 +32,8 @@ background:rgba(0,0,0,.7);
 .navbar{
 position:fixed;
 top:0;
-width:110%;
-padding:15px 6%;
+width:100%;
+padding:15px 1%;
 display:flex;
 justify-content:space-between;
 align-items:center;
