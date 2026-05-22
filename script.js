@@ -1,11 +1,3 @@
-
-const menuToggle=document.getElementById('menuToggle');
-const navLinks=document.getElementById('navLinks');
-
-menuToggle.addEventListener('click',()=>{
-navLinks.classList.toggle('active');
-});
-
 // 1. මෙනුව (Menu Toggle) සඳහා කේතය
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
@@ -16,9 +8,14 @@ if (menuToggle) {
     });
 }
 
-// 2. Booking ෆෝම් එක Google Sheet එකට යැවීම සඳහා කේතය
+// 2. Booking ෆෝම් එක Google Sheet එකට යැවීම සහ Notification පෙන්වීම සඳහා කේතය
 const form = document.querySelector('.booking-form');
-const successMessage = document.getElementById('successMessage');
+const notification = document.getElementById('notification');
+
+// Notification එක වසා දැමීමට අවශ්‍ය function එක
+function closeNotification() {
+    notification.classList.remove('show');
+}
 
 if (form) {
     form.addEventListener('submit', function(e) {
@@ -31,14 +28,18 @@ if (form) {
         })
         .then(response => {
             if (response.ok) {
-                // සාර්ථක නම් පණිවිඩය පෙන්වා ෆෝම් එක හිස් කිරීම
-                successMessage.style.display = 'block';
+                // සාර්ථක නම් ෆෝම් එක හිස් කර Notification එක පෙන්වීම
                 form.reset();
                 
-                // තත්පර 5කින් සාර්ථක පණිවිඩය නැවත සැඟවීම
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
+                // Notification එක පෙන්වීම (CSS class එක එකතු කිරීම)
+                if (notification) {
+                    notification.classList.add('show');
+                    
+                    // තත්පර 5කින් Notification එක ස්වයංක්‍රීයව සැඟවීම
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 5000);
+                }
             } else {
                 alert("Something went wrong! Please try again.");
             }
