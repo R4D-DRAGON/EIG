@@ -295,45 +295,4 @@ display:none;
 .nav-links.active{
 display:flex;
 }
-}
 
-.visit-container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #f4f1ea;
-    border-radius: 20px;
-    border: 2px solid #2d5a27;
-}
-
-.booking-form .input-group {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.booking-form input, .booking-form textarea, .booking-form select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #d2691e;
-    border-radius: 8px;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 15px;
-    background-color: #2d5a27;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.success-msg {
-    display: none;
-    text-align: center;
-    color: #2d5a27;
-    font-weight: bold;
-    margin-top: 15px;
-}
