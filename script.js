@@ -46,15 +46,3 @@ if (form) {
     });
 }
 
-// පරිශීලකයාට ස්තුති පණිවිඩය යැවීම (English Version)
-var customerEmail = e.parameter.Email;
-var customerName = e.parameter.Name;
-
-var replyBody = "Dear " + customerName + ",\n\n" +
-                "Thank you for contacting Emerland Island Getaways! We have successfully received your booking request.\n\n" +
-                "Our team is currently reviewing your details and will get back to you as soon as possible with further information regarding your tour.\n\n" +
-                "We look forward to providing you with an unforgettable experience in Sri Lanka.\n\n" +
-                "Best regards,\n" +
-                "The Emerland Island Getaways Team.";
-
-MailApp.sendEmail(customerEmail, "Booking Confirmation - Emerland Island Getaways", replyBody);
