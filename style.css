@@ -326,7 +326,7 @@ display:flex;
     padding: 15px 25px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: right 0.5s ease; /* ලස්සන Animation එකක් සඳහා */
+    transition: right 0.5s ease;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -334,11 +334,12 @@ display:flex;
 }
 
 #notification.show {
-    right: 20px; /* දකුණු පැත්තට මතු වේ */
+    right: 20px; /* දකුණු පැත්තෙන් මතු වේ */
 }
 
 #notification span {
     cursor: pointer;
     font-weight: bold;
     font-size: 1.2rem;
+    margin-left: 10px;
 }
