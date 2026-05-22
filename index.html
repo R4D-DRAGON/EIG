@@ -168,24 +168,55 @@
 </div>
 </section>
 
-<section class="booking" id="booking">
-<div class="section-title">
-<h2>Book Your Tour</h2>
-</div>
+    <form action="https://api.web3forms.com/submit" method="POST" id="bookingForm" class="booking-form">
+        
+        <input type="hidden" name="access_key" value="8381e214-003a-4387-baf1-25b42505c393">
+        
+        <input type="hidden" name="to_email" value="vohanrashmika21@gmail.com">
+        
+        <input type="hidden" name="subject" value="New Booking Request from Sri Lanka Adventure Site">
+        
+        <div class="input-group">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        
+        <div class="input-group">
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+        </div>
+        
+        <div class="input-group">
+            <input type="number" name="days" placeholder="Number of Days (e.g., 5)" min="1" required>
+            <input type="date" name="start_date" required>
+        </div>
 
-<form class="booking-form">
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Email Address">
-<input type="date">
-<select>
-<option>Select Package</option>
-<option>Ella Scenic Journey</option>
-<option>Cultural Triangle Tour</option>
-<option>Southern Beach Escape</option>
-</select>
-<textarea placeholder="Your Message"></textarea>
-<button type="submit">Send Booking Request</button>
-</form>
+        <div class="form-group" style="margin: 20px 0; padding: 15px; background: #fff; border-radius: 10px; border: 1px solid #ddd;">
+            <label style="display: block; margin-bottom: 15px; font-weight: bold; color: #2d5a27;">
+                Select Destinations (Click to Select/Unselect):
+            </label>
+            <div class="checkbox-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Sigiriya"> Sigiriya</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Kandy"> Kandy</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Ella"> Ella</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Galle"> Galle</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Nuwara Eliya"> Nuwara Eliya</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Yala"> Yala</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Polonnaruwa"> Polonnaruwa</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Anuradhapura"> Anuradhapura</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Mirissa"> Mirissa</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="destinations[]" value="Adams Peak"> Adam's Peak</label>
+            </div>
+        </div>
+
+        <textarea name="message" placeholder="Additional details or special requirements" rows="4"></textarea>
+        
+        <button type="submit" class="submit-btn">Confirm Booking</button>
+    </form>
+    
+    <div id="successMessage" class="success-msg" style="display:none; text-align:center; color:green; font-weight:bold; margin-top:15px;">
+        Thank you! Your booking request has been sent successfully.
+    </div>
 </section>
 
 <footer id="contact">
