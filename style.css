@@ -50,7 +50,7 @@ border: 2px solid transparent;
 
 .navbar a:hover{
   background-color: rgba(255, 188, 106, 0.3); /* ලා තැඹිලි විනිවිද පෙනෙන ස්ථරය */
-  border: 2px solid #ffbc6a; /* ලස්සන බෝඩර් එකක් මතු වේ */
+  border: 2px solid #ffbc6a; /* ලස්සන බෝඩර් එකක් මතු වේ  */
   color: #fff;
   font-weight: 600;
   transition: 0.58s all linear;
