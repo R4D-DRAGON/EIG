@@ -14,9 +14,12 @@ const notification = document.getElementById('notification');
 
 // පණිවිඩය වහන Function එක
 function closeNotification() {
-    notification.classList.remove('show');
+    if (notification) {
+        notification.classList.remove('show');
+    }
 }
 
+// ෆෝම් එක සබ්මිට් කිරීම
 if (form) {
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // පිටුව Reload වීම වළක්වයි
@@ -31,7 +34,9 @@ if (form) {
                 form.reset();
                 
                 // Notification එක පෙන්වීම
-                notification.classList.add('show');
+                if (notification) {
+                    notification.classList.add('show');
+                }
             } else {
                 alert("Something went wrong!");
             }
@@ -46,7 +51,9 @@ if (form) {
 // 3. පණිවිඩය පේන වෙලාවේ ඕනෑම තැනක ක්ලික් කළොත් වහන්න
 window.addEventListener('click', function(e) {
     // පණිවිඩය පේනවා නම් සහ ක්ලික් කරපු තැන පණිවිඩය ඇතුලේ නැත්නම්
-    if (notification && notification.classList.contains('show') && !notification.contains(e.target)) {
+    // තවද ක්ලික් කළ දේ button එකක් නොවේ නම් (close button එක වැඩ කිරීමට)
+    if (notification && notification.classList.contains('show') && 
+        !notification.contains(e.target) && e.target.tagName !== 'BUTTON') {
         closeNotification();
     }
 });
