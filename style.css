@@ -296,3 +296,6 @@ display:none;
 display:flex;
 }
 
+textarea {
+    height: 100px; /* මෙතැනින් උස තීරණය වේ */
+}
