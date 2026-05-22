@@ -316,33 +316,37 @@ display:flex;
 
 
 
-/* Notification Box Style */
+/* මැදින් පෙන්වන Popup Box එක */
 #notification {
     display: none; /* මුලින් සැඟවී පවතී */
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* මේකෙන් තමයි මැදට එන්නේ */
     background: #fff;
-    padding: 30px;
+    padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.3);
     z-index: 9999;
     text-align: center;
-    border: 2px solid #ff7b00;
+    border: 3px solid #ff7b00;
+    width: 90%;
+    max-width: 400px;
 }
 
 #notification.show {
-    display: block; /* පෙන්වීමට */
+    display: block; /* සබ්මිට් වුණාම පෙන්වයි */
 }
 
-#notification h3 { color: #ff7b00; margin-bottom: 10px; }
+#notification h3 { color: #ff7b00; margin-bottom: 15px; font-size: 1.8rem; }
+#notification p { margin-bottom: 20px; color: #333; }
+
 #notification button {
-    margin-top: 15px;
-    background: #00a6d6;
-    padding: 10px 20px;
-    border-radius: 10px;
+    background: #ff7b00;
     color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
     border: none;
     cursor: pointer;
+    font-weight: bold;
 }
