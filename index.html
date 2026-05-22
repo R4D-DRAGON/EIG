@@ -172,11 +172,13 @@
 <div class="section-title">
 <h2>Book Your Tour</h2>
 </div>
-
 <form class="booking-form">
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Email Address">
 <input type="date">
+<input type="number">
+<input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+<input type="number" name="days" placeholder="Number of Days (e.g., 5)" min="1" required>
 <div class="form-group" style="margin: 20px 0; padding: 15px; background: #fff; border-radius: 10px; border: 1px solid #ddd;">
             <label style="display: block; margin-bottom: 15px; font-weight: bold; color: #2d5a27;">
                 Select Destinations (Click to Select/Unselect):
@@ -197,6 +199,9 @@
 <textarea placeholder="Your Message"></textarea>
 <button type="submit">Send Booking Request</button>
 </form>
+<div id="successMessage" class="success-msg" style="display:none; text-align:center; color:green; font-weight:bold; margin-top:15px;">
+            Thank you! Your booking request has been sent successfully.
+</div>
 </section>
 
 
