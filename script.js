@@ -16,6 +16,8 @@ const notification = document.getElementById('notification');
 function closeNotification() {
     if (notification) {
         notification.classList.remove('show');
+        // පේජ් එකේ Blur එකක් දාලා තිබුණොත් ඒක අයින් කරන්න
+        document.body.style.filter = "none"; 
     }
 }
 
@@ -36,6 +38,8 @@ if (form) {
                 // Notification එක පෙන්වීම
                 if (notification) {
                     notification.classList.add('show');
+                    // පේජ් එකට අඳුරු බවක්/Blur එකක් අවශ්‍ය නම් මෙතනින් දාන්න
+                    // document.body.style.filter = "blur(2px)"; 
                 }
             } else {
                 alert("Something went wrong!");
@@ -50,10 +54,10 @@ if (form) {
 
 // 3. පණිවිඩය පේන වෙලාවේ ඕනෑම තැනක ක්ලික් කළොත් වහන්න
 window.addEventListener('click', function(e) {
-    // පණිවිඩය පේනවා නම් සහ ක්ලික් කරපු තැන පණිවිඩය ඇතුලේ නැත්නම්
-    // තවද ක්ලික් කළ දේ button එකක් නොවේ නම් (close button එක වැඩ කිරීමට)
-    if (notification && notification.classList.contains('show') && 
-        !notification.contains(e.target) && e.target.tagName !== 'BUTTON') {
-        closeNotification();
+    if (notification && notification.classList.contains('show')) {
+        // ක්ලික් කළ දේ පණිවිඩය ඇතුලේ නැත්නම් සහ බොත්තමක් නොවේ නම් වහන්න
+        if (!notification.contains(e.target) && e.target.tagName !== 'BUTTON') {
+            closeNotification();
+        }
     }
 });
