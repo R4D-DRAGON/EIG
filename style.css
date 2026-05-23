@@ -356,7 +356,7 @@ z-index:999;
 #notification h3 { color: #ff7b00; margin-bottom: 10px; font-size: 1.5rem; }
 #notification p { color: #333; margin-bottom: 20px; }
 
-#notification button {
+/*#notification button {
     background: #ff7b00;
     color: white;
     padding: 10px 25px;
@@ -365,6 +365,18 @@ z-index:999;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
+*/
+
+/* ඇතුලේ තියෙන Button එකට */
+#notification button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #notification button:hover { background: #e66e00; transform: scale(1.05); }
