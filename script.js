@@ -17,7 +17,6 @@ function closeNotification() {
     if (notification) {
         notification.classList.remove('show');
         document.body.classList.remove('blur-active');
-        // ටික වෙලාවකින් display none වෙන්න දානවා (එතකොට තමයි මැකෙන effect එක පේන්නේ)
         setTimeout(() => {
             notification.style.display = 'none';
         }, 400); 
@@ -27,11 +26,13 @@ function closeNotification() {
 // ෆෝම් එක සබ්මිට් කිරීම
 if (form) {
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // පිටුව Reload වීම වළක්වයි
+        e.preventDefault(); 
         
-        // පෝරමය සබ්මිට් වෙනකොට Loading පෙන්නන්න
+        // Loading පෙන්නන්න
         notification.innerHTML = `<div class="loader"></div><h3 style="margin-top:15px;">Processing...</h3>`;
         notification.style.display = 'block';
+        
+        // මෙතන තමයි වැදගත්: body එකට class එක add කරන්න
         document.body.classList.add('blur-active');
         
         setTimeout(() => {
@@ -43,15 +44,16 @@ if (form) {
             body: new FormData(form) 
         })
         .then(response => {
-            if (response.ok) {
-                form.reset();
-                // සාර්ථක වුණාම නොටිෆිකේෂන් එක වහන්න හෝ Success පණිවිඩය දාන්න
-                // ඔයාට ඕනේ Loading එකෙන් පස්සේ වැහෙන්න නම් closeNotification() මෙතනට දාන්න
-                closeNotification(); 
-            } else {
-                alert("Something went wrong!");
-                closeNotification();
-            }
+            // Loading එක ටික වෙලාවක් පේන්න තත්පර 1ක delay එකක්
+            setTimeout(() => {
+                if (response.ok) {
+                    form.reset();
+                    closeNotification(); 
+                } else {
+                    alert("Something went wrong!");
+                    closeNotification();
+                }
+            }, 1000);
         })
         .catch(error => {
             console.error('Error!', error);
