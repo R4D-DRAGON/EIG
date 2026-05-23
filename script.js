@@ -57,3 +57,31 @@ window.addEventListener('click', function(e) {
         }
     }
 });
+
+function closeNotification() {
+    const notification = document.getElementById('notification');
+    if (notification) {
+        notification.classList.remove('show');
+        // ටික වෙලාවකින් display none වෙන්න දානවා (එතකොට තමයි මැකෙන effect එක පේන්නේ)
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 400); 
+    }
+}
+
+// ෆෝම් එක සබ්මිට් වුණාම show කරන තැන මෙහෙම වෙනස් කරන්න
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(form.action, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            if (response.ok) {
+                form.reset();
+                notification.style.display = 'block'; // පලවෙනි පියවර
+                setTimeout(() => {
+                    notification.classList.add('show'); // දෙවෙනි පියවර - දැන් ඇනිමේෂන් එක වැඩ
+                }, 50);
+            }
+        });
+    });
+}
