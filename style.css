@@ -313,10 +313,10 @@ z-index:999;
 
 #notification {
     display: none !important;
-    position: fixed;
+    position: fixed; /* ස්ක්‍රීන් එකේ මැද හිරවෙලා තියෙන්න */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* මුලින් පොඩියට තියෙන්නේ */
+    transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: rgba(255, 255, 255, 0.95);
@@ -330,10 +330,10 @@ z-index:999;
     max-width: 400px;
     border: 3px solid transparent;
     background-clip: padding-box;
-    position: relative;
+    /* position: relative අයින් කළා - ඒකෙන් තමයි ස්ක්‍රෝල් වෙද්දී අවුල් වුණේ */
 }
 
-/* බෝඩර් එක වටේට ලස්සනට ලයිට් එක දුවන ලයින් එක */
+/* බෝඩර් එක වටේට ලයිට් එක දුවන ලයින් එක */
 #notification::before {
     content: '';
     position: absolute;
@@ -353,11 +353,10 @@ z-index:999;
     transform: translate(-50%, -50%) scale(1);
 }
 
+/* ඇතුලේ තියෙන අකුරු සහ බටන් */
 #notification h3 { color: #ff7b00; margin-bottom: 10px; font-size: 1.5rem; }
 #notification p { color: #333; margin-bottom: 20px; }
 
-
-/* ඇතුලේ තියෙන Button එකට */
 #notification button {
     margin-top: 20px;
     padding: 10px 25px;
@@ -367,6 +366,7 @@ z-index:999;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 #notification button:hover { background: #e66e00; transform: scale(1.05); }
@@ -376,11 +376,10 @@ z-index:999;
     100% { transform: rotate(360deg); }
 }
 
-
+/* පසුබිම බ්ලර් කරන කොටස */
 body.blur-active > *:not(#notification) {
     filter: blur(5px);
     pointer-events: none;
-  
+    transition: filter 0.3s ease;
 }
- 
 }
