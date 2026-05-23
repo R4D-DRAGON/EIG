@@ -362,10 +362,7 @@ z-index:999;
     margin: 10px auto;
 }
 
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+
 
 body.blur-active > *:not(#notification) {
     filter: blur(5px);
