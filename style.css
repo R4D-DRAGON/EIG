@@ -430,3 +430,29 @@ body.blur-active #notification {
     transform: scale(0.95) !important;
 }
 
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    z-index: 999;
+    /* අලුතින් එකතු කරන ටික */
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Hover Effect එක */
+.whatsapp:hover {
+    background: #128C7E; /* මවුස් එක උඩ තියද්දී පාට ටිකක් තද වෙනවා */
+    transform: scale(1.1); /* මවුස් එක උඩ තියද්දී බටන් එක පොඩ්ඩක් ලොකු වෙනවා */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* සෙවනැල්ල (shadow) ලොකු වෙනවා */
+}
+
+/* ක්ලික් කරනකොට පොඩි වෙන effect එක */
+.whatsapp:active {
+    transform: scale(0.95);
+}
