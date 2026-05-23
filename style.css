@@ -330,10 +330,8 @@ z-index:999;
     text-align: center;
     width: 90%;
     max-width: 400px;
-    border: 2px solid #ff7b00; /* වටේට සරල තැඹිලි පාට බෝඩරයක් විතරක් තියෙනවා */
+    border: 2px solid #ff7b00;
 }
-
-/* අර කරකැවෙන දේවල් ඔක්කොම අයින් කළා */
 
 #notification.show {
     display: block !important;
@@ -357,7 +355,7 @@ z-index:999;
     100% { transform: rotate(360deg); }
 }
 
-/* බ්ලර් එෆෙක්ට් එක - මේක අනිවාර්යයෙන් තියෙන්න ඕනේ */
+/* බ්ලර් එෆෙක්ට් එක */
 body.blur-active > div, 
 body.blur-active > section, 
 body.blur-active > footer, 
@@ -367,9 +365,19 @@ body.blur-active > header {
     pointer-events: none;
     transition: filter 0.3s ease;
 }
-.booking-form button:active {
-    transform: scale(0.95); /* එබුවම ටිකක් පොඩි වෙලා */
-    transition: transform 0.1s ease;
+
+/* Booking බටන් ඇනිමේෂන් එක */
+.booking-form button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
+.booking-form button:hover {
+    transform: scale(1.05); /* මවුස් එක තියද්දී ටිකක් ලොකු වෙනවා */
+    box-shadow: 0 5px 15px rgba(255, 123, 0, 0.4);
+}
+
+.booking-form button:active {
+    transform: scale(0.95); /* ක්ලික් කරද්දී ටිකක් පොඩි වෙනවා */
+}
 
