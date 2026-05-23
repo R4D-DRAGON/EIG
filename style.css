@@ -269,10 +269,19 @@ width:120px;
 margin-bottom:20px;
 }
 
-.copyright{
+/*.copyright{
 margin-top:40px;
 text-align:center;
 color:#999;
+}*/
+
+.copyright {
+    text-align: center;      /* මේකෙන් මැදට වෙනවා */
+    margin-top: 40px;        /* උඩ තියෙන දේවල් වලින් පොඩි ඉඩක් තියෙනවා */
+    border-top: 1px solid #333; /* උඩින් පොඩි ඉරක් ඇඳෙනවා (ලස්සනට) */
+    padding-top: 20px;       /* ඉරට පහළින් ඉඩ තියෙනවා */
+    font-size: 0.9rem;       /* පොඩ්ඩක් ප්‍රමාණය අඩු කරලා තියන්න */
+    color: #888;             /* ටිකක් අළු පාට වගේ වෙන්න */
 }
 
 .whatsapp{
@@ -321,6 +330,12 @@ z-index:999;
     }
     .footer-grid p {
         white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
+    }
+
+  .copyright {
+        margin-top: 20px;    /* ෆෝන් එකේදී උඩ ඉඩ අඩු කරනවා */
+        padding-top: 15px;
+        font-size: 0.8rem;   /* ෆෝන් එකේදී අකුරු ටිකක් පොඩි වෙනවා */
     }
   
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
