@@ -12,45 +12,61 @@ if (menuToggle) {
 const form = document.querySelector('.booking-form');
 const notification = document.getElementById('notification');
 
-// පණිවිඩය වහන Function එක
-function closeNotification() {
-    if (notification) {
-        notification.classList.remove('show');
-    }
-}
-
-// ෆෝම් එක සබ්මිට් කිරීම
 if (form) {
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // පිටුව Reload වීම වළක්වයි
+        e.preventDefault(); // පේජ් එක රිෆ්‍රෙෂ් වීම වළක්වයි
+
+        // Loading පෙන්වීම
+        notification.innerHTML = `
+            <h3>Processing...</h3>
+            <div class="loader"></div>
+        `;
+        notification.style.display = 'block';
+        document.body.classList.add('blur-active');
         
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 50);
+
+        // සර්වර් එකට යැවීම
         fetch(form.action, { 
             method: 'POST', 
             body: new FormData(form) 
         })
         .then(response => {
-            if (response.ok) {
-                // පෝරමය හිස් කිරීම
-                form.reset();
-                
-                // Notification එක පෙන්වීම
-                if (notification) {
-                    notification.classList.add('show');
-                }
-            } else {
-                alert("Something went wrong!");
-            }
+            form.reset();
+            // සාර්ථක පණිවිඩය පෙන්වීම
+            setTimeout(() => {
+                notification.innerHTML = `
+                    <h3>Success!</h3>
+                    <p>ඔබේ පණිවිඩය සාර්ථකව ලැබුණා.</p>
+                    <button onclick="closeNotification()">Close</button>
+                `;
+            }, 1500);
         })
         .catch(error => {
-            console.error('Error!', error);
-            alert("Error sending data.");
+            notification.innerHTML = `
+                <h3>Error!</h3>
+                <p>පණිවිඩය යැවීමට අපහසු විය.</p>
+                <button onclick="closeNotification()">Close</button>
+            `;
         });
     });
 }
 
-// 3. පණිවිඩය පේන වෙලාවේ පිටත ක්ලික් කළොත් වහන්න
+// පණිවිඩය වහන Function එක
+function closeNotification() {
+    if (notification) {
+        notification.classList.remove('show');
+        document.body.classList.remove('blur-active');
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 400); 
+    }
+}
+
+// පිටත ක්ලික් කළොත් වහන්න
 window.addEventListener('click', function(e) {
-    // නොටිෆිකේෂන් එක පේනවා නම් සහ ක්ලික් කරපු දේ නොටිෆිකේෂන් එක ඇතුලේ නැත්නම්
     if (notification && notification.classList.contains('show')) {
         if (!notification.contains(e.target) && e.target.tagName !== 'BUTTON') {
             closeNotification();
@@ -58,30 +74,3 @@ window.addEventListener('click', function(e) {
     }
 });
 
-function closeNotification() {
-    const notification = document.getElementById('notification');
-    if (notification) {
-        notification.classList.remove('show');
-        // ටික වෙලාවකින් display none වෙන්න දානවා (එතකොට තමයි මැකෙන effect එක පේන්නේ)
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 400); 
-    }
-}
-
-// ෆෝම් එක සබ්මිට් වුණාම show කරන තැන මෙහෙම වෙනස් කරන්න
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        fetch(form.action, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            if (response.ok) {
-                form.reset();
-                notification.style.display = 'block'; // පලවෙනි පියවර
-                setTimeout(() => {
-                    notification.classList.add('show'); // දෙවෙනි පියවර - දැන් ඇනිමේෂන් එක වැඩ
-                }, 50);
-            }
-        });
-    });
-}
