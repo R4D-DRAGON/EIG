@@ -318,7 +318,7 @@ display:flex;
 
 /* පිටුපස අඳුරු කරන Layer එක */
 #notification {
-    display: none; /* මුලින් සැඟවී පවතී */
+    display: none !important; /* මෙතන !important එකක් දාන්න */
     position: fixed;
     top: 50%;
     left: 50%;
