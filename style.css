@@ -366,22 +366,21 @@ body.blur-active > header {
     transition: filter 0.3s ease;
 }
 
+/* බටන් එකේ මූලික ස්ටයිල් එක - !important දාන්න එපා මෙතනට */
 .booking-form button {
-    transition: all 0.3s ease; /* මේක තමයි ඇනිමේෂන් එක ස්මූත් කරන්නේ */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     cursor: pointer;
-    display: inline-block;
     border: none;
+    display: inline-block;
 }
 
-/* 2. මවුස් එක උඩ තියද්දී (Hover) වෙන්න ඕනේ දේ */
+/* මවුස් එක උඩ තියද්දී ලොකු වෙන්න */
 .booking-form button:hover {
-    transform: scale(1.05); /* බටන් එක 5%ක් ලොකු වෙනවා */
-    background: linear-gradient(45deg, #4cc9ff, #ff7b00); /* කලර් එක පොඩ්ඩක් වෙනස් වෙන්න ඕනේ නම් */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ලස්සන සෙවනැල්ලක් එනවා */
+    transform: scale(1.05) !important; 
 }
 
-/* 3. ක්ලික් කරනකොට (Active) වෙන්න ඕනේ දේ */
+/* ක්ලික් කරනකොට පොඩි වෙන්න */
 .booking-form button:active {
-    transform: scale(0.95); /* ක්ලික් කරද්දී ටිකක් පොඩි වෙනවා */
+    transform: scale(0.95) !important;
 }
 
