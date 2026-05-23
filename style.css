@@ -246,10 +246,10 @@ border:1px solid #ccc;
 height:100px;
 }
 
-footer{
-background:#050505;
-color:#fff;
-padding:20px 8%;
+footer {
+    background: #050505;
+    color: #fff;
+    padding: 30px 8% 10px 8%; /* මෙතන 80px තිබුණා නම් ඒක 30px හෝ 40px වගේ අඩු කරන්න */
 }
 
 .footer-grid{
