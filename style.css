@@ -311,30 +311,30 @@ z-index:999;
     }
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
-/* නොටිෆිකේෂන් එක Media Query එකෙන් එළියේ තියන්න */
 #notification {
     display: none !important;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* මුලින් පොඩියට තියෙන්නේ */
+    transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 30px 40px;
+    background: #fff;
+    padding: 40px;
     border-radius: 25px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     z-index: 9999;
     text-align: center;
     width: 90%;
     max-width: 400px;
-    border: 3px solid transparent;
+    
+    /* ලයිට් බෝඩර් එක සඳහා */
+    border: 3px solid transparent; 
     background-clip: padding-box;
     position: relative;
 }
 
-/* බෝඩර් එක වටේට ලස්සනට ලයිට් එක දුවන ලයින් එක */
+/* බෝඩර් එක වටේ ලයිට් එක දුවන කොටස */
 #notification::before {
     content: '';
     position: absolute;
@@ -347,32 +347,28 @@ z-index:999;
     mask-composite: exclude;
 }
 
-/* පෙන්නන කොට එන ඇනිමේෂන් එක */
+/* බොක්ස් එක පෙන්වන විට (show class එක එක් වූ විට) */
 #notification.show {
     display: block !important;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
 
-#notification h3 { color: #ff7b00; margin-bottom: 10px; font-size: 1.5rem; }
-#notification p { color: #333; margin-bottom: 20px; }
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
+/* ඇතුලේ තියෙන Button එකට */
 #notification button {
+    margin-top: 20px;
+    padding: 10px 25px;
     background: #ff7b00;
     color: white;
-    padding: 10px 25px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
-}
-
-#notification button:hover { background: #e66e00; transform: scale(1.05); }
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
 
 body.blur-active > *:not(#notification) {
