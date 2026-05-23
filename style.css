@@ -367,5 +367,9 @@ body.blur-active > header {
     pointer-events: none;
     transition: filter 0.3s ease;
 }
+.booking-form button:active {
+    transform: scale(0.95); /* එබුවම ටිකක් පොඩි වෙලා */
+    transition: transform 0.1s ease;
+}
 
 
