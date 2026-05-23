@@ -264,9 +264,10 @@ gap:30px;
     text-overflow: ellipsis;
 }
 
-.footer-logo{
-width:180px;
-margin-bottom:15px;
+.footer-logo {
+    width: 250px; /* දැනට 120px තිබුණේ. මම ඒක 250px කළා. */
+    height: auto; /* ලෝගෝ එකේ ප්‍රමාණය (ratio) හරියට තියාගන්න */
+    margin-bottom: 20px; /* ලෝගෝ එකට යටින් තියෙන ඉඩ */
 }
 
 .copyright {
@@ -326,6 +327,9 @@ z-index:999;
     }
     .footer-grid p {
         white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
+    }
+  .footer-logo {
+        width: 180px; /* ෆෝන් එකේදී ලෝගෝ එක 180px දක්වා පොඩි වෙනවා */
     }
 
   .copyright {
