@@ -442,22 +442,16 @@ body.blur-active #notification {
     z-index: 999;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     
-    /* ඇනිමේෂන් එක ඇඩ් කරනවා */
-    animation: pulse-animation 2s infinite;
-    transition: transform 0.3s ease;
+    /* මෙතන තමයි ඇනිමේෂන් එකේ රහස තියෙන්නේ */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Hover කරද්දී ඇනිමේෂන් එක නවත්තලා ලොකු වෙනවා */
 .whatsapp:hover {
-    animation: none; /* හවර් කරද්දී ස්පන්දනය නතර වෙනවා */
-    transform: scale(1.1);
-    background: #128C7E;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    background: #128C7E;      /* මවුස් එක උඩ තියද්දී පාට වෙනස් වෙනවා */
+    transform: scale(1.15);   /* 15% කින් ලොකු වෙනවා */
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); /* ලස්සන Glow එකක් එනවා */
 }
 
-/* ඇනිමේෂන් එක හදන කොටස */
-@keyframes pulse-animation {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.whatsapp:active {
+    transform: scale(0.95);   /* ක්ලික් කරනකොට පොඩ්ඩක් තද වෙනවා */
 }
