@@ -29,7 +29,7 @@ if (form) {
     form.addEventListener('submit', function(e) {
         e.preventDefault(); 
         
-        // Checkbox දත්ත එකතු කරගැනීම
+        // Checkbox දත්ත එකතු කරගැනීම (මෙම නම HTML එකේ name එකට සමාන විය යුතුයි)
         let selectedDestinations = [];
         let checkboxes = document.querySelectorAll('input[name="Select_Destinations"]:checked');
         checkboxes.forEach((checkbox) => {
@@ -42,7 +42,7 @@ if (form) {
         // අදාළ Checkbox පේළියට (String ලෙස) එකතු කිරීම
         formData.set('Select_Destinations', selectedDestinations.join(', '));
         
-        // නොටිෆිකේෂන් පෙන්වීම
+        // නොටිෆිකේෂන් පෙන්වීම සහ Loading එෆෙක්ට් එක
         notification.innerHTML = `<div class="loader"></div><h3 style="margin-top:15px; color:#333;">Processing...</h3>`;
         notification.style.display = 'block';
         document.body.classList.add('blur-active');
