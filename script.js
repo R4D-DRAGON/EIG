@@ -16,10 +16,8 @@ const notification = document.getElementById('notification');
 function closeNotification() {
     if (notification) {
         notification.classList.remove('show');
-        // බ්ලර් එක ඉවත් කිරීම
         document.body.classList.remove('blur-active');
         
-        // ටික වෙලාවකින් display none වෙන්න දානවා (Animation එක පේන්න)
         setTimeout(() => {
             notification.style.display = 'none';
         }, 400); 
@@ -29,13 +27,24 @@ function closeNotification() {
 // ෆෝම් එක සබ්මිට් කිරීම
 if (form) {
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // පිටුව Reload වීම වළක්වයි
+        e.preventDefault(); 
         
-        // නොටිෆිකේෂන් එක පෙන්වීම සහ Loading එෆෙක්ට් එක
+        // Checkbox දත්ත එකතු කරගැනීම
+        let selectedDestinations = [];
+        let checkboxes = document.querySelectorAll('input[name="Select_Destinations"]:checked');
+        checkboxes.forEach((checkbox) => {
+            selectedDestinations.push(checkbox.value);
+        });
+        
+        // FormData එකක් සාදාගැනීම
+        let formData = new FormData(form);
+        
+        // අදාළ Checkbox පේළියට (String ලෙස) එකතු කිරීම
+        formData.set('Select_Destinations', selectedDestinations.join(', '));
+        
+        // නොටිෆිකේෂන් පෙන්වීම
         notification.innerHTML = `<div class="loader"></div><h3 style="margin-top:15px; color:#333;">Processing...</h3>`;
         notification.style.display = 'block';
-        
-        // බොඩි එකට blur-active පන්තිය එකතු කිරීම
         document.body.classList.add('blur-active');
         
         setTimeout(() => {
@@ -45,17 +54,13 @@ if (form) {
         // API වෙත දත්ත යැවීම
         fetch(form.action, { 
             method: 'POST', 
-            body: new FormData(form) 
+            body: formData 
         })
         .then(response => {
-            // Loading එක ටික වෙලාවක් පේන්න තත්පර 1ක delay එකක්
             setTimeout(() => {
                 if (response.ok) {
                     form.reset();
-                    // සාර්ථක වුණාම නොටිෆිකේෂන් එකේ Success පණිවිඩයක් පෙන්වන්න
                     notification.innerHTML = `<h3 style="color:#25D366;">Success!</h3><p>Your booking has been received.</p>`;
-                    
-                    // තත්පර 2කට පසු නොටිෆිකේෂන් එක වහන්න
                     setTimeout(() => {
                         closeNotification();
                     }, 2000);
@@ -76,7 +81,6 @@ if (form) {
 // 3. පණිවිඩය පේන වෙලාවේ පිටත ක්ලික් කළොත් වහන්න
 window.addEventListener('click', function(e) {
     if (notification && notification.classList.contains('show')) {
-        // නොටිෆිකේෂන් එක ඇතුලේ ක්ලික් කර නැත්නම් පමණක් වහන්න
         if (!notification.contains(e.target) && e.target.tagName !== 'BUTTON') {
             closeNotification();
         }
