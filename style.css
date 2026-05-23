@@ -295,7 +295,9 @@ z-index:999;
 
 @media(max-width:900px){
 
-    .hero-content h1{
+    h1 { font-size: 2.5rem !important; }
+  
+  .hero-content h1{
         font-size:3rem;
     }
 
@@ -324,9 +326,11 @@ z-index:999;
     .footer-grid {
         grid-template-columns: 1fr; /* ෆෝන් එකේදී එක පේළියකට හැදෙනවා */
         text-align: center;
+        gap: 30px;
     }
     .footer-grid p {
         white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
+        word-break: break-word;
     }
   .footer-logo {
         width: 180px; /* ෆෝන් එකේදී ලෝගෝ එක 180px දක්වා පොඩි වෙනවා */
