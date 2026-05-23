@@ -267,7 +267,7 @@ gap:30px;
 .footer-logo {
     width: 250px; /* දැනට 120px තිබුණේ. මම ඒක 250px කළා. */
     height: auto; /* ලෝගෝ එකේ ප්‍රමාණය (ratio) හරියට තියාගන්න */
-    margin-bottom: 20px; /* ලෝගෝ එකට යටින් තියෙන ඉඩ */
+    margin-bottom: 15px; /* ලෝගෝ එකට යටින් තියෙන ඉඩ */
 }
 
 .copyright {
