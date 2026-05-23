@@ -255,7 +255,7 @@ padding:50px 8%;
 .footer-grid{
 display:grid;
 grid-template-columns: 1fr 1fr 2fr;
-gap:40px;
+gap:60px;
 }
 
 .footer-grid p {
