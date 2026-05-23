@@ -355,15 +355,17 @@ z-index:999;
     100% { transform: rotate(360deg); }
 }
 
-/* බ්ලර් එෆෙක්ට් එක */
-body.blur-active > div, 
-body.blur-active > section, 
-body.blur-active > footer, 
-body.blur-active > nav,
-body.blur-active > header {
+/* බ්ලර් එෆෙක්ට් එක - මේ විදිහට දැම්මම සියලුම දේවල් අනිවාර්යයෙන් බ්ලර් වෙනවා */
+body.blur-active > * {
     filter: blur(8px);
     pointer-events: none;
     transition: filter 0.3s ease;
+}
+
+/* හැබැයි notification එකට බ්ලර් එක බලපාන්න එපා */
+body.blur-active #notification {
+    filter: none !important;
+    pointer-events: auto !important;
 }
 
 /* බටන් එකේ මූලික ස්ටයිල් එක - !important දාන්න එපා මෙතනට */
@@ -381,6 +383,16 @@ body.blur-active > header {
 
 /* ක්ලික් කරනකොට පොඩි වෙන්න */
 .booking-form button:active {
+    transform: scale(0.95) !important;
+}
+
+.my-btn {
+    transition: transform 0.3s ease !important;
+}
+.my-btn:hover {
+    transform: scale(1.05) !important;
+}
+.my-btn:active {
     transform: scale(0.95) !important;
 }
 
