@@ -312,9 +312,7 @@ z-index:999;
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 /* notification කොටස මෙතනින් පටන් ගන්න */
-/* ... ඉහත ඔයාගේ CSS සියල්ල එහෙමම තියෙන්න ... */
-
-/* notification කොටස */
+/* notification කොටස - පිරිසිදු සහ සරල */
 #notification {
     display: none !important;
     position: fixed !important;
@@ -332,11 +330,10 @@ z-index:999;
     text-align: center;
     width: 90%;
     max-width: 400px;
-    border: 3px solid transparent;
-    background-clip: padding-box;
+    border: 2px solid #ff7b00; /* වටේට සරල තැඹිලි පාට බෝඩරයක් විතරක් තියෙනවා */
 }
 
-
+/* අර කරකැවෙන දේවල් ඔක්කොම අයින් කළා */
 
 #notification.show {
     display: block !important;
@@ -360,8 +357,12 @@ z-index:999;
     100% { transform: rotate(360deg); }
 }
 
-/* බ්ලර් එෆෙක්ට් එක */
-body.blur-active > *:not(#notification) {
+/* බ්ලර් එෆෙක්ට් එක - මේක අනිවාර්යයෙන් තියෙන්න ඕනේ */
+body.blur-active > div, 
+body.blur-active > section, 
+body.blur-active > footer, 
+body.blur-active > nav,
+body.blur-active > header {
     filter: blur(8px);
     pointer-events: none;
     transition: filter 0.3s ease;
