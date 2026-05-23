@@ -249,13 +249,19 @@ height:100px;
 footer{
 background:#050505;
 color:#fff;
-padding:80px 8%;
+padding:50px 8%;
 }
 
 .footer-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns: 1fr 1fr 2fr;
 gap:40px;
+}
+
+.footer-grid p {
+    white-space: nowrap; /* මේකෙන් ඊමේල් එක එක දිගට පේළියටම ඉන්නවා */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .footer-logo{
@@ -309,6 +315,14 @@ z-index:999;
     .nav-links.active{
         display:flex;
     }
+    .footer-grid {
+        grid-template-columns: 1fr; /* ෆෝන් එකේදී එක පේළියකට හැදෙනවා */
+        text-align: center;
+    }
+    .footer-grid p {
+        white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
+    }
+  
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 /* notification කොටස මෙතනින් පටන් ගන්න */
