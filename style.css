@@ -343,7 +343,8 @@ z-index:999;
     border-radius: 28px;
     background: conic-gradient(from 0deg, #ff7b00, #4cc9ff, #ff7b00);
     z-index: -1;
-    /* animation එක අයින් කළා - කරකැවීම නතර වේ */
+    /* බෝඩර් එකේ කරකැවීම ඕනේ නම් පහත පේළිය අන්කමෙන්ට් කරන්න */
+    animation: rotate 3s linear infinite;
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
 }
@@ -370,8 +371,9 @@ z-index:999;
     100% { transform: rotate(360deg); }
 }
 
+/* බ්ලර් එෆෙක්ට් එක */
 body.blur-active > *:not(#notification) {
-    filter: blur(5px);
+    filter: blur(8px);
     pointer-events: none;
     transition: filter 0.3s ease;
 }
