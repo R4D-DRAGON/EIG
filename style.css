@@ -282,46 +282,38 @@ z-index:999;
 }
 
 @media(max-width:900px){
-  
 
+    .hero-content h1{
+        font-size:3rem;
+    }
 
-.hero-content h1{
-font-size:3rem;
-}
+    .about-grid{
+        grid-template-columns:1fr;
+    }
 
-.about-grid{
-grid-template-columns:1fr;
-}
+    .menu-toggle{
+        display:block;
+    }
 
-.menu-toggle{
-display:block;
-}
+    .nav-links{
+        position:absolute;
+        top:80px;
+        right:0;
+        background:#111827;
+        width:100%;
+        flex-direction:column;
+        padding:20px;
+        display:none;
+    }
 
-.nav-links{
-position:absolute;
-top:80px;
-right:0;
-background:#111827;
-width:100%;
-flex-direction:column;
-padding:20px;
-display:none;
-}
+    .nav-links.active{
+        display:flex;
+    }
+} /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
-.nav-links.active{
-display:flex;
-}
-
-
-
-
-
-
-
-
-/* පිටුපස අඳුරු කරන Layer එක */
+/* නොටිෆිකේෂන් එක Media Query එකෙන් එළියේ තියන්න */
 #notification {
-    display: none !important; /* මෙතන !important එකක් දාන්න */
+    display: none !important;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -337,13 +329,12 @@ display:flex;
     max-width: 400px;
 }
 
-/* බොක්ස් එක පෙන්වන විට ක්‍රියාත්මක වේ */
 #notification.show {
     display: block !important;
 }
 
-/* පසුබිම අඳුරු කිරීමට (Overlay) */
 body.blur-active > *:not(#notification) {
     filter: blur(5px);
-    pointer-events: none; /* පිටුපස ක්ලික් වීම වළක්වයි */
+    pointer-events: none;
+  
 }
