@@ -627,7 +627,7 @@ z-index:999;
     }
 
 	/* මවුස් එක උඩ තියද්දී ලොකු වෙන්න */
-.hero-buttons a, button:hover {
+.hero-buttons a,button:hover {
     transform: scale(1.05) !important; 
 }
 
