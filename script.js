@@ -1,4 +1,4 @@
-// මෙනු සහ ෆෝම් කේතය (පවතින පරිදි තබා ගන්න)
+// මෙනු සහ ෆෝම් කේතය
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 if (menuToggle) {
@@ -55,18 +55,23 @@ function createGalleryItem(imageUrl) {
     gallery.insertBefore(container, uploadBox);
 }
 
-// Sheet එකෙන් දත්ත ගෙන පෙන්වන ප්‍රධාන ශ්‍රිතය
+// නිවැරදි කරන ලද එකම Load Gallery ශ්‍රිතය
 function loadGallery() {
     const gallery = document.querySelector('.gallery-grid');
-    // පවතින පින්තූර ඉවත් කිරීම (uploadBox එක හැර)
     const items = gallery.querySelectorAll('.gallery-item');
     items.forEach(item => item.remove());
 
     fetch(WEB_APP_URL + '?nocache=' + new Date().getTime())
     .then(response => response.json())
     .then(data => {
-        // දත්ත array එකක් ලෙස ලැබෙනවා නම් එය පෙන්වීම
-        data.forEach(url => { if (url) createGalleryItem(url); });
+        data.forEach(fullString => {
+            if (!fullString) return;
+            // URL එක පිරිසිදු කිරීම (Regex)
+            const match = fullString.match(/(https?:\/\/[^\s]+?\.(png|jpg|jpeg|gif))/i);
+            if (match && match[1]) {
+                createGalleryItem(match[1]);
+            }
+        });
     })
     .catch(err => console.error("Error loading images:", err));
 }
@@ -78,8 +83,8 @@ window.addEventListener('load', loadGallery);
 function addNewImage(event) {
     const file = event.target.files[0];
     if (!file) return;
-    
     alert("Uploading... Please wait.");
+    
     const formData = new FormData();
     formData.append('image', file);
     
@@ -95,40 +100,9 @@ function addNewImage(event) {
             headers: { "Content-Type": "text/plain" },
             body: JSON.stringify({ action: "add", url: imageUrl })
         }).then(() => {
-            createGalleryItem(imageUrl); // අලුත් පින්තූරය ගැලරියට එකතු කිරීම
+            loadGallery(); // අලුත් එක එකතු කර නැවත පූරණය කරන්න
             alert("Image uploaded successfully!");
         });
     })
     .catch(err => alert("Upload failed!"));
-}
-
-
-function loadGallery() {
-    const gallery = document.querySelector('.gallery-grid');
-    const uploadBox = document.querySelector('.upload-box');
-    
-    // පවතින පින්තූර මකා දැමීම
-    const items = gallery.querySelectorAll('.gallery-item');
-    items.forEach(item => item.remove());
-
-    fetch(WEB_APP_URL + '?nocache=' + new Date().getTime())
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(fullString => {
-            if (!fullString) return;
-
-            // පින්තූර URL එක පිරිසිදු කරගැනීම (Regex මගින්)
-            // මේකෙන් කරන්නේ .png හෝ .jpg හෝ .jpeg දක්වා කොටස විතරක් කපා ගැනීමයි
-            const match = fullString.match(/(https?:\/\/[^\s]+?\.(png|jpg|jpeg|gif))/i);
-            
-            if (match && match[1]) {
-                const cleanUrl = match[1];
-                createGalleryItem(cleanUrl);
-            }
-        });
-    })
-    .catch(err => {
-        console.error("Error loading images:", err);
-        alert("පින්තූර පූරණය කිරීමේදී දෝෂයක් සිදුවිය. කරුණාකර Console එක පරීක්ෂා කරන්න.");
-    });
 }
