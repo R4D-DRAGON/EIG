@@ -258,9 +258,27 @@ padding:20px;
     font-size: 40px;
 }
 
+/* Hover Effect එක - Glow සහ Scale */
 .upload-box:hover {
-    background: #e6ffed;
+    background: #25D366;
+    color: #fff;
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+    border: 2px solid #fff;
+}
+
+/* Hover වෙද්දී පොඩි Pulse ඇනිමේෂන් එකක් */
+.upload-box:active {
+    transform: scale(0.95);
+}
+
+/* ප්ලස් ලකුණට වෙනම ස්ටයිල් එකක් */
+.upload-box span {
+    transition: 0.3s;
+}
+
+.upload-box:hover span {
+    transform: rotate(90deg) scale(1.2);
 }
 
 .review-card{
