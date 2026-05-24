@@ -399,86 +399,53 @@ text-decoration:none;
 z-index:999;
 }
 
-@media(max-width:900px){
-
-    h1 { font-size: 2.5rem !important; }
-  
-  .hero-content h1{
-        font-size:3rem;
+@media (max-width: 900px) {
+    .navbar {
+        display: flex !important;
+        justify-content: center !important; /* නම සහ ලෝගෝ එක හරියටම මැදට ගැනීමට */
+        align-items: center !important;
+        padding: 10px 5% !important;
+        position: fixed !important;
     }
 
-    .about-grid{
-        grid-template-columns:1fr;
+    .logo-box {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
     }
 
-  .menu-toggle {
-        display: block;
-        grid-column: 3;
-        justify-self: end;      /* දකුණු පැත්තට අයිකන් එක තල්ලු කිරීම */
-        margin-right: 15px;     /* දකුණු පසින් තව ඉඩක් ලබා ගැනීම (අවශ්‍ය පරිදි 10px-20px කරන්න) */
-        padding: 5px 10px;      /* අයිකන් එක වටා පහසුවෙන් ක්ලික් කිරීමට ඉඩ තැබීම */
-        cursor: pointer;
+    .logo-box img {
+        width: 35px !important; /* ලෝගෝ එක පොඩි කළා */
     }
 
-    .nav-links{
-        position:absolute;
-        top:80px;
-        right:0;
-        background:#111827;
-        width:100%;
-        flex-direction:column;
-        padding:20px;
-        display:none;
+    .logo-box h2 {
+        font-size: 1rem !important; /* අකුරු පොඩි කළා */
+        white-space: nowrap !important; /* අකුරු කැපෙන්නේ නැතිව තනි පේළියට ගත්තා */
     }
 
-    .nav-links.active{
-        display:flex;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr; /* ෆෝන් එකේදී එක පේළියකට හැදෙනවා */
-        text-align: center;
-        gap: 30px;
-    }
-    .footer-grid p {
-        white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
-        word-break: break-word;
-    }
-  .footer-logo {
-        width: 180px; /* ෆෝන් එකේදී ලෝගෝ එක 180px දක්වා පොඩි වෙනවා */
+    .menu-toggle {
+        display: block !important;
+        position: absolute !important; /* මෙනු එක දකුණු කෙළවරටම තනි කිරීමට */
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 1000 !important;
     }
 
-  .copyright {
-        margin-top: 20px;    /* ෆෝන් එකේදී උඩ ඉඩ අඩු කරනවා */
-        padding-top: 15px;
-        font-size: 0.8rem;   /* ෆෝන් එකේදී අකුරු ටිකක් පොඩි වෙනවා */
+    .nav-links {
+        position: absolute !important;
+        top: 55px !important; /* Navbar එකට යටින්ම මෙනු ලිස්ට් එක පටන් ගැනීමට */
+        left: 0 !important;
+        width: 100% !important;
+        background: #111827 !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px !important;
     }
 
-  /* Mobile එකේදී පේළි එකකට සීමා කිරීම */
-    .gallery-grid {
-        grid-template-rows: 180px; /* පේළි 1යි, උසත් පොඩ්ඩක් අඩු කළා */
-        grid-auto-columns: 180px;  /* පළලත් පොඩ්ඩක් අඩු කළා */
-        gap: 10px;
+    .nav-links.active {
+        display: flex !important; /* මෙනු අයිකන් එක එබූ විට ලිස්ට් එක පෙන්වීමට */
     }
-
-    /* පින්තූර සහ Upload Box එකේ ප්‍රමාණය */
-    .gallery-grid img, 
-    .upload-box {
-        width: 180px;
-        height: 180px;
-    }
-
-    /* Upload Box එකේ අකුරුත් පොඩ්ඩක් අඩු කරමු */
-    .upload-box span {
-        font-size: 30px;
-    }
-
-  .navbar {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr; /* 3 කොටසකට බෙදීම */
-        align-items: center;
-        padding: 10px 5%;
-    }
-  
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
