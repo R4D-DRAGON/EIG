@@ -16,7 +16,7 @@ navItems.forEach(item => {
 });
 
 // 2. Google Apps Script URL
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwE1jq1hBG1xNeTl1WdmFILykIWpOYhgwbTyW7P0Lyz7bBq7R-o9GiZFdA1QWPrTsD0AA/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzEPBIZHDHunVPPU4PW1jDMavgmXuuwW1XrnuY87XkLzBAGqmcyaEtmnMkIAQfWUTkQNw/exec';
 
 // 3. Booking Form එක පාලනය කිරීම
 const bookingForm = document.getElementById('bookingForm');
