@@ -15,10 +15,67 @@ navItems.forEach(item => {
     });
 });
 
-// 2. Web App URL (අලුත් Deployment URL එක මෙතනට දාන්න)
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbywQnQTyHkc5h7FWX5xjlU2We5qmlbv3Itatb2cJOVghKxJgZ_jqzR9vHNM95Q4EiGTmg/exec';
+// 2. Google Apps Script URL (ඔයාගේ Deployment URL එක මෙතනට දාන්න)
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwE1jq1hBG1xNeTl1WdmFILykIWpOYhgwbTyW7P0Lyz7bBq7R-o9GiZFdA1QWPrTsD0AA/exec';
 
-// 3. පින්තූර අයිතමයක් නිර්මාණය කිරීම (Gallery Function)
+// 3. Booking Form එක පාලනය කිරීම
+const bookingForm = document.getElementById('bookingForm');
+const overlayModal = document.getElementById('overlayModal'); // Modal එකක් තියෙනවා නම්
+const loaderContent = document.getElementById('loaderContent');
+const successContent = document.getElementById('successContent');
+
+if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Loading එක පෙන්වන්න (Modal එක තිබේ නම්)
+        if (overlayModal) {
+            overlayModal.style.display = 'flex';
+            loaderContent.style.display = 'block';
+            successContent.style.display = 'none';
+        }
+
+        const formData = new FormData(bookingForm);
+
+        // Checkbox වල තෝරපු දත්ත අරගෙන කොමා (,) දාලා එකතු කිරීම
+        const selected = Array.from(bookingForm.querySelectorAll('input[name="destinations[]"]:checked'))
+            .map(cb => cb.value)
+            .join(', ');
+
+        formData.delete('destinations[]'); // පරණ Array එක මකන්න
+        formData.append('destinations', selected); // අලුත් string එක add කරන්න
+
+        // Google Script එකට යැවීම
+        fetch(WEB_APP_URL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => {
+            if (overlayModal) {
+                loaderContent.style.display = 'none';
+                successContent.style.display = 'block';
+            } else {
+                alert("Booking successful!");
+            }
+            bookingForm.reset();
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error sending booking. Please try again.");
+            if (overlayModal) overlayModal.style.display = 'none';
+        });
+    });
+}
+
+// Modal එක වසා දැමීම
+function closeModal() {
+    if (overlayModal) {
+        overlayModal.style.display = 'none';
+    }
+}
+
+// 4. පින්තූර Upload කිරීම (Gallery)
 function createGalleryItem(imageUrl) {
     const gallery = document.querySelector('.gallery-grid');
     const uploadBox = document.querySelector('.upload-box');
@@ -56,7 +113,6 @@ function createGalleryItem(imageUrl) {
     gallery.insertBefore(container, uploadBox);
 }
 
-// පින්තූර Upload කිරීම
 function addNewImage(event) {
     const file = event.target.files[0];
     if (file) {
@@ -67,33 +123,3 @@ function addNewImage(event) {
         reader.readAsDataURL(file);
     }
 }
-
-// script.js
-const bookingForm = document.getElementById('bookingForm');
-const WEB_APP_URL = 'ඔයාගේ_GOOGLE_SCRIPT_URL_එක_මෙතනට_දාන්න';
-
-bookingForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(bookingForm);
-
-    // Checkbox ටික අරගෙන එක String එකක් විදියට හදනවා
-    const selectedDestinations = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
-        .map(cb => cb.value)
-        .join(', ');
-
-    // පරණ දත්ත මකලා අලුත් string එක දානවා
-    formData.delete('Select_Destinations');
-    formData.append('Select_Destinations', selectedDestinations);
-
-    fetch(WEB_APP_URL, {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.text())
-    .then(data => {
-        alert("Booking successful!");
-        bookingForm.reset();
-    })
-    .catch(err => alert("Error: " + err));
-});
