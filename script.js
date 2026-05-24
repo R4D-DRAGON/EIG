@@ -1,9 +1,19 @@
-// 1. මෙනු සහ ෆෝම් කේතය
+// මෙනු ටොගල් කිරීම
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
+
 if (menuToggle) {
-    menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 }
+
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
 
 // 2. ඔබගේ නව Web App URL එක මෙතැනට දමන්න (Deploy පසු ලැබුණු URL එක)
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwMsWmmSaPE48WRSzeP-O0HOJ5WKtbgekjEWylLZCbLt5WgQPXwskm7GbMZkiodnLSvnA/exec';
