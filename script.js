@@ -80,19 +80,8 @@ function createGalleryItem(imageUrl) {
     deleteBtn.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
     deleteBtn.style.transition = 'all 0.3s ease';
 
-    deleteBtn.onmouseover = () => {
-        deleteBtn.style.background = '#ff4757';
-        deleteBtn.style.color = 'white';
-        deleteBtn.style.transform = 'scale(1.1)';
-    };
-    deleteBtn.onmouseout = () => {
-        deleteBtn.style.background = 'rgba(255, 255, 255, 0.8)';
-        deleteBtn.style.color = '#ff4757';
-        deleteBtn.style.transform = 'scale(1)';
-    };
-
     deleteBtn.onclick = () => {
-        let password = prompt("Admin Password Required to delete this image:");
+        let password = prompt("Admin Password Required:");
         if (password) {
             fetch(WEB_APP_URL, {
                 method: 'POST',
@@ -101,7 +90,7 @@ function createGalleryItem(imageUrl) {
                 body: JSON.stringify({ action: "delete", url: imageUrl, password: password })
             }).then(() => {
                 container.remove();
-                alert("Deleted successfully!");
+                alert("Image deleted successfully!");
             });
         }
     };
@@ -109,7 +98,6 @@ function createGalleryItem(imageUrl) {
     container.appendChild(img);
     container.appendChild(deleteBtn);
     
-    // පින්තූරය upload-box එකට පෙර ඇතුළත් කිරීම
     if (uploadBox) {
         gallery.insertBefore(container, uploadBox);
     } else {
@@ -117,14 +105,25 @@ function createGalleryItem(imageUrl) {
     }
 }
 
-// පිටුව load වන විට Sheet එකේ දත්ත ගෙන පෙන්වීම
-window.addEventListener('load', () => {
+// පින්තූර Load කිරීමේ ශ්‍රිතය
+function loadGallery() {
+    const gallery = document.querySelector('.gallery-grid');
+    const uploadBox = document.querySelector('.upload-box');
+    
+    // පින්තූර පෙන්වීමට පෙර ගැලරිය පිරිසිදු කිරීම (නමුත් uploadBox එක තබා ගැනීම)
+    while (gallery.firstChild && gallery.firstChild !== uploadBox) {
+        gallery.removeChild(gallery.firstChild);
+    }
+
     fetch(WEB_APP_URL)
     .then(response => response.json())
     .then(data => {
         data.forEach(url => { if (url) createGalleryItem(url); });
-    });
-});
+    })
+    .catch(err => console.error("Error loading:", err));
+}
+
+window.addEventListener('load', loadGallery);
 
 // පින්තූර Upload කිරීම
 function addNewImage(event) {
@@ -132,7 +131,6 @@ function addNewImage(event) {
     if (!file) return;
     
     alert("Uploading... Please wait.");
-
     const formData = new FormData();
     formData.append('image', file);
     
@@ -149,7 +147,7 @@ function addNewImage(event) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ action: "add", url: imageUrl })
         }).then(() => {
-            createGalleryItem(imageUrl);
+            loadGallery(); // අලුත් පින්තූරය පෙන්වීමට නැවත Load කරන්න
             alert("Image uploaded successfully!");
         });
     })
