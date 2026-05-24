@@ -6,7 +6,7 @@ if (menuToggle) {
 }
 
 // ගැලරි පින්තූර කළමනාකරණය
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxY9v1-kmc1E-cayIGbe-jpEPgUGDVWajrcYC-_sBkvRbsjGM5TtKifrIO4HEvL7FPxzQ/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwXY4OvitOlOwIWUJreoi6Wg0yqe_X7IokA1QYQXO_-8YCrFxlPBMWqigQKxT1Ey18dUA/exec';
 
 function createGalleryItem(imageUrl) {
     const gallery = document.querySelector('.gallery-grid');
