@@ -15,12 +15,12 @@ navItems.forEach(item => {
     });
 });
 
-// 2. Google Apps Script URL (ඔයාගේ Deployment URL එක මෙතනට දාන්න)
+// 2. Google Apps Script URL
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwE1jq1hBG1xNeTl1WdmFILykIWpOYhgwbTyW7P0Lyz7bBq7R-o9GiZFdA1QWPrTsD0AA/exec';
 
 // 3. Booking Form එක පාලනය කිරීම
 const bookingForm = document.getElementById('bookingForm');
-const overlayModal = document.getElementById('overlayModal'); // Modal එකක් තියෙනවා නම්
+const overlayModal = document.getElementById('overlayModal');
 const loaderContent = document.getElementById('loaderContent');
 const successContent = document.getElementById('successContent');
 
@@ -28,7 +28,7 @@ if (bookingForm) {
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Loading එක පෙන්වන්න (Modal එක තිබේ නම්)
+        // Loading එක පෙන්වන්න
         if (overlayModal) {
             overlayModal.style.display = 'flex';
             loaderContent.style.display = 'block';
@@ -37,13 +37,15 @@ if (bookingForm) {
 
         const formData = new FormData(bookingForm);
 
-        // Checkbox වල තෝරපු දත්ත අරගෙන කොමා (,) දාලා එකතු කිරීම
+        // Checkbox වල තෝරපු දත්ත කොමා (,) දාලා string එකක් විදියට හදන්න
         const selected = Array.from(bookingForm.querySelectorAll('input[name="destinations[]"]:checked'))
             .map(cb => cb.value)
             .join(', ');
 
-        formData.delete('destinations[]'); // පරණ Array එක මකන්න
-        formData.append('destinations', selected); // අලුත් string එක add කරන්න
+        // නම සහ ඊමේල් වැනි අනෙක් දත්ත formData එකේ එනවා.
+        // අපි Checkbox එක වෙනුවට අලුත් string එක add කරනවා.
+        formData.delete('destinations[]'); 
+        formData.append('destinations', selected); 
 
         // Google Script එකට යැවීම
         fetch(WEB_APP_URL, {
@@ -68,7 +70,6 @@ if (bookingForm) {
     });
 }
 
-// Modal එක වසා දැමීම
 function closeModal() {
     if (overlayModal) {
         overlayModal.style.display = 'none';
