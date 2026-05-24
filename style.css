@@ -442,6 +442,13 @@ z-index:999;
     .upload-box span {
         font-size: 30px;
     }
+
+  .navbar {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr; /* 3 කොටසකට බෙදීම */
+        align-items: center;
+        padding: 10px 5%;
+    }
   
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
