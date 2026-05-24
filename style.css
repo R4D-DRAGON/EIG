@@ -258,6 +258,11 @@ padding:20px;
     font-size: 40px;
 }
 
+.upload-box:hover {
+    background: #e6ffed;
+    transform: scale(1.05);
+}
+
 .review-card{
 padding:30px;
 }
