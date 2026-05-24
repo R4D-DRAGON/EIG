@@ -429,7 +429,7 @@ z-index:999;
         /* 📱 මෙන්න මෙතනයි රහස තියෙන්නේ: 
            තිරය කුඩා වෙද්දී අකුරු 1rem දක්වාත්, ලොකු වෙද්දී 1.25rem දක්වාත් ඉබේම හැඩගැසෙනවා */
         font-size: clamp(1rem, 4vw, 1.25rem) !important; 
-        font-weight: 530 !important;
+        font-weight: 560 !important;
         letter-spacing: 0.3px !important;
         white-space: nowrap !important; /* නම කිසිම විටක කෑලි වලට කැඩී යටට යන්නේ නැත */
         overflow: hidden !important;
