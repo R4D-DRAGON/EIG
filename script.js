@@ -153,7 +153,7 @@ function addNewImage(event) {
         const imageUrl = result.data.url; 
 
         // Google Sheet වෙත URL එක යැවීම
-        fetch('https://script.google.com/macros/s/AKfycbxu6-_64RLfI2UXXP-6hMY2jzVtcCd0Cmor_W3niKQ2dJ9kkvJ1IJ24GeL5m1L3rPj6ig/exec', { // මෙතනත් ඔබේ URL එක දාන්න
+        fetch('https://script.google.com/macros/s/AKfycby-JFa8-n2FAZHBc1eXirYiaJ5YKphx1TAo6p5sSAechyDHv22gq7pkOMPmZMKdhWEQXw/exec', { // මෙතනත් ඔබේ URL එක දාන්න
             method: 'POST',
             mode: 'no-cors', 
             headers: {
