@@ -1,4 +1,4 @@
-// 1. මෙනුව සහ බුකින් ෆෝම් (ඔබේ පැරණි කේතය)
+// 1. මෙනුව සහ බුකින් ෆෝම්
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 if (menuToggle) {
@@ -24,26 +24,26 @@ if (form) {
         checkboxes.forEach((checkbox) => { selectedDestinations.push(checkbox.value); });
         let formData = new FormData(form);
         formData.set('Select_Destinations', selectedDestinations.join(', '));
+        
         notification.innerHTML = `<div class="loader"></div><h3 style="margin-top:15px; color:#333;">Processing...</h3>`;
         notification.style.display = 'block';
         document.body.classList.add('blur-active');
         setTimeout(() => { notification.classList.add('show'); }, 50);
+        
         fetch(form.action, { method: 'POST', body: formData })
         .then(response => {
-            setTimeout(() => {
-                if (response.ok) {
-                    form.reset();
-                    notification.innerHTML = `<h3 style="color:#25D366;">Success!</h3><p>Your booking has been received.</p>`;
-                    setTimeout(() => { closeNotification(); }, 2000);
-                } else { alert("Something went wrong!"); closeNotification(); }
-            }, 1000);
+            if (response.ok) {
+                form.reset();
+                notification.innerHTML = `<h3 style="color:#25D366;">Success!</h3><p>Your booking has been received.</p>`;
+                setTimeout(() => { closeNotification(); }, 2000);
+            } else { alert("Something went wrong!"); closeNotification(); }
         })
         .catch(error => { console.error('Error!', error); alert("Error sending data."); closeNotification(); });
     });
 }
 
 // 2. පින්තූර පෙන්වන සහ Delete කරන කාර්යයන්
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxvd5t4AdPyyivBWig68Nb3-bhMXvvYg9GHJHiYt33yj91BsTAicKGyWXq_4HMlKh-L/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzkZMx9e5Gw0vuL7AuxLMCIG4NERPrxabUFzV8TGZjG7TkaVSKyU8F1HzVLwTMdEtZsxQ/exec';
 
 function createGalleryItem(imageUrl) {
     const gallery = document.querySelector('.gallery-grid');
@@ -54,13 +54,22 @@ function createGalleryItem(imageUrl) {
     const img = document.createElement('img');
     img.src = imageUrl;
     img.style.width = '100%';
+    img.style.height = '200px'; // Upload box එකේ සයිස් එකට සමාන වීමට
+    img.style.objectFit = 'cover';
+    img.style.borderRadius = '10px';
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '⋮'; // තිත් තුන
+    deleteBtn.innerHTML = '×'; // තිත් තුන වෙනුවට ඉවත් කිරීමට ලේසි '×' ලකුණ
     deleteBtn.style.position = 'absolute';
     deleteBtn.style.top = '5px';
     deleteBtn.style.right = '5px';
     deleteBtn.style.cursor = 'pointer';
+    deleteBtn.style.background = 'rgba(255,0,0,0.7)';
+    deleteBtn.style.color = 'white';
+    deleteBtn.style.border = 'none';
+    deleteBtn.style.borderRadius = '50%';
+    deleteBtn.style.width = '25px';
+    deleteBtn.style.height = '25px';
 
     deleteBtn.onclick = () => {
         if (confirm("Do you want to delete this image?")) {
@@ -77,24 +86,30 @@ function createGalleryItem(imageUrl) {
 
     container.appendChild(img);
     container.appendChild(deleteBtn);
+    // අලුත් පින්තූරය upload box එකට කලින් පේළියට එකතු වේ
     gallery.insertBefore(container, gallery.lastElementChild);
 }
 
-// පින්තූර Load කිරීම
-window.onload = function() {
+// පිටුව load වන විට Sheet එකේ දත්ත ගෙන පෙන්වීම
+window.addEventListener('load', () => {
     fetch(WEB_APP_URL)
     .then(response => response.json())
     .then(data => {
         data.forEach(url => { if (url) createGalleryItem(url); });
     });
-};
+});
 
 // පින්තූර Upload කිරීම
 function addNewImage(event) {
     const file = event.target.files[0];
     if (!file) return;
+    
+    // UI එකට දැනුම්දීමක් දෙමු
+    alert("Uploading... Please wait.");
+
     const formData = new FormData();
     formData.append('image', file);
+    
     fetch('https://api.imgbb.com/1/upload?key=6a1643645130812a42437897fa8f60c5', {
         method: 'POST',
         body: formData
@@ -109,7 +124,8 @@ function addNewImage(event) {
             body: JSON.stringify({ action: "add", url: imageUrl })
         }).then(() => {
             createGalleryItem(imageUrl);
-            alert("Image uploaded!");
+            alert("Image uploaded successfully!");
         });
-    });
+    })
+    .catch(err => alert("Upload failed!"));
 }
