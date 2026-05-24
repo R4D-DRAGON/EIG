@@ -63,6 +63,10 @@ gap:15px;
 color:#fff;
 }
 
+.logo-box h2 {
+        font-size: 1.1rem; /* අකුරු ප්‍රමාණය අඩු කිරීම */
+    }
+
 
 .logo-box img{
 width:60px;
