@@ -400,52 +400,57 @@ z-index:999;
 }
 
 /* --- Mobile Navbar (නම සහ ලෝගෝ එක තනි පේළියකට වම් පසින්) --- */
-/* --- Mobile Navbar (මෙනු ලිස්ට් එක මුලින්ම හැංගීමට සහ ලස්සනට පෙන්වීමට) --- */
+/* --- Mobile Navbar (නම සහ මෙනු එක එකම පේළියක තබා ගැනීම) --- */
 @media (max-width: 900px) {
     .navbar {
         display: flex !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        padding: 12px 20px !important;
+        padding: 10px 15px !important; /* පෑඩින් එක පොඩ්ඩක් අඩු කළා ඉඩ ඉතිරි කරන්න */
         position: fixed !important;
-        height: 70px !important;
+        height: 65px !important; /* උස පොඩ්ඩක් අඩු කළා ස්මාර්ට් ලුක් එකක් දෙන්න */
     }
 
     .logo-box {
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
-        max-width: 75% !important;
+        gap: 8px !important; /* ලෝගෝ එක සහ නම අතර පරතරය තරමක් අඩු කළා */
+        max-width: calc(100% - 50px) !important; /* මෙනු අයිකන් එකට අනිවාර්යයෙන්ම ඉඩ ඉතිරි කරයි */
     }
 
     .logo-box img {
-        width: 45px !important;
-        height: 45px !important;
+        width: 40px !important; /* ලෝගෝ එක 40px දක්වා තරමක් සකස් කළා */
+        height: 40px !important;
         object-fit: contain !important;
+        flex-shrink: 0 !important; /* පින්තූරය තැලී යාම වළක්වයි */
     }
 
     .logo-box h2 {
-        font-size: 1.25rem !important;
-        font-weight: 535 !important;
-        letter-spacing: 0.5px !important;
-        white-space: nowrap !important;
+        /* 📱 මෙන්න මෙතනයි රහස තියෙන්නේ: 
+           තිරය කුඩා වෙද්දී අකුරු 1rem දක්වාත්, ලොකු වෙද්දී 1.25rem දක්වාත් ඉබේම හැඩගැසෙනවා */
+        font-size: clamp(1rem, 4vw, 1.25rem) !important; 
+        font-weight: 600 !important;
+        letter-spacing: 0.3px !important;
+        white-space: nowrap !important; /* නම කිසිම විටක කෑලි වලට කැඩී යටට යන්නේ නැත */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important; /* අතිශය කුඩා තිරයකදී නම අගට තිත් වැටී මෙනු එක බේරාගනියි */
     }
 
     .menu-toggle {
         display: block !important;
         position: absolute !important;
-        right: 20px !important;
+        right: 15px !important; /* දකුණු කෙළවරේ ස්ථාවරව පවතී */
         top: 50% !important;
         transform: translateY(-50%) !important;
-        font-size: 2rem !important;
+        font-size: 1.8rem !important; /* අයිකන් එක නමට ගැළපෙන සේ සකස් කළා */
         z-index: 1000 !important;
     }
 
-    /* මුලින්ම මෙනු ලිස්ට් එක සම්පූර්ණයෙන්ම හංගනවා */
+    /* මෙනු ලිස්ට් එක */
     .nav-links {
-        display: none !important; /* මේකෙන් තමයි මුලින් open වෙන එක නවත්තන්නේ */
+        display: none !important;
         position: absolute !important;
-        top: 70px !important;
+        top: 65px !important; /* Navbar එකේ අලුත් උසට (65px) අනුව සකස් කළා */
         left: 0 !important;
         width: 100% !important;
         background: #111827 !important;
@@ -455,12 +460,10 @@ z-index:999;
         z-index: 999 !important;
     }
 
-    /* මෙනු බටන් එක click කරලා active class එක ආවම විතරක් පේන්න සලස්වනවා */
     .nav-links.active {
-        display: flex !important; 
+        display: flex !important;
     }
-    
-    /* මෙනු ඇතුලේ තියෙන link එකක් යටින් එකක් එන්න සැකසීම */
+
     .nav-links li {
         margin: 12px 0 !important;
         width: 100% !important;
