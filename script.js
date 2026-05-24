@@ -101,3 +101,34 @@ function addNewImage(event) {
     })
     .catch(err => alert("Upload failed!"));
 }
+
+
+function loadGallery() {
+    const gallery = document.querySelector('.gallery-grid');
+    const uploadBox = document.querySelector('.upload-box');
+    
+    // පවතින පින්තූර මකා දැමීම
+    const items = gallery.querySelectorAll('.gallery-item');
+    items.forEach(item => item.remove());
+
+    fetch(WEB_APP_URL + '?nocache=' + new Date().getTime())
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(fullString => {
+            if (!fullString) return;
+
+            // පින්තූර URL එක පිරිසිදු කරගැනීම (Regex මගින්)
+            // මේකෙන් කරන්නේ .png හෝ .jpg හෝ .jpeg දක්වා කොටස විතරක් කපා ගැනීමයි
+            const match = fullString.match(/(https?:\/\/[^\s]+?\.(png|jpg|jpeg|gif))/i);
+            
+            if (match && match[1]) {
+                const cleanUrl = match[1];
+                createGalleryItem(cleanUrl);
+            }
+        });
+    })
+    .catch(err => {
+        console.error("Error loading images:", err);
+        alert("පින්තූර පූරණය කිරීමේදී දෝෂයක් සිදුවිය. කරුණාකර Console එක පරීක්ෂා කරන්න.");
+    });
+}
