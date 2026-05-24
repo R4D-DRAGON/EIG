@@ -212,12 +212,22 @@ padding:20px;
 /* පින්තූර ටික තියෙන Grid එකේ scroll bar එක ලස්සන කරන හැටි */
 .gallery-grid {
     display: grid;
-    grid-template-rows: 200px 200px;
+    grid-template-rows: repeat(2, 200px);
     grid-auto-flow: column;
     gap: 15px;
     overflow-x: auto; /* මේකෙන් තමයි Scroll වෙන්නේ */
     padding-bottom: 15px; /* Scroll bar එකට ඉඩ තියන්න */
     flex-shrink: 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 200px); /* පේළි 2ක් පමණක් සීමා කරයි */
+    grid-auto-flow: column; /* පින්තූර තීරු ලෙස එකතු වේ */
+    grid-auto-columns: 200px; /* එක් පින්තූරයක පළල */
+    gap: 15px;
+    width: max-content; /* අන්තර්ගතයට අනුව පළල සකසේ */
+    padding: 10px;
 }
 
 /* Scroll bar එකේ පෙනුම වෙනස් කරමු */
@@ -246,6 +256,11 @@ padding:20px;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.gallery-wrapper {
+    overflow-x: auto; /* දකුණට Scroll වීමට */
+    padding-bottom: 20px;
 }
 
 .gallery-container {
