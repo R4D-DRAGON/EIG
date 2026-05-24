@@ -6,7 +6,7 @@ if (menuToggle) {
 }
 
 // 2. ඔබගේ නව Web App URL එක මෙතැනට දමන්න (Deploy පසු ලැබුණු URL එක)
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwXY4OvitOlOwIWUJreoi6Wg0yqe_X7IokA1QYQXO_-8YCrFxlPBMWqigQKxT1Ey18dUA/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwxyd3w1sN9qtGi59i4bnYQANvnQ9CCEhP2v4AD9EkFlnYLFZXGt2NUqhQKrM5nA-LeVQ/exec';
 
 // 3. පින්තූර අයිතමයක් නිර්මාණය කිරීම
 function createGalleryItem(imageUrl) {
