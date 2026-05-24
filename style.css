@@ -439,6 +439,71 @@ z-index:999;
   
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
+
+
+/* --- තවදුරටත් Mobile Responsive වැඩි දියුණු කිරීම සඳහා --- */
+
+@media (max-width: 768px) {
+    /* Hero Section එකේ අකුරු තව පොඩ්ඩක් අඩු කිරීම */
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Section වල පෑඩින් එක අඩු කිරීම - තිරයේ ඉඩ ඉතිරි කර ගැනීමට */
+    section {
+        padding: 60px 5%;
+    }
+
+    /* About Section එකේ stats grid එක එක පේළියට කිරීම */
+    .stats {
+        grid-template-columns: 1fr 1fr; /* නැත්නම් 1fr පමණක් දැමීමෙන් එකකට එකක් යටින් පෙළ ගැසේ */
+    }
+
+    /* Booking Form එකේ input වල පළල */
+    .booking-form {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* Destination Grid එක සහ අනෙකුත් Grid එක තනි පේළියට සැකසීම */
+    .destination-grid, .card-grid, .review-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* කුඩා දුරකථන සඳහා විශේෂිත */
+@media (max-width: 480px) {
+    .hero {
+        padding: 10px;
+    }
+    
+    .logo-box h2 {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-buttons a, button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .stats {
+        grid-template-columns: 1fr; /* තනි තනිව ස්ටැට්ස් පෙන්වීමට */
+    }
+}
+
+
+
+
 /* notification කොටස මෙතනින් පටන් ගන්න */
 /* notification කොටස - පිරිසිදු සහ සරල */
 #notification {
