@@ -43,7 +43,7 @@ if (form) {
 }
 
 // 2. පින්තූර පෙන්වන සහ Delete කරන කාර්යයන්
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzkZMx9e5Gw0vuL7AuxLMCIG4NERPrxabUFzV8TGZjG7TkaVSKyU8F1HzVLwTMdEtZsxQ/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzYP1S9IaNLygGwp1g7bmmbxQAcT000lsAPVOOApTMPYCrmTQpgyDFYNSEbb8_LYmxCeg/exec';
 
 function createGalleryItem(imageUrl) {
     const gallery = document.querySelector('.gallery-grid');
@@ -54,12 +54,12 @@ function createGalleryItem(imageUrl) {
     const img = document.createElement('img');
     img.src = imageUrl;
     img.style.width = '100%';
-    img.style.height = '200px'; // Upload box එකේ සයිස් එකට සමාන වීමට
+    img.style.height = '200px'; 
     img.style.objectFit = 'cover';
     img.style.borderRadius = '10px';
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '×'; // තිත් තුන වෙනුවට ඉවත් කිරීමට ලේසි '×' ලකුණ
+    deleteBtn.innerHTML = '×';
     deleteBtn.style.position = 'absolute';
     deleteBtn.style.top = '5px';
     deleteBtn.style.right = '5px';
@@ -72,13 +72,21 @@ function createGalleryItem(imageUrl) {
     deleteBtn.style.height = '25px';
 
     deleteBtn.onclick = () => {
-        if (confirm("Do you want to delete this image?")) {
+        // මුරපද ඉල්ලීම
+        let password = prompt("Admin Password Required to delete this image:");
+        
+        if (password) {
             fetch(WEB_APP_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ action: "delete", url: imageUrl })
+                body: JSON.stringify({ 
+                    action: "delete", 
+                    url: imageUrl, 
+                    password: password // මුරපදය මෙහි යවනු ලැබේ
+                })
             }).then(() => {
+                alert("If the password was correct, the image is deleted!");
                 container.remove();
             });
         }
@@ -86,7 +94,6 @@ function createGalleryItem(imageUrl) {
 
     container.appendChild(img);
     container.appendChild(deleteBtn);
-    // අලුත් පින්තූරය upload box එකට කලින් පේළියට එකතු වේ
     gallery.insertBefore(container, gallery.lastElementChild);
 }
 
@@ -104,7 +111,6 @@ function addNewImage(event) {
     const file = event.target.files[0];
     if (!file) return;
     
-    // UI එකට දැනුම්දීමක් දෙමු
     alert("Uploading... Please wait.");
 
     const formData = new FormData();
