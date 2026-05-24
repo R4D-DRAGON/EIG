@@ -42,8 +42,8 @@ if (form) {
     });
 }
 
-// 2. පින්තූර පෙන්වන සහ Delete කරන කාර්යයන්
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzYP1S9IaNLygGwp1g7bmmbxQAcT000lsAPVOOApTMPYCrmTQpgyDFYNSEbb8_LYmxCeg/exec';
+// 2. පින්තූර කළමනාකරණය
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxY9v1-kmc1E-cayIGbe-jpEPgUGDVWajrcYC-_sBkvRbsjGM5TtKifrIO4HEvL7FPxzQ/exec';
 
 function createGalleryItem(imageUrl) {
     const gallery = document.querySelector('.gallery-grid');
@@ -74,30 +74,13 @@ function createGalleryItem(imageUrl) {
     deleteBtn.style.height = '30px';
     deleteBtn.style.fontSize = '18px';
     deleteBtn.style.fontWeight = 'bold';
-    deleteBtn.style.display = 'flex';
-    deleteBtn.style.alignItems = 'center';
-    deleteBtn.style.justifyContent = 'center';
-    deleteBtn.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
-    deleteBtn.style.transition = 'all 0.3s ease';
-
-    deleteBtn.onmouseover = () => {
-        deleteBtn.style.background = '#ff4757';
-        deleteBtn.style.color = 'white';
-        deleteBtn.style.transform = 'scale(1.1)';
-    };
-    deleteBtn.onmouseout = () => {
-        deleteBtn.style.background = 'rgba(255, 255, 255, 0.8)';
-        deleteBtn.style.color = '#ff4757';
-        deleteBtn.style.transform = 'scale(1)';
-    };
-
+    
     deleteBtn.onclick = () => {
-        let password = prompt("Admin Password Required to delete this image:");
+        let password = prompt("Admin Password Required:");
         if (password) {
             fetch(WEB_APP_URL, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "text/plain" },
                 body: JSON.stringify({ action: "delete", url: imageUrl, password: password })
             }).then(() => {
                 container.remove();
@@ -116,16 +99,15 @@ function createGalleryItem(imageUrl) {
     }
 }
 
-// පින්තූර නැවුම්ව පෙන්වන ප්‍රධාන ශ්‍රිතය
+// ගැලරිය නැවුම්ව පෙන්වීමේ ශ්‍රිතය (Cache වළක්වයි)
 function loadGallery() {
     const gallery = document.querySelector('.gallery-grid');
     const uploadBox = document.querySelector('.upload-box');
     
-    // පවතින පින්තූර මකා දමන්න (uploadBox එක හැර)
+    // පවතින පින්තූර ඉවත් කර නැවත Load කිරීම
     const items = gallery.querySelectorAll('.gallery-item');
     items.forEach(item => item.remove());
 
-    // Google Sheet එකෙන් දත්ත ගෙන පෙන්වන්න (Cache වළක්වා ගැනීමට ?nocache එකතු කර ඇත)
     fetch(WEB_APP_URL + '?nocache=' + new Date().getTime())
     .then(response => response.json())
     .then(data => {
@@ -143,7 +125,6 @@ function addNewImage(event) {
     if (!file) return;
     
     alert("Uploading... Please wait.");
-
     const formData = new FormData();
     formData.append('image', file);
     
@@ -156,8 +137,7 @@ function addNewImage(event) {
         const imageUrl = result.data.url;
         fetch(WEB_APP_URL, {
             method: 'POST',
-            mode: 'no-cors',
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "text/plain" },
             body: JSON.stringify({ action: "add", url: imageUrl })
         }).then(() => {
             loadGallery(); // පින්තූරය එකතු කළ පසු ගැලරිය Refresh කරන්න
