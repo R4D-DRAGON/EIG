@@ -217,6 +217,7 @@ padding:20px;
     gap: 15px;
     overflow-x: auto; /* මේකෙන් තමයි Scroll වෙන්නේ */
     padding-bottom: 15px; /* Scroll bar එකට ඉඩ තියන්න */
+    flex-shrink: 0;
 }
 
 /* Scroll bar එකේ පෙනුම වෙනස් කරමු */
@@ -247,6 +248,14 @@ padding:20px;
     border-radius: 10px;
 }
 
+.gallery-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
 .upload-box {
     border: 2px dashed #25D366;
     display: flex;
@@ -257,6 +266,7 @@ padding:20px;
     background: #f0fff4;
     color: #25D366;
     font-size: 40px;
+    flex-shrink: 0;
 }
 
 /* Hover වෙද්දී එන Advanced Effect එක */
