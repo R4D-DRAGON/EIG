@@ -208,17 +208,41 @@ font-weight:700;
 padding:20px;
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.gallery-grid {
+    display: grid;
+    grid-auto-flow: column; /* මේකෙන් පින්තූර පේළි දෙකකට දිගට යනවා */
+    grid-template-rows: repeat(2, 200px); /* පේළි දෙකයි, උස 200px බැගින් */
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 
-.gallery-grid img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:20px;
+/* පින්තූර සහ Upload Box දෙකටම පොදු සයිස් එක */
+.gallery-grid img, 
+.upload-box {
+    width: 200px; /* පින්තූරේ පළල */
+    height: 200px; /* පින්තූරේ උස */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Upload Box එකේ ස්ටයිල් එක */
+.upload-box {
+    border: 2px dashed #25D366;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #f0fff4;
+    color: #25D366;
+    font-size: 30px;
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    background: #e6ffed;
+    transform: scale(1.05);
 }
 
 .review-card{
