@@ -129,12 +129,12 @@
 </section>
 
 <!--6a1643645130812a42437897fa8f60c5-->
-<section class="gallery" id="gallery">
+    <section class="gallery" id="gallery">
     <div class="section-title">
         <h2>Travel Gallery</h2>
     </div>
 
-    <div class="gallery-container"> <!-- අලුත් wrapper එකක් -->
+    <div class="gallery-wrapper">
         <div class="gallery-grid">
             <img src="assets/WhatsApp Image trayinimg.jpeg">
             <img src="assets/IMG-20260524-WA0028.jpg">
@@ -144,12 +144,11 @@
             <img src="assets/IMG-20260524-WA0033.jpg">
             <img src="assets/about1.jpg">
             <img src="assets/about2.jpg">
-        </div>
-        
-        <!-- Upload Box එක ග්‍රිඩ් එකෙන් පිටත, නමුත් එකම කන්ටේනර් එකේ -->
-        <div class="upload-box" onclick="document.getElementById('fileInput').click()">
-            <span>+</span>
-            <input type="file" id="fileInput" style="display:none" onchange="addNewImage(event)">
+            
+            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                <span>+</span>
+                <input type="file" id="fileInput" style="display:none" onchange="addNewImage(event)">
+            </div>
         </div>
     </div>
 </section>
