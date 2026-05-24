@@ -50,47 +50,54 @@ function addNewImage(event) {
     // ... (ඔබේ ඉතිරි addNewImage කේතය මෙතනම තබන්න)
 }
 
-// 6. Form Submission (Booking එක Google Sheet එකට යැවීම)
+// Booking Form Submission
 const bookingForm = document.querySelector('.booking-form');
-const notification = document.getElementById('notification');
+const overlayModal = document.getElementById('overlayModal');
+const loaderContent = document.getElementById('loaderContent');
+const successContent = document.getElementById('successContent');
 
 if (bookingForm) {
     bookingForm.addEventListener('submit', e => {
-        e.preventDefault(); // සාමාන්‍ය විදියට page එක වෙනස් වෙන එක (reload වෙන එක) නවත්වනවා
+        e.preventDefault();
 
-        // Submit බට්න් එකේ text එක වෙනස් කිරීම (යැවෙන බව පෙන්වන්න)
-        const submitBtn = bookingForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = "Sending...";
-        submitBtn.disabled = true;
+        // Loading Modal එක පෙන්වීම
+        overlayModal.style.display = 'flex';
+        loaderContent.style.display = 'block';
+        successContent.style.display = 'none';
 
-        // Form එකේ දත්ත ටික එකතු කිරීම
+        // Form එකේ දත්ත එකතු කිරීම
         const formData = new FormData(bookingForm);
 
-        // Fetch මගින් Google Script එකට data යැවීම
+        // Checkbox වල තෝරපු Destinations ඔක්කොම අරගෙන කොමා (,) දාලා එකතු කිරීම
+        const selectedDestinations = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
+            .map(checkbox => checkbox.value)
+            .join(', '); // උදා: "Sigiriya, Ella, Kandy"
+            
+        // එකතු කරපු Destinations ටික ආයෙත් FormData එකට දානවා
+        formData.set('Select_Destinations', selectedDestinations);
+
+        // Google Script එකට යැවීම
         fetch(WEB_APP_URL, {
             method: 'POST',
             body: formData
         })
         .then(response => {
-            // සාර්ථකව යැවුනාම notification එක පෙන්වීම
-            notification.style.display = 'block';
+            // යැවීම සාර්ථක නම් Loading එක වහලා Success මැසේජ් එක පෙන්වීම
+            loaderContent.style.display = 'none';
+            successContent.style.display = 'block';
             bookingForm.reset(); // ෆෝම් එක හිස් කිරීම
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
         })
         .catch(error => {
-            console.error('Error!', error.message);
-            alert("There was an error sending your booking. Please try again.");
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
+            console.error('Error!', error);
+            alert("Error sending booking. Please check your connection.");
+            overlayModal.style.display = 'none';
         });
     });
 }
 
-// 7. Notification එක Close කිරීම
-function closeNotification() {
-    if (notification) {
-        notification.style.display = 'none';
+// Modal එක වසා දැමීම
+function closeModal() {
+    if (overlayModal) {
+        overlayModal.style.display = 'none';
     }
 }
