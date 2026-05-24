@@ -417,6 +417,25 @@ z-index:999;
         padding-top: 15px;
         font-size: 0.8rem;   /* ෆෝන් එකේදී අකුරු ටිකක් පොඩි වෙනවා */
     }
+
+  /* Mobile එකේදී පේළි එකකට සීමා කිරීම */
+    .gallery-grid {
+        grid-template-rows: 180px; /* පේළි 1යි, උසත් පොඩ්ඩක් අඩු කළා */
+        grid-auto-columns: 180px;  /* පළලත් පොඩ්ඩක් අඩු කළා */
+        gap: 10px;
+    }
+
+    /* පින්තූර සහ Upload Box එකේ ප්‍රමාණය */
+    .gallery-grid img, 
+    .upload-box {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Upload Box එකේ අකුරුත් පොඩ්ඩක් අඩු කරමු */
+    .upload-box span {
+        font-size: 30px;
+    }
   
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
