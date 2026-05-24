@@ -18,7 +18,7 @@ navItems.forEach(item => {
 });
 
 // 3. Web App URL
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxy4_YefHhoqNpH-Dtk8gOMfS4_TzKRJQ8O1YYFozQKJHJhqkx_QfUdnbL1OdHU4DskAA/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxqvbDPb6Y_gm8-TzsqFMiZQnRj5J5K0NI7K3tuZQssF91_xupu-FnBKyi807CpX7HPHA/exec';
 
 // 4. පින්තූර අයිතමයක් නිර්මාණය කිරීම (Gallery Function)
 function createGalleryItem(imageUrl) {
