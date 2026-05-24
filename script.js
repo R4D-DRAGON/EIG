@@ -101,3 +101,15 @@ function addNewImage(event) {
         reader.readAsDataURL(file);
     }
 }
+
+// මෙනුවේ ඇති Link ක්ලික් කළ විට මෙනුව වසා දැමීම
+const navLinksItems = document.querySelectorAll('.nav-links li a');
+
+navLinksItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // මෙනුව ඇරී තිබේ නම් එය වසන්න
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+    });
+});
