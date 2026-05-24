@@ -399,34 +399,39 @@ text-decoration:none;
 z-index:999;
 }
 
+/* --- Mobile Navbar (නම සහ ලෝගෝ එක තනි පේළියකට වම් පසින්) --- */
 @media (max-width: 900px) {
     .navbar {
         display: flex !important;
-        justify-content: center !important; /* නම සහ ලෝගෝ එක හරියටම මැදට ගැනීමට */
+        justify-content: flex-start !important; /* සියල්ල වම් පසින් පටන් ගැනීමට */
         align-items: center !important;
-        padding: 10px 5% !important;
+        padding: 10px 15px !important; /* වටේ ඉඩ ප්‍රමාණය */
         position: fixed !important;
     }
 
     .logo-box {
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 6px !important; /* ලෝගෝ එක සහ නම අතර පරතරය තවත් අඩු කළා */
+        max-width: 80% !important; /* මෙනු අයිකන් එක උඩ වැටීම වැළැක්වීමට */
     }
 
     .logo-box img {
-        width: 35px !important; /* ලෝගෝ එක පොඩි කළා */
+        width: 30px !important; /* ලෝගෝ එක තවත් පොඩි කළා */
+        height: auto !important;
     }
 
     .logo-box h2 {
-        font-size: 1rem !important; /* අකුරු පොඩි කළා */
-        white-space: nowrap !important; /* අකුරු කැපෙන්නේ නැතිව තනි පේළියට ගත්තා */
+        font-size: 0.9rem !important; /* අකුරු තිරයට ගැළපෙන ලෙස තවත් පොඩි කළා */
+        white-space: nowrap !important; /* අනිවාර්යයෙන්ම තනි පේළියක තබා ගැනීමට */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important; /* තිරය මදි වුවහොත් අකුරු කැපී යාම වැළැක්වීමට */
     }
 
     .menu-toggle {
         display: block !important;
-        position: absolute !important; /* මෙනු එක දකුණු කෙළවරටම තනි කිරීමට */
-        right: 20px !important;
+        position: absolute !important; /* මෙනු අයිකන් එක දකුණු කෙළවරේම තැබීමට */
+        right: 15px !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
         z-index: 1000 !important;
@@ -434,7 +439,7 @@ z-index:999;
 
     .nav-links {
         position: absolute !important;
-        top: 55px !important; /* Navbar එකට යටින්ම මෙනු ලිස්ට් එක පටන් ගැනීමට */
+        top: 50px !important; /* Navbar එකේ උස අනුව මෙනු ලිස්ට් එක පහළට ගැනීම */
         left: 0 !important;
         width: 100% !important;
         background: #111827 !important;
@@ -444,7 +449,7 @@ z-index:999;
     }
 
     .nav-links.active {
-        display: flex !important; /* මෙනු අයිකන් එක එබූ විට ලිස්ට් එක පෙන්වීමට */
+        display: flex !important;
     }
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
