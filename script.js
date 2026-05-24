@@ -86,3 +86,18 @@ window.addEventListener('click', function(e) {
         }
     }
 });
+
+function addNewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const gallery = document.querySelector('.gallery-grid');
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            // Upload box එකට පස්සේ අලුත් පින්තූරය එකතු කරන්න
+            gallery.appendChild(img);
+        }
+        reader.readAsDataURL(file);
+    }
+}
