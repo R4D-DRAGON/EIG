@@ -208,17 +208,49 @@ font-weight:700;
 padding:20px;
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.gallery-grid {
+    display: grid;
+    /* පේළි දෙකක් සඳහා 200px බැගින් උස තීරණය කරයි */
+    grid-template-rows: 200px 200px;
+    /* පින්තූර සහ Upload Box එක තීරු විදියට පෙළගැසීම */
+    grid-auto-flow: column;
+    /* හැම කොටුවකම පළල 200px ලෙස ස්ථාවර කරයි */
+    grid-auto-columns: 200px;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    /* Scroll bar පෙනුම */
+    scrollbar-width: thin;
 }
 
-.gallery-grid img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:20px;
+/* Scroll bar එක ලස්සනට පෙන්වීමට */
+.gallery-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.gallery-grid::-webkit-scrollbar-thumb {
+    background: #25D366;
+    border-radius: 10px;
+}
+
+/* පින්තූර සහ Upload Box එකේ ප්‍රමාණය */
+.gallery-grid img, 
+.upload-box {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.upload-box {
+    border: 2px dashed #25D366;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #f0fff4;
+    color: #25D366;
+    font-size: 40px;
 }
 
 .review-card{
