@@ -113,3 +113,66 @@ navLinksItems.forEach(item => {
         }
     });
 });
+
+// --- 1. වෙබ් පිටුව Load වන විට Sheet එකේ ඇති පින්තූර පෙන්වීම ---
+window.onload = function() {
+    // ඔබේ Google Web App URL එක මෙතනට දාන්න
+    const WEB_APP_URL = 'YOUR_DEPLOYED_WEB_APP_URL_HERE';
+
+    fetch(WEB_APP_URL)
+    .then(response => response.json())
+    .then(data => {
+        const gallery = document.querySelector('.gallery-grid');
+        data.forEach(url => {
+            if (url && url.startsWith('http')) { // URL එකක් තිබේ නම් පමණක්
+                const img = document.createElement('img');
+                img.src = url;
+                // Upload box එකට කලින් පින්තූරය එකතු කරන්න
+                gallery.insertBefore(img, gallery.lastElementChild);
+            }
+        });
+    })
+    .catch(error => console.error('Error loading images:', error));
+};
+
+// --- 2. අලුත් පින්තූරයක් Upload කරන විට ක්‍රියාත්මක වන කොටස ---
+function addNewImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    // ImgBB වෙත පින්තූරය යැවීම
+    fetch('https://api.imgbb.com/1/upload?key=6a1643645130812a42437897fa8f60c5', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        const imageUrl = result.data.url; 
+
+        // Google Sheet වෙත URL එක යැවීම
+        fetch('https://script.google.com/macros/s/AKfycbxu6-_64RLfI2UXXP-6hMY2jzVtcCd0Cmor_W3niKQ2dJ9kkvJ1IJ24GeL5m1L3rPj6ig/exec', { // මෙතනත් ඔබේ URL එක දාන්න
+            method: 'POST',
+            mode: 'no-cors', 
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ url: imageUrl })
+        })
+        .then(() => {
+            alert("Image uploaded successfully!");
+            
+            // ගැලරියට පින්තූරය එකතු කරන්න
+            const gallery = document.querySelector('.gallery-grid');
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            gallery.insertBefore(img, gallery.lastElementChild);
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Upload failed!");
+    });
+}
