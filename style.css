@@ -740,3 +740,10 @@ body.blur-active #notification {
 .whatsapp:active {
     transform: scale(0.95);   /* ක්ලික් කරනකොට පොඩ්ඩක් තද වෙනවා */
 }
+
+button {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+}
