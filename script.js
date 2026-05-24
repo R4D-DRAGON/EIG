@@ -55,25 +55,6 @@ function createGalleryItem(imageUrl) {
     container.appendChild(deleteBtn);
     gallery.insertBefore(container, uploadBox);
 }
-
-// 4. ගැලරිය පූරණය කිරීම (දත්ත පිරිසිදු කිරීම සමඟ)
-function loadGallery() {
-    const gallery = document.querySelector('.gallery-grid');
-    const items = gallery.querySelectorAll('.gallery-item');
-    items.forEach(item => item.remove());
-
-    fetch(WEB_APP_URL + '?nocache=' + new Date().getTime())
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(fullString => {
-            if (!fullString) return;
-            // URL එක පිරිසිදු කිරීමේ Regex
-            const match = fullString.match(/(https?:\/\/[^\s]+?\.(png|jpg|jpeg|gif))/i);
-            if (match && match[1]) {
-                createGalleryItem(match[1]);
-            }
-        });
-    })
     .catch(err => {
         console.error("Error loading images:", err);
         alert("පින්තූර පූරණය කිරීමට නොහැකි විය. කරුණාකර Web App URL එක නිවැරදි දැයි බලන්න.");
