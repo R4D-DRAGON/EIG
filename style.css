@@ -295,6 +295,7 @@ padding:20px;
 .upload-box:hover::before {
     opacity: 1;
 }
+
 .review-card{
 padding:30px;
 }
