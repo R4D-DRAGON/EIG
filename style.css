@@ -208,28 +208,33 @@ font-weight:700;
 padding:20px;
 }
 
+/* පින්තූර ටික තියෙන Grid එකේ scroll bar එක ලස්සන කරන හැටි */
 .gallery-grid {
     display: grid;
-    /* පේළි දෙකක් සඳහා 200px බැගින් උස තීරණය කරයි */
     grid-template-rows: 200px 200px;
-    /* පින්තූර සහ Upload Box එක තීරු විදියට පෙළගැසීම */
     grid-auto-flow: column;
-    /* හැම කොටුවකම පළල 200px ලෙස ස්ථාවර කරයි */
-    grid-auto-columns: 200px;
     gap: 15px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    /* Scroll bar පෙනුම */
-    scrollbar-width: thin;
+    overflow-x: auto; /* මේකෙන් තමයි Scroll වෙන්නේ */
+    padding-bottom: 15px; /* Scroll bar එකට ඉඩ තියන්න */
 }
 
-/* Scroll bar එක ලස්සනට පෙන්වීමට */
+/* Scroll bar එකේ පෙනුම වෙනස් කරමු */
 .gallery-grid::-webkit-scrollbar {
-    height: 8px;
+    height: 8px; /* Scroll bar එකේ මහත */
 }
-.gallery-grid::-webkit-scrollbar-thumb {
-    background: #25D366;
+
+.gallery-grid::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Scroll bar එකේ පසුබිම */
     border-radius: 10px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+    background: #25D366; /* Scroll bar එකේ පාට (WhatsApp කොළ පාට වගේ) */
+    border-radius: 10px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb:hover {
+    background: #128C7E; /* මවුස් එක උඩ තියද්දී පාට වෙනස් වෙනවා */
 }
 
 /* පින්තූර සහ Upload Box එකේ ප්‍රමාණය */
