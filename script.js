@@ -146,3 +146,35 @@ function addNewImage(event) {
     })
     .catch(err => alert("Upload failed!"));
 }
+// පින්තූර ගැලරිය Load කරන ශ්‍රිතය
+function loadGallery() {
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const uploadBox = document.querySelector('.upload-box');
+    
+    // 1. කලින් තිබූ පින්තූර ඉවත් කිරීම (uploadBox එක ඉතිරි කරමින්)
+    const existingImages = galleryGrid.querySelectorAll('img');
+    existingImages.forEach(img => img.remove());
+
+    // 2. Google Sheet එකෙන් URL ලැයිස්තුව ලබා ගැනීම
+    fetch(WEB_APP_URL + '?nocache=' + new Date().getTime())
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(url => {
+            if (url) {
+                // නව img ටැගයක් නිර්මාණය කිරීම
+                const newImg = document.createElement('img');
+                newImg.src = url;
+                newImg.style.width = '100%'; // කැමති විදිහට CSS සාදාගන්න
+                newImg.style.height = '200px';
+                newImg.style.objectFit = 'cover';
+                
+                // uploadBox එකට කලින් පින්තූරය ඇතුළු කිරීම
+                galleryGrid.insertBefore(newImg, uploadBox);
+            }
+        });
+    })
+    .catch(err => console.error("Error loading images:", err));
+}
+
+// පිටුව Load වූ විට ක්‍රියාත්මක වීමට
+window.addEventListener('load', loadGallery);
