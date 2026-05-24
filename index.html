@@ -213,11 +213,19 @@
 </form>
 </section>
 
-<div id="notification">
-        <h3>Booking Received!</h3>
-        <p>Thank you! Our team will contact you soon.</p>
-        <button onclick="closeNotification()">Close</button>
+<div id="overlayModal" class="overlay-modal">
+    <div id="loaderContent" class="modal-box">
+        <div class="spinner"></div>
+        <h3>Sending Booking...</h3>
+        <p>Please wait while we process your request.</p>
     </div>
+
+    <div id="successContent" class="modal-box" style="display: none;">
+        <h3 style="color: #2d5a27;">Booking Received! ✅</h3>
+        <p>Thank you! A confirmation email has been sent to you. Our team will contact you soon.</p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
     
 <footer id="contact">
 <div class="footer-grid">
