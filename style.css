@@ -419,8 +419,8 @@ z-index:999;
     }
 
     .logo-box img {
-        width: 40px !important; /* ලෝගෝ එක 40px දක්වා තරමක් සකස් කළා */
-        height: 40px !important;
+        width: 45px !important; /* ලෝගෝ එක 40px දක්වා තරමක් සකස් කළා */
+        height: 45px !important;
         object-fit: contain !important;
         flex-shrink: 0 !important; /* පින්තූරය තැලී යාම වළක්වයි */
     }
@@ -429,7 +429,7 @@ z-index:999;
         /* 📱 මෙන්න මෙතනයි රහස තියෙන්නේ: 
            තිරය කුඩා වෙද්දී අකුරු 1rem දක්වාත්, ලොකු වෙද්දී 1.25rem දක්වාත් ඉබේම හැඩගැසෙනවා */
         font-size: clamp(1rem, 4vw, 1.25rem) !important; 
-        font-weight: 560 !important;
+        font-weight: 580 !important;
         letter-spacing: 0.3px !important;
         white-space: nowrap !important; /* නම කිසිම විටක කෑලි වලට කැඩී යටට යන්නේ නැත */
         overflow: hidden !important;
@@ -450,7 +450,7 @@ z-index:999;
     .nav-links {
         display: none !important;
         position: absolute !important;
-        top: 65px !important; /* Navbar එකේ අලුත් උසට (65px) අනුව සකස් කළා */
+        top: 70px !important; /* Navbar එකේ අලුත් උසට (65px) අනුව සකස් කළා */
         left: 0 !important;
         width: 100% !important;
         background: #111827 !important;
