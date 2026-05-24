@@ -383,6 +383,7 @@ z-index:999;
     }
 
   .menu-toggle {
+        display: block;
         grid-column: 3;
         justify-self: end;      /* දකුණු පැත්තට අයිකන් එක තල්ලු කිරීම */
         margin-right: 15px;     /* දකුණු පසින් තව ඉඩක් ලබා ගැනීම (අවශ්‍ය පරිදි 10px-20px කරන්න) */
