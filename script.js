@@ -58,18 +58,38 @@ function createGalleryItem(imageUrl) {
     img.style.objectFit = 'cover';
     img.style.borderRadius = '10px';
 
+// Delete Button එකේ මූලික හැඩය
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '×';
+    deleteBtn.innerHTML = '✕'; // මෙය වඩාත් පැහැදිලි ලකුණකි
     deleteBtn.style.position = 'absolute';
-    deleteBtn.style.top = '5px';
-    deleteBtn.style.right = '5px';
+    deleteBtn.style.top = '10px';
+    deleteBtn.style.right = '10px';
     deleteBtn.style.cursor = 'pointer';
-    deleteBtn.style.background = 'rgba(255,0,0,0.7)';
-    deleteBtn.style.color = 'white';
+    deleteBtn.style.background = 'rgba(255, 255, 255, 0.8)'; // සුදු පසුබිම
+    deleteBtn.style.color = '#ff4757'; // රතු පාට අකුරු
     deleteBtn.style.border = 'none';
-    deleteBtn.style.borderRadius = '50%';
-    deleteBtn.style.width = '25px';
-    deleteBtn.style.height = '25px';
+    deleteBtn.style.borderRadius = '50%'; // රවුම් හැඩය
+    deleteBtn.style.width = '30px';
+    deleteBtn.style.height = '30px';
+    deleteBtn.style.fontSize = '18px';
+    deleteBtn.style.fontWeight = 'bold';
+    deleteBtn.style.display = 'flex';
+    deleteBtn.style.alignItems = 'center';
+    deleteBtn.style.justifyContent = 'center';
+    deleteBtn.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)'; // සෙවනැල්ලක් (Shadow)
+    deleteBtn.style.transition = 'all 0.3s ease'; // සිනිඳු වෙනසක් සඳහා
+
+    // මවුස් එක උඩ තැබූ විට වෙනස් වන විදිය (Hover Effect)
+    deleteBtn.onmouseover = () => {
+        deleteBtn.style.background = '#ff4757';
+        deleteBtn.style.color = 'white';
+        deleteBtn.style.transform = 'scale(1.1)';
+    };
+    deleteBtn.onmouseout = () => {
+        deleteBtn.style.background = 'rgba(255, 255, 255, 0.8)';
+        deleteBtn.style.color = '#ff4757';
+        deleteBtn.style.transform = 'scale(1)';
+    };
 
     deleteBtn.onclick = () => {
         // මුරපද ඉල්ලීම
