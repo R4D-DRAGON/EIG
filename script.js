@@ -68,37 +68,32 @@ function addNewImage(event) {
     }
 }
 
-// 2. Booking ෆෝම් එක Google Sheet එකට යැවීම සඳහා කේතය
-const form = document.querySelector('.booking-form');
-const successMessage = document.getElementById('successMessage');
+// script.js
+const bookingForm = document.getElementById('bookingForm');
+const WEB_APP_URL = 'ඔයාගේ_GOOGLE_SCRIPT_URL_එක_මෙතනට_දාන්න';
 
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // පිටුව Reload වීම වළක්වයි
-        
-        // දත්ත යැවීම
-        fetch(form.action, { 
-            method: 'POST', 
-            body: new FormData(form) 
-        })
-        .then(response => {
-            if (response.ok) {
-                // සාර්ථක නම් පණිවිඩය පෙන්වා ෆෝම් එක හිස් කිරීම
-                successMessage.style.display = 'block';
-                form.reset();
-                
-                // තත්පර 5කින් සාර්ථක පණිවිඩය නැවත සැඟවීම
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            } else {
-                alert("Something went wrong! Please try again.");
-            }
-        })
-        .catch(error => {
-            console.error('Error!', error);
-            alert("Error sending data. Please check your internet connection.");
-        });
-    });
-}
+bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
+    const formData = new FormData(bookingForm);
+
+    // Checkbox ටික අරගෙන එක String එකක් විදියට හදනවා
+    const selectedDestinations = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
+        .map(cb => cb.value)
+        .join(', ');
+
+    // පරණ දත්ත මකලා අලුත් string එක දානවා
+    formData.delete('Select_Destinations');
+    formData.append('Select_Destinations', selectedDestinations);
+
+    fetch(WEB_APP_URL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert("Booking successful!");
+        bookingForm.reset();
+    })
+    .catch(err => alert("Error: " + err));
+});
