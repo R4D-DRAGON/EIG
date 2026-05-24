@@ -644,63 +644,55 @@ z-index:999;
 
 
 
-/* notification කොටස මෙතනින් පටන් ගන්න */
-/* notification කොටස - පිරිසිදු සහ සරල */
-#notification {
-    display: none !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) scale(0.8) !important;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+/* Blur Background Overlay */
+.overlay-modal {
+    display: none; /* මුලින් පේන්නෙ නෑ */
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px); /* වටේම Blur වෙනවා */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* මැදට එන Box එක */
+.modal-box {
+    background: #fff;
     padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    z-index: 99999 !important;
+    border-radius: 12px;
     text-align: center;
-    width: 90%;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
     max-width: 400px;
-    border: 2px solid #ff7b00;
+    width: 90%;
 }
 
-#notification.show {
-    display: block !important;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+.modal-box button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #2d5a27;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-/* Loading Spinner එක */
-.loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #ff7b00;
+/* ලස්සන Loading Spinner එක */
+.spinner {
+    display: inline-block;
+    width: 40px; height: 40px;
+    border: 4px solid rgba(45, 90, 39, 0.2);
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: rotate 1s linear infinite;
-    margin: 10px auto;
+    border-top-color: #2d5a27;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 15px;
 }
 
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
-
-/* බ්ලර් එෆෙක්ට් එක - මේ විදිහට දැම්මම සියලුම දේවල් අනිවාර්යයෙන් බ්ලර් වෙනවා */
-body.blur-active > * {
-    filter: blur(8px);
-    pointer-events: none;
-    transition: filter 0.3s ease;
-}
-
-/* හැබැයි notification එකට බ්ලර් එක බලපාන්න එපා */
-body.blur-active #notification {
-    filter: none !important;
-    pointer-events: auto !important;
-}
-
 /* බටන් එකේ මූලික ස්ටයිල් එක - !important දාන්න එපා මෙතනට */
 .booking-form button {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
