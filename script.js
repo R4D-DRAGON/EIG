@@ -89,5 +89,3 @@ function addNewImage(event) {
     .catch(err => alert("Upload failed!"));
 }
 
-// පිටුව Load වන විට පින්තූර පෙන්වීම
-window.addEventListener('load', loadGallery);
