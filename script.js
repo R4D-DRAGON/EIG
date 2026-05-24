@@ -68,61 +68,37 @@ function addNewImage(event) {
     }
 }
 
-// 4. Booking Form Submission (දත්ත යැවීම සහ Loading පෙන්වීම)
-const bookingForm = document.getElementById('bookingForm');
-const overlayModal = document.getElementById('overlayModal');
-const loaderContent = document.getElementById('loaderContent');
-const successContent = document.getElementById('successContent');
+// 2. Booking ෆෝම් එක Google Sheet එකට යැවීම සඳහා කේතය
+const form = document.querySelector('.booking-form');
+const successMessage = document.getElementById('successMessage');
 
-if (bookingForm) {
-    bookingForm.addEventListener('submit', e => {
-        e.preventDefault(); // Page එක reload වෙන එක නවත්වයි
-
-        // Loading Modal එක පෙන්වීම
-        if (overlayModal && loaderContent && successContent) {
-            overlayModal.style.display = 'flex';
-            loaderContent.style.display = 'block';
-            successContent.style.display = 'none';
-        }
-
-        const formData = new FormData(bookingForm);
-
-        // Checkbox වල තෝරපු Destinations ඔක්කොම අරගෙන කොමා (,) දාලා එකතු කිරීම
-        const selectedDestinations = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
-            .map(checkbox => checkbox.value)
-            .join(', '); 
-            
-        // පරණ Destinations මකලා, අලුත් කොමා දාපු Destinations ටික formData එකට දානවා
-        formData.delete('Select_Destinations');
-        formData.append('Select_Destinations', selectedDestinations);
-
-        // Google Script එකට යැවීම
-        fetch(WEB_APP_URL, {
-            method: 'POST',
-            body: formData
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // පිටුව Reload වීම වළක්වයි
+        
+        // දත්ත යැවීම
+        fetch(form.action, { 
+            method: 'POST', 
+            body: new FormData(form) 
         })
-        .then(response => response.json())
-        .then(data => {
-            if(overlayModal) {
-                // යැවීම සාර්ථක නම් Loading එක වහලා Success මැසේජ් එක පෙන්වීම
-                loaderContent.style.display = 'none';
-                successContent.style.display = 'block';
+        .then(response => {
+            if (response.ok) {
+                // සාර්ථක නම් පණිවිඩය පෙන්වා ෆෝම් එක හිස් කිරීම
+                successMessage.style.display = 'block';
+                form.reset();
+                
+                // තත්පර 5කින් සාර්ථක පණිවිඩය නැවත සැඟවීම
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
             } else {
-                alert("Booking successfully sent!");
+                alert("Something went wrong! Please try again.");
             }
-            bookingForm.reset(); // ෆෝම් එක හිස් කිරීම
         })
         .catch(error => {
             console.error('Error!', error);
-            if(overlayModal) overlayModal.style.display = 'none';
-            alert("Error sending booking. Please check your connection.");
+            alert("Error sending data. Please check your internet connection.");
         });
     });
 }
 
-// 5. Modal එක වසා දැමීම (Close Button Function)
-function closeModal() {
-    if (overlayModal) {
-        overlayModal.style.display = 'none';
-    }
-}
