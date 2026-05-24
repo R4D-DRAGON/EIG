@@ -63,6 +63,7 @@ gap:15px;
 color:#fff;
 }
 
+
 .logo-box img{
 width:60px;
 }
@@ -381,8 +382,12 @@ z-index:999;
         grid-template-columns:1fr;
     }
 
-    .menu-toggle{
-        display:block;
+  .menu-toggle {
+        grid-column: 3;
+        justify-self: end;      /* දකුණු පැත්තට අයිකන් එක තල්ලු කිරීම */
+        margin-right: 15px;     /* දකුණු පසින් තව ඉඩක් ලබා ගැනීම (අවශ්‍ය පරිදි 10px-20px කරන්න) */
+        padding: 5px 10px;      /* අයිකන් එක වටා පහසුවෙන් ක්ලික් කිරීමට ඉඩ තැබීම */
+        cursor: pointer;
     }
 
     .nav-links{
