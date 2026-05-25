@@ -42,8 +42,6 @@ if (bookingForm) {
             .map(cb => cb.value)
             .join(', ');
 
-        // නම සහ ඊමේල් වැනි අනෙක් දත්ත formData එකේ එනවා.
-        // අපි Checkbox එක වෙනුවට අලුත් string එක add කරනවා.
         formData.delete('destinations[]'); 
         formData.append('destinations', selected); 
 
