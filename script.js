@@ -38,7 +38,6 @@ if (bookingForm) {
         const formData = new FormData(bookingForm);
 
         // Checkbox වල තෝරපු දත්ත කොමා (,) දාලා string එකක් විදියට හදන්න
-        // HTML එකේ name="Select_Destinations" නිසා එයම භාවිතා කරන්න
         const selected = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
             .map(cb => cb.value)
             .join(', ');
