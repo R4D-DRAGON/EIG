@@ -38,12 +38,13 @@ if (bookingForm) {
         const formData = new FormData(bookingForm);
 
         // Checkbox වල තෝරපු දත්ත කොමා (,) දාලා string එකක් විදියට හදන්න
-        const selected = Array.from(bookingForm.querySelectorAll('input[name="destinations[]"]:checked'))
+        // HTML එකේ name="Select_Destinations" නිසා එයම භාවිතා කරන්න
+        const selected = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
             .map(cb => cb.value)
             .join(', ');
 
-        formData.delete('destinations[]'); 
-        formData.append('destinations', selected); 
+        formData.delete('Select_Destinations'); 
+        formData.append('Select_Destinations', selected); 
 
         // Google Script එකට යැවීම
         fetch(WEB_APP_URL, {
