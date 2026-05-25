@@ -400,169 +400,54 @@ z-index:999;
 }
 
 /* --- Mobile Navbar (නම සහ ලෝගෝ එක තනි පේළියකට වම් පසින්) --- */
-/* --- Mobile Navbar (නම සහ මෙනු එක එකම පේළියක තබා ගැනීම) --- */
 @media(max-width:900px){
-
-
-
-    h1 { font-size: 2.5rem !important; }
-
-  
-
-  .hero-content h1{
-
-        font-size:3rem;
-
-    }
-
-
-
-    .about-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-
-  .menu-toggle {
-
-        display: block;
-
-        grid-column: 3;
-
-        justify-self: end;      /* දකුණු පැත්තට අයිකන් එක තල්ලු කිරීම */
-
-        margin-right: 15px;     /* දකුණු පසින් තව ඉඩක් ලබා ගැනීම (අවශ්‍ය පරිදි 10px-20px කරන්න) */
-
-        padding: 5px 10px;      /* අයිකන් එක වටා පහසුවෙන් ක්ලික් කිරීමට ඉඩ තැබීම */
-
-        cursor: pointer;
-
-    }
-
-
-
-    .nav-links{
-
-        position:absolute;
-
-        top:80px;
-
-        right:0;
-	flex-direction: column !important;
-        background:#111827;
-	left: 0 !important;
-        width:100%;
-	text-align: center !important;
-        flex-direction:column;
-	z-index: 999 !important;
-        padding:20px;
-
-        display:none;
-
-    }
-
-
-
-    .nav-links.active{
-
-        display:flex;
-
-    }
-
-    .nav-links li {
-        margin: 12px 0 !important;
-        width: 100% !important;
-    }
-
-    .footer-grid {
-
-        grid-template-columns: 1fr; /* ෆෝන් එකේදී එක පේළියකට හැදෙනවා */
-
-        text-align: center;
-
-        gap: 30px;
-
-    }
-
-    .footer-grid p {
-
-        white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
-
-        word-break: break-word;
-
-    }
-
-  .footer-logo {
-
-        width: 180px; /* ෆෝන් එකේදී ලෝගෝ එක 180px දක්වා පොඩි වෙනවා */
-
-    }
-
-
-
-  .copyright {
-
-        margin-top: 20px;    /* ෆෝන් එකේදී උඩ ඉඩ අඩු කරනවා */
-
-        padding-top: 15px;
-
-        font-size: 0.8rem;   /* ෆෝන් එකේදී අකුරු ටිකක් පොඩි වෙනවා */
-
-    }
-
-
-
-  /* Mobile එකේදී පේළි එකකට සීමා කිරීම */
-
-    .gallery-grid {
-
-        grid-template-rows: 180px; /* පේළි 1යි, උසත් පොඩ්ඩක් අඩු කළා */
-
-        grid-auto-columns: 180px;  /* පළලත් පොඩ්ඩක් අඩු කළා */
-
-        gap: 10px;
-
-    }
-
-
-
-    /* පින්තූර සහ Upload Box එකේ ප්‍රමාණය */
-
-    .gallery-grid img, 
-
-    .upload-box {
-
-        width: 180px;
-
-        height: 180px;
-
-    }
-
-
-
-    /* Upload Box එකේ අකුරුත් පොඩ්ඩක් අඩු කරමු */
-
-    .upload-box span {
-
-        font-size: 30px;
-
-    }
-
-
-
+    /* 1. Navbar එකේ Layout එක හරිගැස්සීම */
     .navbar {
-        display: flex !important;
-        justify-content: flex-start !important;
-        align-items: center !important;
-        padding: 10px 15px !important; /* පෑඩින් එක පොඩ්ඩක් අඩු කළා ඉඩ ඉතිරි කරන්න */
-        position: fixed !important;
-        height: 65px !important; /* උස පොඩ්ඩක් අඩු කළා ස්මාර්ට් ලුක් එකක් දෙන්න */
+        justify-content: space-between !important; /* ලෝගෝ එක වම්පසත්, මෙනු අයිකන් එක දකුණුපසත් තබා ගැනීමට */
+        padding: 10px 20px !important; 
     }
 
-  
+    /* 2. ලෝගෝ එක සහ නම මැදට ගෙන ඒම සහ පාලනය කිරීම */
+    .logo-box {
+        gap: 10px;
+        flex: 1; /* ඉඩ ප්‍රමාණය සමානව බෙදීමට */
+        justify-content: flex-start; /* මෙය මැදට අවශ්‍ය නම් 'center' ලෙස වෙනස් කරන්න */
+    }
 
+    .logo-box h2 {
+        font-size: 0.9rem !important; /* නම පොඩි කර අයිකන් එකට ඉඩ දීම */
+        white-space: nowrap;
+    }
+
+    /* 3. මෙනු අයිකන් එක දකුණු පැත්තටම තැබීම */
+    .menu-toggle {
+        display: block;
+        margin-right: 0 !important;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    /* අනෙක් පවතින ස්ටයිල්ස් එලෙසම තබන්න */
+    .hero-content h1 { font-size: 3rem !important; }
+    .about-grid { grid-template-columns: 1fr; }
+    
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: 0;
+        left: 0;
+        background: #111827;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        z-index: 999 !important;
+        padding: 20px;
+        display: none;
+    }
+
+    .nav-links.active { display: flex; }
+    
+    /* ... ඉතිරි footer සහ gallery ස්ටයිල්ස් එලෙසම තබන්න ... */
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
