@@ -399,38 +399,37 @@ text-decoration:none;
 z-index:999;
 }
 
-/* --- Mobile Navbar (නම සහ ලෝගෝ එක තනි පේළියකට වම් පසින්) --- */
+/* --- Mobile Responsive - සියලුම දුරකථන සඳහා --- */
 @media(max-width:900px){
-    /* 1. Navbar එකේ Layout එක හරිගැස්සීම */
+
+    /* 1. Navbar එකේ Layout එක */
     .navbar {
-        justify-content: space-between !important; /* ලෝගෝ එක වම්පසත්, මෙනු අයිකන් එක දකුණුපසත් තබා ගැනීමට */
-        padding: 10px 20px !important; 
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 15px !important;
+        height: 65px !important;
     }
 
-    /* 2. ලෝගෝ එක සහ නම මැදට ගෙන ඒම සහ පාලනය කිරීම */
     .logo-box {
-        gap: 10px;
-        flex: 1; /* ඉඩ ප්‍රමාණය සමානව බෙදීමට */
-        justify-content: flex-start; /* මෙය මැදට අවශ්‍ය නම් 'center' ලෙස වෙනස් කරන්න */
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
     }
 
     .logo-box h2 {
-        font-size: 0.9rem !important; /* නම පොඩි කර අයිකන් එකට ඉඩ දීම */
-        white-space: nowrap;
+        font-size: 0.9rem !important;
+        line-height: 1.2;
+        width: 100px; /* නම පේළි දෙකකට සකස් වීමට */
     }
 
-    /* 3. මෙනු අයිකන් එක දකුණු පැත්තටම තැබීම */
     .menu-toggle {
-        display: block;
-        margin-right: 0 !important;
+        display: block !important;
         cursor: pointer;
-        padding: 5px;
+        order: 2; /* මෙනු අයිකන් එක අනිවාර්යයෙන් දකුණු පසට */
     }
 
-    /* අනෙක් පවතින ස්ටයිල්ස් එලෙසම තබන්න */
-    .hero-content h1 { font-size: 3rem !important; }
-    .about-grid { grid-template-columns: 1fr; }
-    
     .nav-links {
         position: absolute;
         top: 65px;
@@ -439,17 +438,48 @@ z-index:999;
         background: #111827;
         width: 100%;
         text-align: center;
-        flex-direction: column;
-        z-index: 999 !important;
+        flex-direction: column !important;
         padding: 20px;
         display: none;
     }
 
     .nav-links.active { display: flex; }
-    
-    /* ... ඉතිරි footer සහ gallery ස්ටයිල්ස් එලෙසම තබන්න ... */
-} /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
+    /* 2. Gallery එක තනි පේළියට (Horizontal Scroll) */
+    .gallery-grid {
+        display: flex !important; /* Grid වෙනුවට Flex භාවිතා කිරීමෙන් Scroll එක පහසු වේ */
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+
+    .gallery-grid img, .upload-box {
+        flex: 0 0 180px; /* හැමවිටම එකම ප්‍රමාණයක තබා ගැනීමට */
+        width: 180px;
+        height: 180px;
+    }
+
+    /* 3. Footer එක නිවැරදිව පෙළගැස්වීම */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-logo {
+        width: 150px !important;
+        margin: 0 auto;
+    }
+
+    .footer-grid p {
+        white-space: normal !important;
+    }
+
+    /* අනෙක් පොදු වෙනස්කම් */
+    .hero-content h1 { font-size: 2.5rem !important; }
+    .about-grid { grid-template-columns: 1fr !important; }
+}/* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
 /* --- තවදුරටත් Mobile Responsive වැඩි දියුණු කිරීම සඳහා --- */
