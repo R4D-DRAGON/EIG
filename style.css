@@ -418,10 +418,13 @@ z-index:999;
         flex: 1;
     }
 
+	/* නම පේළි දෙකකට සැකසීම */
     .logo-box h2 {
-        font-size: 0.9rem !important;
-        line-height: 1.2;
-        width: 100px; /* නම පේළි දෙකකට සකස් වීමට */
+        font-size: 0.95rem !important;
+        line-height: 1.1 !important;
+        width: 120px !important; /* මෙම පළල මගින් නම පේළි දෙකකට කැඩේ */
+        word-wrap: break-word !important;
+        color: #fff !important;
     }
 
     .menu-toggle {
