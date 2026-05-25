@@ -399,71 +399,103 @@ text-decoration:none;
 z-index:999;
 }
 
-/* --- Mobile Responsive - සියලුම දුරකථන සඳහා --- */
+/* --- Mobile Responsive - 900px දක්වා සියලුම දුරකථන සහ ටැබ්ලට් සඳහා --- */
 @media (max-width: 900px) {
-    /* 1. Navbar සැකසුම */
+    
+    /* 1. Navbar සහ Logo සැකසුම */
     .navbar {
         height: 60px !important;
-        padding: 0 10px !important;
+        padding: 0 15px !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
     }
 
     .logo-box {
-        flex: 1 !important;
         display: flex !important;
         align-items: center !important;
-        gap: 5px !important;
-        overflow: hidden; /* නම පිටතට යාම වැළැක්වීමට */
+        gap: 8px !important;
+        flex: 1 !important;
+        overflow: hidden; 
     }
 
     .logo-box img {
-        width: 35px !important; /* ලෝගෝ එක ටිකක් කුඩා කිරීම */
+        width: 35px !important; 
         flex-shrink: 0;
     }
 
     .logo-box h2 {
-        font-size: 0.8rem !important; /* අකුරු ප්‍රමාණය තවත් අඩු කිරීම */
-        white-space: nowrap !important;
+        font-size: 0.85rem !important; 
+        white-space: nowrap !important; /* නම පේළි කැඩීම වැළැක්වීමට */
         margin: 0 !important;
+        overflow: hidden;
         text-overflow: ellipsis;
     }
 
     .menu-toggle {
         display: block !important;
         order: 3;
-        font-size: 1.5rem !important;
+        font-size: 1.8rem !important;
+        cursor: pointer;
     }
 
-    /* 2. Footer සැකසුම */
-    footer {
-        position: static !important; /* fixed ඉවත් කර static කිරීම */
-        display: block !important;
-        padding: 30px 5% !important;
-        background: #050505;
-        margin-top: 50px; /* උඩ තියෙන කොටස් වලින් Footer එක පහළට තල්ලු කිරීම */
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 20px !important;
-    }
-
-    /* 3. අනෙකුත් කොටස් */
-    .hero-content h1 { font-size: 2rem !important; }
-    
     .nav-links {
         position: absolute;
         top: 60px;
         right: 0;
         width: 100%;
-        background: rgba(0,0,0,0.9);
+        background: rgba(17, 24, 39, 0.95);
         flex-direction: column !important;
         padding: 20px 0;
         display: none;
+        text-align: center;
     }
+    
+    .nav-links.active { display: flex !important; }
+
+    /* 2. Gallery සැකසුම (Scroll වන ලෙස) */
+    .gallery-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 15px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .gallery-grid img, .upload-box {
+        flex: 0 0 180px !important;
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    /* 3. Footer සැකසුම (පතුලේ නිවැරදිව පෙනීමට) */
+    footer {
+        position: relative !important;
+        display: block !important;
+        padding: 40px 5% !important;
+        background: #050505;
+        margin-top: 50px !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 25px !important;
+    }
+
+    .footer-logo {
+        width: 150px !important;
+        margin: 0 auto;
+    }
+
+    .footer-grid p {
+        white-space: normal !important;
+    }
+
+    /* 4. අමතර කොටස් */
+    .hero-content h1 { font-size: 2rem !important; }
+    .about-grid { grid-template-columns: 1fr !important; }
+    .stats { grid-template-columns: 1fr 1fr !important; }
 }/* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
