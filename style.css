@@ -400,88 +400,56 @@ z-index:999;
 }
 
 /* --- Mobile Responsive - සියලුම දුරකථන සඳහා --- */
-@media(max-width:900px){
-
-    /* 1. Navbar එකේ Layout එක */
+@media (max-width: 900px) {
+    /* Navbar එකේ සම්පූර්ණ පෙනුම */
     .navbar {
-        display: flex !important;
+        height: 70px !important;
+        padding: 0 15px !important;
         justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 15px !important;
-        height: 65px !important;
     }
 
     .logo-box {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex: 1;
+        flex: 1 !important;
+        gap: 5px !important;
     }
 
-	/* නම පේළි දෙකකට සැකසීම */
+    /* නම සහ ලෝගෝ එක එක පේළියක පිළිවෙළට */
     .logo-box h2 {
-        font-size: 0.95rem !important;
-        line-height: 1.1 !important;
-        width: 120px !important; /* මෙම පළල මගින් නම පේළි දෙකකට කැඩේ */
-        word-wrap: break-word !important;
-        color: #fff !important;
+        font-size: 0.85rem !important;
+        line-height: 1.2 !important;
+        width: auto !important; /* width එක auto කිරීමෙන් නම අවශ්‍ය ප්‍රමාණයට ඉඩ ගනී */
+        white-space: nowrap !important; /* එකම පේළියක තබා ගැනීමට */
+        margin: 0 !important;
+    }
+
+    .logo-box img {
+        width: 40px !important;
     }
 
     .menu-toggle {
         display: block !important;
-        cursor: pointer;
-        order: 2; /* මෙනු අයිකන් එක අනිවාර්යයෙන් දකුණු පසට */
+        order: 3;
     }
 
-    .nav-links {
-        position: absolute;
-        top: 65px;
-        right: 0;
-        left: 0;
-        background: #111827;
-        width: 100%;
-        text-align: center;
-        flex-direction: column !important;
-        padding: 20px;
-        display: none;
+    /* Footer එක පතුලේ නිවැරදිව පෙන්වීමට */
+    footer {
+        position: relative !important; /* fixed ඉවත් කරන්න */
+        padding: 40px 5% !important;
+        overflow: hidden;
     }
 
-    .nav-links.active { display: flex; }
-
-    /* 2. Gallery එක තනි පේළියට (Horizontal Scroll) */
-    .gallery-grid {
-        display: flex !important; /* Grid වෙනුවට Flex භාවිතා කිරීමෙන් Scroll එක පහසු වේ */
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 15px;
-        padding-bottom: 10px;
-    }
-
-    .gallery-grid img, .upload-box {
-        flex: 0 0 180px; /* හැමවිටම එකම ප්‍රමාණයක තබා ගැනීමට */
-        width: 180px;
-        height: 180px;
-    }
-
-    /* 3. Footer එක නිවැරදිව පෙළගැස්වීම */
     .footer-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 20px;
+        grid-template-columns: 1fr !important; /* එකිනෙකට යටින් පෙළ ගැසීමට */
+        gap: 20px !important;
     }
 
-    .footer-logo {
-        width: 150px !important;
-        margin: 0 auto;
+    /* Gallery එකේ Scroll අගුලු දැමීම */
+    .gallery-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        gap: 10px !important;
     }
-
-    .footer-grid p {
-        white-space: normal !important;
-    }
-
-    /* අනෙක් පොදු වෙනස්කම් */
-    .hero-content h1 { font-size: 2.5rem !important; }
-    .about-grid { grid-template-columns: 1fr !important; }
 }/* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
