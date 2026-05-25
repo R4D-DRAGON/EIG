@@ -37,7 +37,7 @@ if (bookingForm) {
 
         const formData = new FormData(bookingForm);
 
-        // Checkbox වල තෝරපු දත්ත කොමා (,) දාලා string එකක් විදියට හදන්න
+        // Checkbox දත්ත සකස් කිරීම
         const selected = Array.from(bookingForm.querySelectorAll('input[name="Select_Destinations"]:checked'))
             .map(cb => cb.value)
             .join(', ');
@@ -56,7 +56,8 @@ if (bookingForm) {
                 loaderContent.style.display = 'none';
                 successContent.style.display = 'block';
             } else {
-                alert("Booking successful!");
+                // ඔබ ඉල්ලූ Notification පෙන්වීම
+                document.getElementById('notification').style.display = 'block';
             }
             bookingForm.reset();
         })
@@ -66,6 +67,11 @@ if (bookingForm) {
             if (overlayModal) overlayModal.style.display = 'none';
         });
     });
+}
+
+// Notification සහ Modal වැසීමට
+function closeNotification() {
+    document.getElementById('notification').style.display = 'none';
 }
 
 function closeModal() {
