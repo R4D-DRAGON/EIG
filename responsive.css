@@ -33,7 +33,7 @@
 }
 
 .nav-links {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem !important;
     position: fixed !important;
     top: 0 !important; /* Navbar එකට උඩින්ම පටන් ගැනීමට */
     right: -100% !important; /* ආරම්භයේදී තිරයෙන් පිටත දකුණේ තැබීමට */
@@ -42,7 +42,7 @@
     background: #111827 !important;
     flex-direction: column !important;
     display: flex !important; /* ආරම්භයේදීම display: flex තිබිය යුතුය */
-    justify-content: center; /* ලින්ක්ස් මැදට ගැනීමට */
+    align-items: center; /* ලින්ක්ස් මැදට ගැනීමට */
     padding: 60px 20px; /* උඩ Navbar එකට ඉඩ තැබීමට */
     z-index: 1001; /* Navbar එකට වඩා ඉහළින් තැබීමට */
     
