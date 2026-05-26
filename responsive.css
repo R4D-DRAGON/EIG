@@ -56,13 +56,7 @@
     right: 0 !important; /* හරියටම දකුණු කෙළවරේ (තිරයේ වම් පැත්තේ) නතර වේ */
 }
 
-body.menu-open > *:not(header) {
-        filter: blur(8px) !important; /* Blur ප්‍රමාණය */
-        pointer-events: none; /* Blur වී ඇති විට පිටුපස ක්ලික් කිරීම් වැළැක්වීමට */
-        transition: filter 0.4s ease; /* සුමටව Blur වීම */
-    }
-
-    body.menu-open .hero {
+body.menu-open > *:not(header):not(.nav-links) {
     filter: blur(8px) !important;
     pointer-events: none;
     transition: filter 0.4s ease;
