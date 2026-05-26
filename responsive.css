@@ -1,0 +1,84 @@
+/* --- Mobile Responsive Final Fix --- */
+@media (max-width: 900px) {
+    /* 1. Navbar සහ Logo එක හරිගැස්සීම */
+    .navbar {
+        padding: 10px 10px !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap; /* අයිතම එක පේළියක තබා ගැනීමට */
+    }
+
+    .logo-box {
+        flex: 1;
+        min-width: 0; /* h2 එක පිටතට යාම වැළැක්වීමට */
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .logo-box h2 {
+        font-size: 0.9rem !important; /* නම කුඩා කිරීම */
+        white-space: normal !important; 
+        line-height: 1.1;
+        overflow: hidden;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        font-size: 1.5rem !important;
+        margin-left: 10px;
+    }
+
+    /* 2. මෙනු එකේ සියල්ල පෙනෙන සේ සැකසීම */
+    .nav-links {
+        position: fixed; /* Fixed භාවිතා කිරීමෙන් මෙනු එක ලොකු වුවත් ස්ක්‍රෝල් වේ */
+        top: 60px;
+        right: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: #111827;
+        flex-direction: column;
+        display: none;
+        padding: 20px;
+        overflow-y: auto; /* මෙනු එකේ සියල්ල පෙනේ */
+        z-index: 1000;
+    }
+    .nav-links.active { display: flex !important; }
+
+footer {
+        padding: 20px 5% !important;
+        text-align: center !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        justify-items: center;
+    }
+
+    /* ෆූටර් එකේ අකුරු සහ ලෝගෝ කුඩා කිරීම */
+    .footer-grid p, 
+    .footer-grid a, 
+    .footer-grid h3 {
+        font-size: 0.85rem !important; /* අකුරු ප්‍රමාණය කුඩා කිරීම */
+        margin: 5px 0 !important;
+        word-break: break-all !important; /* ඊමේල් වැනි දිග ඒවා පේළියට ගැලපෙන සේ කැඩීම */
+    }
+
+    .footer-logo {
+        width: 100px !important; /* ලෝගෝ එක පොඩි කිරීම */
+        margin-bottom: 10px !important;
+    }
+
+    .copyright {
+        font-size: 0.75rem !important;
+        margin-top: 15px !important;
+    }
+
+    /* 4. Gallery එක තනි පේළියකට */
+    .gallery-grid {
+        grid-template-rows: 150px !important;
+        grid-auto-columns: 150px;
+        display: flex !important;
+        overflow-x: auto;
+    }
+}
