@@ -1,43 +1,46 @@
 /* --- Mobile Responsive Final Optimized --- */
 @media (max-width: 900px) {
-    /* Navbar & h2 Adjustments */
+    /* 1. Navbar & h2 Adjustments */
     .navbar { padding: 10px 15px !important; justify-content: space-between !important; }
-    
     .logo-box { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; }
-    
     .logo-box h2 { font-size: 0.95rem !important; white-space: normal !important; line-height: 1.2; }
-
     .menu-toggle { display: block !important; font-size: 1.8rem !important; }
 
-    /* About Section - එකක් යටින් එකක් */
-    .about-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
-    .about-images { grid-template-columns: 1fr !important; }
+    /* 2. About Section - අන්තර්ගතය එකක් යටින් එකක් ලෙස */
+    .about-grid { grid-template-columns: 1fr !important; gap: 20px !important; display: block !important; }
+    .about-images { display: grid !important; grid-template-columns: 1fr !important; gap: 10px; margin-bottom: 20px; }
+    .about-text { width: 100% !important; }
 
-    /* Menu Blur Effect */
+    /* 3. Menu Full Width & Solid Background (No Transparency) */
     .nav-links {
         position: fixed;
         top: 60px;
-        right: 0;
-        width: 85% !important; /* දකුණු පැත්තට පමණක් සීමා වේ */
-        height: 100vh;
-        background: rgba(17, 24, 39, 0.95);
+        left: 0;
+        width: 100% !important; /* සම්පූර්ණ පළල */
+        height: calc(100vh - 60px);
+        background: #111827 !important; /* Transparent නැත, Solid කළු පැහැයකි */
         flex-direction: column;
         display: none;
         padding: 40px 20px;
         z-index: 1000;
+        text-align: center;
     }
     
     .nav-links.active { display: flex !important; }
 
-    /* මෙනුව එන විට පසුබිම බ්ලර් කිරීමට (JS මගින් body එකට 'menu-open' class එක දාන්න) */
-    body.menu-open > *:not(.nav-links):not(.navbar) { filter: blur(5px); pointer-events: none; }
+    /* 4. Blur Effect (Navbar සහ Menu හැර අනිත් සියල්ල Blur වේ) */
+    body.menu-open > *:not(header) {
+        filter: blur(5px);
+        pointer-events: none;
+        transition: filter 0.3s ease;
+    }
 
-    /* Footer & Gallery */
+    /* 5. Footer & Gallery */
     .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
     .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
 
-    /* WhatsApp Button Size */
-    .whatsapp { padding: 10px 15px !important; font-size: 0.8rem !important; bottom: 10px !important; right: 10px !important; }
+    /* 6. WhatsApp Button Size */
+    .whatsapp { padding: 8px 12px !important; font-size: 0.75rem !important; bottom: 10px !important; right: 10px !important; }
 }
 
 /* Desktop සඳහා h2 මැදට ගැනීමට */
