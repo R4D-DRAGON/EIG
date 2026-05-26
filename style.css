@@ -796,96 +796,7 @@ z-index:999;
 
 }
 
-
-/* --- Mobile Responsive Final Fix --- */
-@media (max-width: 900px) {
-    /* 1. Navbar සහ Logo එක හරිගැස්සීම */
-    .navbar {
-        padding: 10px 10px !important;
-        justify-content: space-between !important;
-        flex-wrap: nowrap; /* අයිතම එක පේළියක තබා ගැනීමට */
-    }
-
-    .logo-box {
-        flex: 1;
-        min-width: 0; /* h2 එක පිටතට යාම වැළැක්වීමට */
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .logo-box h2 {
-        font-size: 0.9rem !important; /* නම කුඩා කිරීම */
-        white-space: normal !important; 
-        line-height: 1.1;
-        overflow: hidden;
-    }
-
-    .menu-toggle {
-        display: block !important;
-        font-size: 1.5rem !important;
-        margin-left: 10px;
-    }
-
-    /* 2. මෙනු එකේ සියල්ල පෙනෙන සේ සැකසීම */
-    .nav-links {
-        position: fixed; /* Fixed භාවිතා කිරීමෙන් මෙනු එක ලොකු වුවත් ස්ක්‍රෝල් වේ */
-        top: 60px;
-        right: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background: #111827;
-        flex-direction: column;
-        display: none;
-        padding: 20px;
-        overflow-y: auto; /* මෙනු එකේ සියල්ල පෙනේ */
-        z-index: 1000;
-    }
-    .nav-links.active { display: flex !important; }
-
-footer {
-    text-align: center !important; /* මුළු ෆූටර් එකේම අකුරු මැදට */
-    padding: 30px 5% 10px 5% !important;
-}
-
-.footer-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* එක තීරුවකට සැකසීම */
-    gap: 20px !important;
-    justify-items: center !important; /* අයිතම මැදට ගෙන ඒම */
-}
-
-.footer-grid p, .footer-grid a {
-    text-align: center !important;
-    white-space: normal !important; /* පෙළ පේළි කිහිපයකට කැඩීමට ඉඩ දීම */
-    word-break: break-word !important; /* දිගු වචන හෝ ඊමේල් පේළියෙන් පිටතට යාම වැළැක්වීම */
-    display: block !important;
-}
-
-.footer-logo {
-    display: block !important;
-    margin: 0 auto 10px auto !important; /* ලෝගෝ එක මැදට */
-}
-
-    /* 4. Gallery එක තනි පේළියකට */
-    .gallery-grid {
-        grid-template-rows: 150px !important;
-        grid-auto-columns: 150px;
-        display: flex !important;
-        overflow-x: auto;
-    }
-} /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
-
-
-
-
-
-
-
 /* --- තවදුරටත් Mobile Responsive වැඩි දියුණු කිරීම සඳහා --- */
-
-
-
 @media (max-width: 768px) {
 
     /* Hero Section එකේ අකුරු තව පොඩ්ඩක් අඩු කිරීම */
@@ -949,8 +860,6 @@ footer {
     }
 
 }
-
-
 
 /* කුඩා දුරකථන සඳහා විශේෂිත */
 
