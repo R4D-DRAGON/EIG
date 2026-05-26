@@ -742,11 +742,11 @@ gap:30px;
 
 .footer-logo {
 
-    width: 130px; /* දැනට 120px තිබුණේ. මම ඒක 250px කළා. */
+    width: 140px; /* දැනට 120px තිබුණේ. මම ඒක 250px කළා. */
 
     height: auto; /* ලෝගෝ එකේ ප්‍රමාණය (ratio) හරියට තියාගන්න */
 
-    margin-bottom: 8px; /* ලෝගෝ එකට යටින් තියෙන ඉඩ */
+    margin-bottom: 7px; /* ලෝගෝ එකට යටින් තියෙන ඉඩ */
 
 }
 
@@ -798,334 +798,72 @@ z-index:999;
 
 
 
-/* --- Mobile Navbar (නම සහ ලෝගෝ එක තනි පේළියකට වම් පසින්) --- */
-
-/* --- Mobile Navbar (නම සහ මෙනු එක එකම පේළියක තබා ගැනීම) --- */
-
-@media(max-width:900px){
-
-
-
-
-
-
-
-    h1 { font-size: 2.5rem !important; }
-
-
-
-  
-
-
-
-  .hero-content h1{
-
-
-
-        font-size:3rem;
-
-
-
+/* --- Mobile Responsive Fixes --- */
+@media (max-width: 900px) {
+    /* 1. Navbar එක වම්පස ලෝගෝ සහ දකුණුපස මෙනු අයිකන් වන පරිදි */
+    .navbar {
+        padding: 10px 15px !important;
+        justify-content: space-between !important;
     }
 
-
-
-
-
-
-
-    .about-grid{
-
-
-
-        grid-template-columns:1fr;
-
-
-
+    .logo-box {
+        flex: 1;
+        justify-content: flex-start;
+        gap: 8px;
     }
 
-
-
-
-
-
-
-  .menu-toggle {
-
-
-
-        display: block;
-
-
-
-        grid-column: 3;
-
-
-
-        justify-self: end;      /* දකුණු පැත්තට අයිකන් එක තල්ලු කිරීම */
-
-
-
-        margin-right: 15px;     /* දකුණු පසින් තව ඉඩක් ලබා ගැනීම (අවශ්‍ය පරිදි 10px-20px කරන්න) */
-
-
-
-        padding: 5px 10px;      /* අයිකන් එක වටා පහසුවෙන් ක්ලික් කිරීමට ඉඩ තැබීම */
-
-
-
-        cursor: pointer;
-
-
-
+    .logo-box h2 {
+        font-size: 1rem !important;
+        white-space: nowrap;
     }
 
-
-
-
-
-
-
-    .nav-links{
-
-
-
-        position:absolute;
-
-
-
-        top:80px;
-
-
-
-        right:0;
-
-flex-direction: column !important;
-
-        background:#111827;
-
-left: 0 !important;
-
-        width:100%;
-
-text-align: center !important;
-
-        flex-direction:column;
-
-z-index: 999 !important;
-
-        padding:20px;
-
-
-
-        display:none;
-
-
-
+    .menu-toggle {
+        display: block !important;
     }
 
-
-
-
-
-
-
-    .nav-links.active{
-
-
-
-        display:flex;
-
-
-
-    }
-
-
-
-    .nav-links li {
-
-        margin: 12px 0 !important;
-
-        width: 100% !important;
-
-    }
-
-
-
+    /* 2. Footer එක එක පේළියට සැකසීම */
     .footer-grid {
-
-
-
-        grid-template-columns: 1fr; /* ෆෝන් එකේදී එක පේළියකට හැදෙනවා */
-
-
-
+        grid-template-columns: 1fr !important;
         text-align: center;
-
-
-
-        gap: 30px;
-
-
-
+        gap: 20px;
     }
-
-
 
     .footer-grid p {
-
-
-
-        white-space: normal; /* ෆෝන් එකේදී අකුරු කැපෙන්න තියන්න එපා */
-
-
-
-        word-break: break-word;
-
-
-
+        white-space: normal; /* අවශ්‍ය නම් පේළි කිහිපයකට කැඩෙන්න */
     }
 
-
-
-  .footer-logo {
-
-
-
-        width: 180px; /* ෆෝන් එකේදී ලෝගෝ එක 180px දක්වා පොඩි වෙනවා */
-
-
-
-    }
-
-
-
-
-
-
-
-  .copyright {
-
-
-
-        margin-top: 20px;    /* ෆෝන් එකේදී උඩ ඉඩ අඩු කරනවා */
-
-
-
-        padding-top: 15px;
-
-
-
-        font-size: 0.8rem;   /* ෆෝන් එකේදී අකුරු ටිකක් පොඩි වෙනවා */
-
-
-
-    }
-
-
-
-
-
-
-
-  /* Mobile එකේදී පේළි එකකට සීමා කිරීම */
-
-
-
+    /* 3. Gallery එක තනි පේළියකට කර දකුණට ස්ක්‍රෝල් වන පරිදි */
     .gallery-grid {
-
-
-
-        grid-template-rows: 180px; /* පේළි 1යි, උසත් පොඩ්ඩක් අඩු කළා */
-
-
-
-        grid-auto-columns: 180px;  /* පළලත් පොඩ්ඩක් අඩු කළා */
-
-
-
-        gap: 10px;
-
-
-
+        grid-template-rows: 200px !important; /* එක පේළියයි */
+        grid-auto-flow: column;
+        overflow-x: auto;
+        display: flex; /* grid වෙනුවට flex භාවිතය වඩා සුදුසුයි */
+        gap: 15px;
+        padding-bottom: 10px;
     }
 
-
-
-
-
-
-
-    /* පින්තූර සහ Upload Box එකේ ප්‍රමාණය */
-
-
-
-    .gallery-grid img, 
-
-
-
-    .upload-box {
-
-
-
-        width: 180px;
-
-
-
-        height: 180px;
-
-
-
+    .gallery-grid img, .upload-box {
+        flex-shrink: 0;
+        width: 250px; /* දුරකථනයට ගැලපෙන ප්‍රමාණය */
+        height: 200px;
     }
 
-
-
-
-
-
-
-    /* Upload Box එකේ අකුරුත් පොඩ්ඩක් අඩු කරමු */
-
-
-
-    .upload-box span {
-
-
-
-        font-size: 30px;
-
-
-
+    /* ඉතිරි කොටස් */
+    .hero-content h1 { font-size: 2.5rem !important; }
+    .about-grid { grid-template-columns: 1fr !important; }
+    .stats { grid-template-columns: 1fr !important; }
+    
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        background: rgba(0,0,0,0.9);
+        flex-direction: column;
+        display: none;
+        padding: 20px;
     }
-
-
-
-
-
-
-
-    .navbar {
-
-        display: flex !important;
-
-        justify-content: flex-start !important;
-
-        align-items: center !important;
-
-        padding: 10px 15px !important; /* පෑඩින් එක පොඩ්ඩක් අඩු කළා ඉඩ ඉතිරි කරන්න */
-
-        position: fixed !important;
-
-        height: 65px !important; /* උස පොඩ්ඩක් අඩු කළා ස්මාර්ට් ලුක් එකක් දෙන්න */
-
-    }
-
-
-
-  
-
-
-
+    .nav-links.active { display: flex !important; }
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
