@@ -24,13 +24,15 @@
     padding: 60px 20px; /* උඩ Navbar එකට ඉඩ තැබීමට */
     z-index: 1001; /* Navbar එකට වඩා ඉහළින් තැබීමට */
     
-    /* ANIMATION: මෙමගින් දකුණේ සිට වමට ඇදී ඒම සිදුවේ */
-transition: right 0.4s ease-out !important;
+/* Box sizing එක මගින් Padding නිසා සිදුවන ප්‍රමාණ වෙනස්කම් නවතී */
+    box-sizing: border-box !important; 
+    
+    /* Bounce නොවී සුමටව නතර වීමට */
+    transition: right 0.4s linear !important; 
 }
 
-/* මෙනුව Active වූ පසු */
 .nav-links.active {
-    right: 0 !important; /* Active වූ පසු දකුණු කෙළවරට (ිරය මතට) පැමිණේ */
+    right: 0 !important; /* හරියටම දකුණු කෙළවරේ (තිරයේ වම් පැත්තේ) නතර වේ */
 }
 
 /* Blur Effect එක (පෙර පරිදිම තබන්න) */
