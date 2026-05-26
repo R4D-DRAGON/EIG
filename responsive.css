@@ -6,10 +6,31 @@
     .logo-box h2 { font-size: 0.95rem !important; white-space: normal !important; line-height: 1.2; }
     .menu-toggle { display: block !important; font-size: 1.8rem !important; }
 
-    /* 2. About Section - අන්තර්ගතය එකක් යටින් එකක් ලෙස */
-    .about-grid { grid-template-columns: 1fr !important; gap: 20px !important; display: block !important; }
-    .about-images { display: grid !important; grid-template-columns: 1fr !important; gap: 10px; margin-bottom: 20px; }
-    .about-text { width: 100% !important; }
+/* 2. About Section - පින්තූර දෙක එක පේළියක සහ අකුරු පහළින් */
+.about-grid { 
+    display: block !important; 
+    text-align: center; 
+}
+
+.about-images { 
+    display: flex !important;           /* පින්තූර එක පේළියකට ගැනීමට */
+    flex-direction: row !important;      /* පේළියක් ලෙස */
+    gap: 10px !important;               /* පින්තූර අතර පරතරය */
+    margin-bottom: 20px !important; 
+    justify-content: center;            /* පින්තූර මැදට ගැනීමට */
+}
+
+.about-images img { 
+    width: 48% !important;              /* පින්තූර දෙකම 48% බැගින් පළල ගනී */
+    height: auto !important; 
+    object-fit: cover !important; 
+    border-radius: 8px; 
+}
+
+.about-text { 
+    width: 100% !important; 
+    text-align: center;                 /* අකුරු මැදට ගැනීමට */
+}
 
 .nav-links {
     position: fixed !important;
@@ -35,12 +56,11 @@
     right: 0 !important; /* හරියටම දකුණු කෙළවරේ (තිරයේ වම් පැත්තේ) නතර වේ */
 }
 
-/* Blur Effect එක (පෙර පරිදිම තබන්න) */
-body.menu-open > *:not(header):not(.nav-links) {
-    filter: blur(5px);
-    pointer-events: none;
-    transition: filter 0.3s ease;
-}
+body.menu-open > *:not(header) {
+        filter: blur(8px) !important; /* Blur ප්‍රමාණය */
+        pointer-events: none; /* Blur වී ඇති විට පිටුපස ක්ලික් කිරීම් වැළැක්වීමට */
+        transition: filter 0.4s ease; /* සුමටව Blur වීම */
+    }
 
 /* Blur වූ විට පිටුපස ස්ක්‍රෝල් වීම වැළැක්වීමට */
 body.menu-open {
