@@ -33,7 +33,7 @@
 }
 
 .nav-links {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
     position: fixed !important;
     top: 0 !important; /* Navbar එකට උඩින්ම පටන් ගැනීමට */
     right: -100% !important; /* ආරම්භයේදී තිරයෙන් පිටත දකුණේ තැබීමට */
