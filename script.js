@@ -3,15 +3,19 @@ const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
 if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', function() {
         navLinks.classList.toggle('active');
+        // Blur එක ක්‍රියාත්මක කිරීම සඳහා body එකට class එකක් එකතු කිරීම
+        document.body.classList.toggle('menu-open');
     });
 }
 
+// මෙනු එකෙන් ලින්ක් එකක් ක්ලික් කළ විට මෙනුව වැසීම සහ Blur ඉවත් කිරීම
 const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
     });
 });
 
