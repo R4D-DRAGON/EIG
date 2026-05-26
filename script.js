@@ -1,22 +1,30 @@
-// 1. මෙනු සහ Nav Links Toggle කිරීම
+// script.js (පවතින මෙනු කෝඩ් එක වෙනුවට මෙය දමන්න)
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
-if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        // Blur එක ක්‍රියාත්මක කිරීම සඳහා body එකට class එකක් එකතු කිරීම
-        document.body.classList.toggle('menu-open');
-    });
+// මෙනුව Toggle කරන ශ්‍රිතය (Open/Close)
+function toggleMenu() {
+    navLinks.classList.toggle('active');
+    document.body.classList.toggle('menu-open'); // Blur Effect එක සහ ස්ක්‍රෝල් වීම වැළැක්වීමට
 }
 
-// මෙනු එකෙන් ලින්ක් එකක් ක්ලික් කළ විට මෙනුව වැසීම සහ Blur ඉවත් කිරීම
+if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+}
+
+// මෙනු එකෙන් ලින්ක් එකක් ක්ලික් කළ විට මෙනුව වැසීම
 const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    });
+    item.addEventListener('click', toggleMenu);
+});
+
+// මෙනුව විවෘත වූ පසු පිටත (Blur වූ කොටස) ක්ලික් කළ විටද මෙනුව වැසීමට
+document.addEventListener('click', (e) => {
+    // මෙනුව විවෘතව ඇත්නම් සහ ක්ලික් කළේ මෙනුව හෝ toggle button එක මත නොවේ නම්
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        toggleMenu();
+    }
 });
 
 // 2. Google Apps Script URL
