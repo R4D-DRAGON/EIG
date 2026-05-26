@@ -19,16 +19,6 @@ navItems.forEach(item => {
     item.addEventListener('click', toggleMenu);
 });
 
-function setNavbarHeight() {
-    const navbar = document.querySelector('.navbar');
-    const height = navbar.offsetHeight;
-    document.documentElement.style.setProperty('--navbar-height', height + 'px');
-}
-
-// පිටුව Load වූ විට සහ තිරය Resize වූ විට ක්‍රියාත්මක වීමට
-window.addEventListener('load', setNavbarHeight);
-window.addEventListener('resize', setNavbarHeight);
-
 // මෙනුව විවෘත වූ පසු පිටත (Blur වූ කොටස) ක්ලික් කළ විටද මෙනුව වැසීමට
 document.addEventListener('click', (e) => {
     // මෙනුව විවෘතව ඇත්නම් සහ ක්ලික් කළේ මෙනුව හෝ toggle button එක මත නොවේ නම්
