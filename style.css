@@ -843,17 +843,29 @@ z-index:999;
     }
     .nav-links.active { display: flex !important; }
 
-    /* 3. Footer එක සම්පූර්ණයෙන් පෙනෙන සේ සැකසීම */
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-        text-align: center;
-    }
+footer {
+    text-align: center !important; /* මුළු ෆූටර් එකේම අකුරු මැදට */
+    padding: 30px 5% 10px 5% !important;
+}
 
-    .footer-grid p {
-        white-space: normal !important;
-        word-wrap: break-word;
-    }
+.footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* එක තීරුවකට සැකසීම */
+    gap: 20px !important;
+    justify-items: center !important; /* අයිතම මැදට ගෙන ඒම */
+}
+
+.footer-grid p, .footer-grid a {
+    text-align: center !important;
+    white-space: normal !important; /* පෙළ පේළි කිහිපයකට කැඩීමට ඉඩ දීම */
+    word-break: break-word !important; /* දිගු වචන හෝ ඊමේල් පේළියෙන් පිටතට යාම වැළැක්වීම */
+    display: block !important;
+}
+
+.footer-logo {
+    display: block !important;
+    margin: 0 auto 10px auto !important; /* ලෝගෝ එක මැදට */
+}
 
     /* 4. Gallery එක තනි පේළියකට */
     .gallery-grid {
