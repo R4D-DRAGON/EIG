@@ -62,6 +62,12 @@ body.menu-open > *:not(header) {
         transition: filter 0.4s ease; /* සුමටව Blur වීම */
     }
 
+    body.menu-open .hero {
+    filter: blur(8px) !important;
+    pointer-events: none;
+    transition: filter 0.4s ease;
+}
+
 /* Blur වූ විට පිටුපස ස්ක්‍රෝල් වීම වැළැක්වීමට */
 body.menu-open {
     overflow: hidden;
