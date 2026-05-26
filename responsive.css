@@ -24,6 +24,7 @@
         padding: 40px 20px;
         z-index: 1000;
         text-align: center;
+        font-size: 1.5rem !important;
     }
     
     .nav-links.active { display: flex !important; }
