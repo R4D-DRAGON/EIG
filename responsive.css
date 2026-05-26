@@ -11,30 +11,39 @@
     .about-images { display: grid !important; grid-template-columns: 1fr !important; gap: 10px; margin-bottom: 20px; }
     .about-text { width: 100% !important; }
 
-    /* 3. Menu Full Width & Solid Background (No Transparency) */
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100% !important; /* සම්පූර්ණ පළල */
-       height: auto !important; /* මෙනු අයිතම ගණනට අනුව උස වෙනස් වේ */
-        background: #111827 !important; /* Transparent නැත, Solid කළු පැහැයකි */
-        flex-direction: column;
-        display: none;
-        padding: 40px 20px;
-        z-index: 1000;
-        text-align: center;
-        font-size: 1.5rem !important;
-    }
+.nav-links {
+    position: fixed !important;
+    top: 0 !important; /* Navbar එකට උඩින්ම පටන් ගැනීමට */
+    right: -100% !important; /* ආරම්භයේදී තිරයෙන් පිටත දකුණේ තැබීමට */
+    width: 80% !important; /* තිරයෙන් 80% ක් පමණ පළල ගැනීමට */
+    height: 100vh !important; /* සම්පූර්ණ උසම ගැනීමට */
+    background: #111827 !important;
+    flex-direction: column !important;
+    display: flex !important; /* ආරම්භයේදීම display: flex තිබිය යුතුය */
+    justify-content: center; /* ලින්ක්ස් මැදට ගැනීමට */
+    padding: 60px 20px; /* උඩ Navbar එකට ඉඩ තැබීමට */
+    z-index: 1001; /* Navbar එකට වඩා ඉහළින් තැබීමට */
     
-    .nav-links.active { display: flex !important; }
+    /* ANIMATION: මෙමගින් දකුණේ සිට වමට ඇදී ඒම සිදුවේ */
+    transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
 
-    /* 4. Blur Effect (Navbar සහ Menu හැර අනිත් සියල්ල Blur වේ) */
-    body.menu-open > *:not(header) {
-        filter: blur(5px);
-        pointer-events: none;
-        transition: filter 0.3s ease;
-    }
+/* මෙනුව Active වූ පසු */
+.nav-links.active {
+    right: 0 !important; /* Active වූ පසු දකුණු කෙළවරට (ිරය මතට) පැමිණේ */
+}
+
+/* Blur Effect එක (පෙර පරිදිම තබන්න) */
+body.menu-open > *:not(header):not(.nav-links) {
+    filter: blur(5px);
+    pointer-events: none;
+    transition: filter 0.3s ease;
+}
+
+/* Blur වූ විට පිටුපස ස්ක්‍රෝල් වීම වැළැක්වීමට */
+body.menu-open {
+    overflow: hidden;
+}
 
     /* 5. Footer & Gallery */
     .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
