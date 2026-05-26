@@ -65,8 +65,8 @@ body.menu-open .hero {
     transition: filter 0.4s ease !important;
 }
 
-/* Header එක Blur නොවීමට */
-body.menu-open header, 
+/* Header එක Blur නොවීමට 
+body.menu-open header,*/ 
 body.menu-open .navbar,
 body.menu-open .nav-links {
     filter: none !important;
