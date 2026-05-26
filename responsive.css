@@ -57,19 +57,26 @@
     right: 0 !important; /* හරියටම දකුණු කෙළවරේ (තිරයේ වම් පැත්තේ) නතර වේ */
 }
 
-/* Hero සහ අනෙකුත් සියල්ල සඳහා Blur බලපෑම */
-body.menu-open #main-content, 
-body.menu-open .hero {
+/* 1. මෙනුව විවෘත වූ විට මුළු අඩවියම Blur කරන්න (Navbar හැර) */
+body.menu-open > *:not(header), 
+body.menu-open header > *:not(.navbar) {
     filter: blur(8px) !important;
     pointer-events: none !important;
     transition: filter 0.4s ease !important;
 }
 
-/* Header එක Blur නොවීමට 
-body.menu-open header,*/ 
-body.menu-open .navbar,
-body.menu-open .nav-links {
+/* 2. මෙනුව සහ Navbar එක Blur නොවී තැබීම */
+.navbar, .nav-links {
     filter: none !important;
+    pointer-events: auto !important;
+    z-index: 1005 !important;
+}
+
+/* 3. Hero section එකේ ඇතුළත දේවල් Blur කිරීම තහවුරු කිරීම */
+body.menu-open .hero-content,
+body.menu-open .overlay {
+    filter: blur(8px) !important;
+    pointer-events: none !important;
 }
 
 /* Blur වූ විට පිටුපස ස්ක්‍රෝල් වීම වැළැක්වීමට */
