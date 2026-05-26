@@ -1,84 +1,47 @@
-/* --- Mobile Responsive Final Fix --- */
+/* --- Mobile Responsive Final Optimized --- */
 @media (max-width: 900px) {
-    /* 1. Navbar සහ Logo එක හරිගැස්සීම */
-    .navbar {
-        padding: 10px 10px !important;
-        justify-content: space-between !important;
-        flex-wrap: nowrap; /* අයිතම එක පේළියක තබා ගැනීමට */
-    }
+    /* Navbar & h2 Adjustments */
+    .navbar { padding: 10px 15px !important; justify-content: space-between !important; }
+    
+    .logo-box { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; }
+    
+    .logo-box h2 { font-size: 0.95rem !important; white-space: normal !important; line-height: 1.2; }
 
-    .logo-box {
-        flex: 1;
-        min-width: 0; /* h2 එක පිටතට යාම වැළැක්වීමට */
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
+    .menu-toggle { display: block !important; font-size: 1.8rem !important; }
 
-    .logo-box h2 {
-        font-size: 0.9rem !important; /* නම කුඩා කිරීම */
-        white-space: normal !important; 
-        line-height: 1.1;
-        overflow: hidden;
-    }
+    /* About Section - එකක් යටින් එකක් */
+    .about-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .about-images { grid-template-columns: 1fr !important; }
 
-    .menu-toggle {
-        display: block !important;
-        font-size: 1.5rem !important;
-        margin-left: 10px;
-    }
-
-    /* 2. මෙනු එකේ සියල්ල පෙනෙන සේ සැකසීම */
+    /* Menu Blur Effect */
     .nav-links {
-        position: fixed; /* Fixed භාවිතා කිරීමෙන් මෙනු එක ලොකු වුවත් ස්ක්‍රෝල් වේ */
+        position: fixed;
         top: 60px;
         right: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background: #111827;
+        width: 85% !important; /* දකුණු පැත්තට පමණක් සීමා වේ */
+        height: 100vh;
+        background: rgba(17, 24, 39, 0.95);
         flex-direction: column;
         display: none;
-        padding: 20px;
-        overflow-y: auto; /* මෙනු එකේ සියල්ල පෙනේ */
+        padding: 40px 20px;
         z-index: 1000;
     }
+    
     .nav-links.active { display: flex !important; }
 
-footer {
-        padding: 20px 5% !important;
-        text-align: center !important;
-    }
+    /* මෙනුව එන විට පසුබිම බ්ලර් කිරීමට (JS මගින් body එකට 'menu-open' class එක දාන්න) */
+    body.menu-open > *:not(.nav-links):not(.navbar) { filter: blur(5px); pointer-events: none; }
 
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-        justify-items: center;
-    }
+    /* Footer & Gallery */
+    .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+    .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
 
-    /* ෆූටර් එකේ අකුරු සහ ලෝගෝ කුඩා කිරීම */
-    .footer-grid p, 
-    .footer-grid a, 
-    .footer-grid h3 {
-        font-size: 0.85rem !important; /* අකුරු ප්‍රමාණය කුඩා කිරීම */
-        margin: 5px 0 !important;
-        word-break: break-all !important; /* ඊමේල් වැනි දිග ඒවා පේළියට ගැලපෙන සේ කැඩීම */
-    }
+    /* WhatsApp Button Size */
+    .whatsapp { padding: 10px 15px !important; font-size: 0.8rem !important; bottom: 10px !important; right: 10px !important; }
+}
 
-    .footer-logo {
-        width: 100px !important; /* ලෝගෝ එක පොඩි කිරීම */
-        margin-bottom: 10px !important;
-    }
-
-    .copyright {
-        font-size: 0.75rem !important;
-        margin-top: 15px !important;
-    }
-
-    /* 4. Gallery එක තනි පේළියකට */
-    .gallery-grid {
-        grid-template-rows: 150px !important;
-        grid-auto-columns: 150px;
-        display: flex !important;
-        overflow-x: auto;
-    }
+/* Desktop සඳහා h2 මැදට ගැනීමට */
+@media (min-width: 901px) {
+    .navbar { display: flex; justify-content: center !important; position: relative; }
+    .logo-box { position: absolute; left: 20px; }
 }
