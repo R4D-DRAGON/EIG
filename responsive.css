@@ -37,7 +37,7 @@
     position: fixed !important;
     top: 0 !important; /* Navbar එකට උඩින්ම පටන් ගැනීමට */
     right: -100% !important; /* ආරම්භයේදී තිරයෙන් පිටත දකුණේ තැබීමට */
-    width: 80% !important; /* තිරයෙන් 80% ක් පමණ පළල ගැනීමට */
+    width: 60% !important; /* තිරයෙන් 60% ක් පමණ පළල ගැනීමට */
     height: 100vh !important; /* සම්පූර්ණ උසම ගැනීමට */
     background: #111827 !important;
     flex-direction: column !important;
