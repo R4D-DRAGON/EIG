@@ -140,3 +140,9 @@ function addNewImage(event) {
         reader.readAsDataURL(file);
     }
 }
+
+// script.js හි අගට එකතු කරන්න
+const closeMenu = document.getElementById('closeMenu');
+if (closeMenu) {
+    closeMenu.addEventListener('click', toggleMenu);
+}
