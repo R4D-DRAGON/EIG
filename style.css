@@ -800,7 +800,7 @@ z-index:999;
 
 /* --- Mobile Responsive Fixes --- */
 @media (max-width: 900px) {
-    /* 1. Navbar එක වම්පස ලෝගෝ සහ දකුණුපස මෙනු අයිකන් වන පරිදි */
+    /* 1. Navbar සහ ලෝගෝ කොටස */
     .navbar {
         padding: 10px 15px !important;
         justify-content: space-between !important;
@@ -808,62 +808,48 @@ z-index:999;
 
     .logo-box {
         flex: 1;
-        justify-content: flex-start;
+        min-width: 0; /* මෙය අනිවාර්යයි - අකුරු පිටතට ඒම නවත්වයි */
+        display: flex;
+        align-items: center;
         gap: 8px;
     }
 
     .logo-box h2 {
-        font-size: 1rem !important;
-        white-space: nowrap;
+        font-size: clamp(0.7rem, 3vw, 1.1rem) !important; /* Screen එකේ ප්‍රමාණය අනුව අකුරු ස්වයංක්‍රීයව වෙනස් වේ */
+        white-space: normal !important; /* වචන පේළි දෙකකට කැඩීමට ඉඩ දෙයි */
+        line-height: 1.2;
     }
 
     .menu-toggle {
         display: block !important;
+        margin-left: 10px;
     }
 
-    /* 2. Footer එක එක පේළියට සැකසීම */
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .footer-grid p {
-        white-space: normal; /* අවශ්‍ය නම් පේළි කිහිපයකට කැඩෙන්න */
-    }
-
-    /* 3. Gallery එක තනි පේළියකට කර දකුණට ස්ක්‍රෝල් වන පරිදි */
-    .gallery-grid {
-        grid-template-rows: 200px !important; /* එක පේළියයි */
-        grid-auto-flow: column;
-        overflow-x: auto;
-        display: flex; /* grid වෙනුවට flex භාවිතය වඩා සුදුසුයි */
-        gap: 15px;
-        padding-bottom: 10px;
-    }
-
-    .gallery-grid img, .upload-box {
-        flex-shrink: 0;
-        width: 250px; /* දුරකථනයට ගැලපෙන ප්‍රමාණය */
-        height: 200px;
-    }
-
-    /* ඉතිරි කොටස් */
-    .hero-content h1 { font-size: 2.5rem !important; }
-    .about-grid { grid-template-columns: 1fr !important; }
-    .stats { grid-template-columns: 1fr !important; }
-    
+    /* 2. මෙනු එකේ අකුරු සියල්ල පෙනෙන පරිදි */
     .nav-links {
         position: absolute;
         top: 60px;
         right: 0;
         left: 0;
-        background: rgba(0,0,0,0.9);
+        background: rgba(0,0,0,0.95);
         flex-direction: column;
         display: none;
         padding: 20px;
+        max-height: 80vh; /* මෙනු එක ලොකු නම් ස්ක්‍රෝල් වීමට */
+        overflow-y: auto;
     }
     .nav-links.active { display: flex !important; }
+
+    /* 3. Gallery සහ අනෙකුත් කොටස් */
+    .gallery-grid {
+        grid-template-rows: 200px !important;
+        grid-auto-flow: column;
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+    }
+    
+    .footer-grid { grid-template-columns: 1fr !important; }
 } /* මෙතනින් තමයි මෙනු එකේ Media Query එක වහන්නේ */
 
 
