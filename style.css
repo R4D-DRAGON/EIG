@@ -182,6 +182,10 @@ cursor:pointer;
 
 }
 
+.close-menu {
+    display: none !important;
+}
+
 
 
 .hero-content{
