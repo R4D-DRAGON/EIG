@@ -44,7 +44,7 @@
     display: flex !important; /* ආරම්භයේදීම display: flex තිබිය යුතුය */
     align-items: center; /* ලින්ක්ස් මැදට ගැනීමට */
     padding: 60px 20px; /* උඩ Navbar එකට ඉඩ තැබීමට */
-    z-index: 1002; /* Navbar එකට වඩා ඉහළින් තැබීමට */
+    z-index: 1003; /* Navbar එකට වඩා ඉහළින් තැබීමට */
     
 /* Box sizing එක මගින් Padding නිසා සිදුවන ප්‍රමාණ වෙනස්කම් නවතී */
     box-sizing: border-box !important; 
@@ -91,24 +91,6 @@ body.menu-open::after {
         z-index: 1001;
         pointer-events: auto; /* මෙය 'auto' කළ යුතුයි, එවිට overlay එක උඩ ක්ලික් කළ විට මෙනුව වැසිය හැක */
     }
-
-    /* මෙනුව විවෘත කළ විට Overlay එක උඩ ක්ලික් කළොත් මෙනුව වැසීමට අවශ්‍ය නම්, 
-       ඔබේ JS එකේ closeMenu click event එක overlay එකටත් ලබා දෙන්න. */
-
-    /* 2. Navbar සහ මෙනු සැකසුම */
-    .navbar {
-        position: fixed !important; /* මෙය 'fixed' විය යුතුයි */
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1005 !important;
-        background: transparent; /* අවශ්‍ය නම් background එකක් දෙන්න */
-    }
-
-    .nav-links {
-        z-index: 1006 !important;
-    }
-
 
     /* 6. WhatsApp Button Size 
     .whatsapp { padding: 10px 14px !important; font-size: 0.77rem !important; bottom: 11px !important; right: 11px !important; }
