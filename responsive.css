@@ -111,7 +111,7 @@ body.menu-open {
     
     /* අනෙකුත් අත්‍යවශ්‍ය දේ */
     position: fixed !important;
-    z-index: 9999 !important;
+    z-index: 999 !important;
 }
 
 .close-menu {
