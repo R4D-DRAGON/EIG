@@ -57,31 +57,53 @@
     right: 0 !important; /* හරියටම දකුණු කෙළවරේ (තිරයේ වම් පැත්තේ) නතර වේ */
 }
 
-/* 1. මෙනුව විවෘත වූ විට මුළු අඩවියම Blur කරන්න (Navbar හැර) */
+/*
+
 body.menu-open > *:not(header), 
 body.menu-open header > *:not(.navbar) {
     filter: blur(8px) !important;
     pointer-events: none !important;
     transition: filter 0.4s ease !important;
 }
-
-/* 2. මෙනුව සහ Navbar එක Blur නොවී තැබීම */
+    
 .navbar, .nav-links {
     filter: none !important;
     pointer-events: auto !important;
     z-index: 1005 !important;
 }
 
-/* 3. Hero section එකේ ඇතුළත දේවල් Blur කිරීම තහවුරු කිරීම */
 body.menu-open .hero-content,
 body.menu-open .overlay {
     filter: blur(8px) !important;
     pointer-events: none !important;
 }
 
-/* Blur වූ විට පිටුපස ස්ක්‍රෝල් වීම වැළැක්වීමට */
 body.menu-open {
     overflow: hidden;
+}
+    */
+
+body.menu-open::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* මෙහි 0.7 යනු අඳුරු බවයි (0.1 සිට 1 දක්වා) */
+        z-index: 1000; /* Navbar එකට යටින් සහ අඩවියට උඩින් */
+        pointer-events: none; /* Overlay එකේ ක්ලික් වුවහොත් එය මඟ හැරේ */
+    }
+
+    /* Navbar එක සැමවිටම Overlay එකට උඩින් තැබීමට */
+    .navbar {
+        z-index: 1005 !important;
+        position: relative;
+    }
+    
+    .nav-links {
+        z-index: 1006 !important;
+    }
 }
 
     /* 5. Footer & Gallery */
