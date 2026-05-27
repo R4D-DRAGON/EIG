@@ -33,7 +33,7 @@
 }
 
 .nav-links {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
     position: fixed !important;
     top: 0 !important; /* Navbar එකට උඩින්ම පටන් ගැනීමට */
     right: -100% !important; /* ආරම්භයේදී තිරයෙන් පිටත දකුණේ තැබීමට */
@@ -44,7 +44,7 @@
     display: flex !important; /* ආරම්භයේදීම display: flex තිබිය යුතුය */
     align-items: center; /* ලින්ක්ස් මැදට ගැනීමට */
     padding: 60px 20px; /* උඩ Navbar එකට ඉඩ තැබීමට */
-    z-index: 1001; /* Navbar එකට වඩා ඉහළින් තැබීමට */
+    z-index: 1002; /* Navbar එකට වඩා ඉහළින් තැබීමට */
     
 /* Box sizing එක මගින් Padding නිසා සිදුවන ප්‍රමාණ වෙනස්කම් නවතී */
     box-sizing: border-box !important; 
@@ -88,7 +88,7 @@ body.menu-open::after {
         top: 0;
         left: 0;
         background: rgba(0, 0, 0, 0.6);
-        z-index: 1000;
+        z-index: 1001;
         pointer-events: auto; /* මෙය 'auto' කළ යුතුයි, එවිට overlay එක උඩ ක්ලික් කළ විට මෙනුව වැසිය හැක */
     }
 
