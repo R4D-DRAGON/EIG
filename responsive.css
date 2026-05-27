@@ -117,4 +117,9 @@ body.menu-open {
 .close-menu {
         display: block !important;
     }
+
+    /* 5. Footer & Gallery */
+    .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+    .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
+
 }
