@@ -90,20 +90,31 @@ body.menu-open::after {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* මෙහි 0.7 යනු අඳුරු බවයි (0.1 සිට 1 දක්වා) */
-        z-index: 1000; /* Navbar එකට යටින් සහ අඩවියට උඩින් */
-        pointer-events: none; /* Overlay එකේ ක්ලික් වුවහොත් එය මඟ හැරේ */
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        pointer-events: auto; /* මෙය 'auto' කළ යුතුයි, එවිට overlay එක උඩ ක්ලික් කළ විට මෙනුව වැසිය හැක */
     }
 
-    /* Navbar එක සැමවිටම Overlay එකට උඩින් තැබීමට */
+    /* මෙනුව විවෘත කළ විට Overlay එක උඩ ක්ලික් කළොත් මෙනුව වැසීමට අවශ්‍ය නම්, 
+       ඔබේ JS එකේ closeMenu click event එක overlay එකටත් ලබා දෙන්න. */
+
+    /* 2. Navbar සහ මෙනු සැකසුම */
     .navbar {
+        position: fixed !important; /* මෙය 'fixed' විය යුතුයි */
+        top: 0;
+        left: 0;
+        width: 100%;
         z-index: 1005 !important;
-        position: relative;
+        background: transparent; /* අවශ්‍ය නම් background එකක් දෙන්න */
     }
-    
+
     .nav-links {
         z-index: 1006 !important;
     }
+
+    /* 3. Footer & Gallery */
+    .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+    .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
 }
 
     /* 5. Footer & Gallery */
