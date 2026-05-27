@@ -83,13 +83,17 @@ body.menu-open {
 }
     */
 
-body.menu-open::after {
+    /* 1. අඳුරු පටලය (Overlay) */
+    body.menu-open::after {
         content: "";
+        position: fixed;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
         background: rgba(0, 0, 0, 0.6);
-        z-index: 1001;
-        pointer-events: auto; /* මෙය 'auto' කළ යුතුයි, එවිට overlay එක උඩ ක්ලික් කළ විට මෙනුව වැසිය හැක */
+        z-index: 1000;
+        pointer-events: auto;
     }
 
     /* 6. WhatsApp Button Size 
