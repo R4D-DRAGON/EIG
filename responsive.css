@@ -87,7 +87,7 @@ body.menu-open::after {
         content: "";
         top: 0;
         left: 0;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.6);
         z-index: 1000;
         pointer-events: auto; /* මෙය 'auto' කළ යුතුයි, එවිට overlay එක උඩ ක්ලික් කළ විට මෙනුව වැසිය හැක */
     }
@@ -108,10 +108,6 @@ body.menu-open::after {
     .nav-links {
         z-index: 1006 !important;
     }
-
-    body.menu-open {
-    overflow: hidden;
-}
 
 
     /* 6. WhatsApp Button Size 
