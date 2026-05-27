@@ -122,4 +122,10 @@ body.menu-open {
     .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
     .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
 
+    .hero {
+        /* ජංගම දුරකථන වලදී ස්ථාවර බව සහතික කිරීමට */
+        background-attachment: scroll !important; 
+        background-position: center center !important;
+        background-size: cover !important;
+    }
 }
