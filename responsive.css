@@ -91,3 +91,7 @@ body.menu-open {
     /* 6. WhatsApp Button Size */
     .whatsapp { padding: 10px 14px !important; font-size: 0.77rem !important; bottom: 11px !important; right: 11px !important; }
 }
+
+.close-menu {
+        display: block !important;
+    }
