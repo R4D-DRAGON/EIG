@@ -1,4 +1,4 @@
-/* --- Mobile Responsive Final Optimized --- */
+8/* --- Mobile Responsive Final Optimized --- */
 @media (max-width: 900px) {
     /* 1. Navbar & h2 Adjustments */
     .navbar { padding: 10px 15px !important; justify-content: space-between !important; z-index: 1005; }
@@ -111,7 +111,7 @@ body.menu-open {
     
     /* අනෙකුත් අත්‍යවශ්‍ය දේ */
     position: fixed !important;
-    z-index: 999 !important;
+    z-index: 9999 !important;
 }
 
 .close-menu {
