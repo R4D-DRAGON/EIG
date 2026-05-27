@@ -110,8 +110,22 @@ body.menu-open::after {
     .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
     .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
 
-    /* 6. WhatsApp Button Size */
+    /* 6. WhatsApp Button Size 
     .whatsapp { padding: 10px 14px !important; font-size: 0.77rem !important; bottom: 11px !important; right: 11px !important; }
+}*/
+
+.whatsapp {
+    /* ප්‍රමාණය ප්‍රතිශතයකින් සහ padding එකෙන් පාලනය කිරීම */
+    padding: 2% 4% !important;        /* තිරයේ ප්‍රමාණය අනුව padding එක වෙනස් වේ */
+    font-size: 3.5vw !important;      /* තිරයේ පළල (viewport width) අනුව අකුරු ප්‍රමාණය වෙනස් වේ */
+    
+    /* පිහිටීම */
+    bottom: 15px !important; 
+    right: 15px !important;
+    
+    /* අනෙකුත් අත්‍යවශ්‍ය දේ */
+    position: fixed !important;
+    z-index: 9999 !important;
 }
 
 .close-menu {
