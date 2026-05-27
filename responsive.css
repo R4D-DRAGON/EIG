@@ -109,6 +109,10 @@ body.menu-open::after {
         z-index: 1006 !important;
     }
 
+    body.menu-open {
+    overflow: hidden;
+}
+
 
     /* 6. WhatsApp Button Size 
     .whatsapp { padding: 10px 14px !important; font-size: 0.77rem !important; bottom: 11px !important; right: 11px !important; }
