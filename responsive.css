@@ -1,4 +1,4 @@
-8/* --- Mobile Responsive Final Optimized --- */
+/* --- Mobile Responsive Final Optimized --- */
 @media (max-width: 900px) {
     /* 1. Navbar & h2 Adjustments */
     .navbar { padding: 10px 15px !important; justify-content: space-between !important; z-index: 1005; }
@@ -117,3 +117,4 @@ body.menu-open {
 .close-menu {
         display: block !important;
     }
+}
