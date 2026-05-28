@@ -156,15 +156,13 @@ body.menu-open {
         margin-bottom: 3px !important;      /* අකුරු පේළි අතර පරතරය */
     }
 
-footer {
-        position: relative !important;
-        overflow: visible !important;
-    }
-
     .hero {
         /* ජංගම දුරකථන වලදී ස්ථාවර බව සහතික කිරීමට */
         background-attachment: scroll !important; 
         background-position: center center !important;
         background-size: cover !important;
+        min-height: 100vh !important; /* අවම උස පමණක් තීරණය කිරීම */
+        height: auto !important;      /* අන්තර්ගතයට අනුව උස වෙනස් වීමට */
+        position: relative !important;
     }
 }
