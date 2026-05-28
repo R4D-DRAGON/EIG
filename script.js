@@ -146,3 +146,42 @@ const closeMenu = document.getElementById('closeMenu');
 if (closeMenu) {
     closeMenu.addEventListener('click', toggleMenu);
 }
+
+
+let currentImgIndex = 0;
+// ගැලරියේ ඇති සියලුම පින්තූර එකතු කරගැනීම
+const galleryImages = document.querySelectorAll('.gallery-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+// පින්තූරයක් ක්ලික් කළ විට Lightbox විවෘත කිරීම
+galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentImgIndex = index;
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+    });
+});
+
+// වහන පහසුකම
+function closeLightbox() {
+    lightbox.style.display = 'none';
+}
+
+// ඊළඟ පින්තූරයට යාම (Next)
+function nextImg() {
+    currentImgIndex++;
+    if (currentImgIndex >= galleryImages.length) {
+        currentImgIndex = 0; // ආපහු මුල් පින්තූරයට එනවා
+    }
+    lightboxImg.src = galleryImages[currentImgIndex].src;
+}
+
+// පෙර පින්තූරයට යාම (Previous)
+function prevImg() {
+    currentImgIndex--;
+    if (currentImgIndex < 0) {
+        currentImgIndex = galleryImages.length - 1; // ආපහු අන්තිම පින්තූරයට යනවා
+    }
+    lightboxImg.src = galleryImages[currentImgIndex].src;
+}
