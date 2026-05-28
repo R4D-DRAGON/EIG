@@ -166,6 +166,15 @@ body.menu-open {
 section, .hero, footer {
     height: auto !important;     /* අන්තර්ගතය වැඩි නම් කොටුව විශාල වේ */
     min-height: auto !important; /* විශේෂ අවශ්‍යතාවයක් නැත්නම් මෙය භාවිතා කරන්න */
+    padding: 40px 10px !important; /* Footer සහ අනෙක් කොටස් වලට ඉඩක් */
 }
+
+body.menu-open { overflow: hidden !important; }
+
+html, body {
+        height: auto !important;
+        overflow-x: hidden !important; /* තිරස් ස්ක්‍රෝල් වීම වැළැක්වීමට */
+        overflow-y: auto !important;   /* සිරස් ස්ක්‍රෝල් වීම අනිවාර්ය කිරීමට */
+    }
 
 }
