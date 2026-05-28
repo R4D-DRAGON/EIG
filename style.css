@@ -1164,3 +1164,27 @@ body.blur-active #notification {
     transform: scale(0.95);   /* ක්ලික් කරනකොට පොඩ්ඩක් තද වෙනවා */
 
 }
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+.lightbox img {
+    max-width: 90%; max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
+}
+.close-btn {
+    position: absolute; top: 20px; right: 30px;
+    color: white; font-size: 40px; cursor: pointer;
+}
+.nav-btns { position: absolute; bottom: 50px; display: flex; gap: 20px; }
+.nav-btns button { padding: 10px 20px; cursor: pointer; border-radius: 50%; }
