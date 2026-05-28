@@ -185,3 +185,20 @@ function prevImg() {
     }
     lightboxImg.src = galleryImages[currentImgIndex].src;
 }
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+lightbox.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) nextImg(); // වමට ස්වයිප් කළොත් ඊළඟට
+    if (touchEndX > touchStartX + 50) prevImg(); // දකුණට ස්වයිප් කළොත් කලින් එකට
+}
