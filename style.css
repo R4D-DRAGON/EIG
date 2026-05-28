@@ -1188,3 +1188,14 @@ body.blur-active #notification {
 }
 .nav-btns { position: absolute; bottom: 50px; display: flex; gap: 20px; }
 .nav-btns button { padding: 10px 10px; cursor: pointer; border-radius: 50%; background: #25D366 !important; }
+
+@media (max-width: 600px) {
+    .nav-btn {
+        padding: 15px 5px;
+        font-size: 20px;
+    }
+    .close-btn {
+        top: 5px;
+        right: 10px;
+    }
+}
