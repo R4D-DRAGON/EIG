@@ -720,26 +720,25 @@ footer {
 
 
 
-.footer-grid{
+.footer-grid {
+    display: grid;
+    /* තීරු 3ක්, පළමු දෙකට 1fr බැගින් සහ අන්තිම එකට 2fr ලබා දීම */
+    grid-template-columns: 1fr 1fr 2fr; 
+    gap: 40px; /* පේළි අතර පරතරය */
+    align-items: start;
+    width: 100%;
+}
 
-display:grid;
-
-grid-template-columns: 1fr 1fr 2fr;
-
-gap:30px;
-
+.footer-grid div {
+    display: block;
 }
 
 
-
-.footer-grid p {
-
-    white-space: nowrap; /* මේකෙන් ඊමේල් එක එක දිගට පේළියටම ඉන්නවා */
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
+.footer-grid p, .footer-grid a {
+    display: block;
+    margin-bottom: 10px;
+    white-space: normal; /* පේළි කැඩීමට ඉඩ දීම */
+    word-wrap: break-word;
 }
 
 
