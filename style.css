@@ -1186,7 +1186,7 @@ body.blur-active #notification {
     position: absolute; top: 20px; right: 30px;
     color: white; font-size: 40px; cursor: pointer;
 }
-.nav-btns { position: absolute; bottom: 50px; display: flex; gap: 20px; }
+.nav-btns { position: absolute; bottom: 50px; display: flex; gap: 30px; }
 .nav-btns button { padding: 10px 10px; cursor: pointer; border-radius: 50%; background: #25D366 !important; }
 
 @media (max-width: 600px) {
