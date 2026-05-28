@@ -161,8 +161,11 @@ body.menu-open {
         background-attachment: scroll !important; 
         background-position: center center !important;
         background-size: cover !important;
-        min-height: 100vh !important; /* අවම උස පමණක් තීරණය කිරීම */
-        height: auto !important;      /* අන්තර්ගතයට අනුව උස වෙනස් වීමට */
-        position: relative !important;
     }
+
+section, .hero, footer {
+    height: auto !important;     /* අන්තර්ගතය වැඩි නම් කොටුව විශාල වේ */
+    min-height: auto !important; /* විශේෂ අවශ්‍යතාවයක් නැත්නම් මෙය භාවිතා කරන්න */
+}
+
 }
