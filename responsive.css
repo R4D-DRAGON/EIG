@@ -129,8 +129,8 @@ body.menu-open {
     }
 
     /* 5. Footer & Gallery */
-    .footer-grid { grid-template-columns: 1fr !important; text-align: center; white-space: normal; max-width: 100% !important; padding: 0 15px !important;}
-    /*.gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }*/
+    /*.footer-grid { grid-template-columns: 1fr !important; text-align: center; white-space: normal; max-width: 100% !important; padding: 0 15px !important;}*/
+    .gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
 
 .footer-grid {
         display: flex !important;
@@ -163,11 +163,6 @@ body.menu-open {
         background-size: cover !important;
     }
 
-section, .hero, footer {
-    height: auto !important;     /* අන්තර්ගතය වැඩි නම් කොටුව විශාල වේ */
-    min-height: auto !important; /* විශේෂ අවශ්‍යතාවයක් නැත්නම් මෙය භාවිතා කරන්න */
-    padding: 40px 10px !important; /* Footer සහ අනෙක් කොටස් වලට ඉඩක් */
-}
 
 body.menu-open { overflow: hidden !important; }
 
