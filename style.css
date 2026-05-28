@@ -26,7 +26,7 @@ overflow-x:hidden;
 
 .hero{
 
-height:100vh;
+min-height: 100vh;
 
 background:url('assets/Sigiriyabg.jpg') top center/cover no-repeat;
 
