@@ -153,7 +153,7 @@ body.menu-open {
         overflow-wrap: break-word !important; /* වචන කැඩීමට වඩාත් හොඳ ක්‍රමය */
         word-wrap: break-word !important;
         white-space: normal !important;      /* අනිවාර්යයෙන්ම පේළි කැඩීමට */
-        margin-bottom: 10px !important;      /* අකුරු පේළි අතර පරතරය */
+        margin-bottom: 5px !important;      /* අකුරු පේළි අතර පරතරය */
     }
 
     .hero {
