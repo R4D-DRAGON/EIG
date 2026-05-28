@@ -142,7 +142,9 @@ body.menu-open {
         padding: 30px 0 !important;
         box-sizing: border-box !important;
         text-align: center !important;
+        grid-template-columns: 1fr !important;
     }
+
 
     .footer-grid p, 
     .footer-grid a, 
