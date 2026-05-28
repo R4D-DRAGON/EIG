@@ -722,9 +722,9 @@ footer {
 
 .footer-grid {
     display: grid;
-    /* තීරු 3ක්, පළමු දෙකට 1fr බැගින් සහ අන්තිම එකට 2fr ලබා දීම */
-    grid-template-columns: 1fr 1fr 2fr; 
-    gap: 40px; /* පේළි අතර පරතරය */
+    /* තීරු 3ක්: පළමු එකට 1fr, දෙවැන්නට 1fr, තෙවැන්නට 1.5fr ලෙස වෙන් කරයි */
+    grid-template-columns: 1fr 1fr 1.5fr; 
+    gap: 40px;
     align-items: start;
     width: 100%;
 }
@@ -733,6 +733,9 @@ footer {
     display: block;
 }
 
+.footer-grid a:hover {
+    color: #ff7b00;
+}
 
 .footer-grid p, .footer-grid a {
     display: block;
