@@ -232,3 +232,78 @@ html, body {
         right: 10px;
     }
 }
+
+
+@media (max-width: 480px) {
+
+    .hero {
+
+        padding: 10px;
+
+    }
+
+    
+
+    .logo-box h2 {
+
+        font-size: 1.2rem;
+
+    }
+
+    
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+
+    .hero-buttons a,button {
+
+        width: 100%;
+
+        text-align: center;
+
+transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+
+        cursor: pointer;
+
+    border: none;
+
+        display: inline-block;
+
+    }
+
+
+
+/* මවුස් එක උඩ තියද්දී ලොකු වෙන්න */
+
+.hero-buttons a,button:hover {
+
+    transform: scale(1.05) !important; 
+
+}
+
+
+
+/* ක්ලික් කරනකොට පොඩි වෙන්න */
+
+.hero-buttons a,button:active {
+
+    transform: scale(0.95) !important;
+
+}
+
+
+
+    .stats {
+
+        grid-template-columns: 1fr; /* තනි තනිව ස්ටැට්ස් පෙන්වීමට */
+
+    }
+
+}
