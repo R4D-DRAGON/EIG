@@ -221,3 +221,14 @@ html, body {
 .next { right: 0; border-radius: 50px 0 0 50px; }
 
 }
+
+@media (max-width: 600px) {
+    .nav-btn {
+        padding: 15px 5px;
+        font-size: 20px;
+    }
+    .close-btn {
+        top: 5px;
+        right: 10px;
+    }
+}
