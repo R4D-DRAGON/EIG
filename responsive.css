@@ -157,13 +157,18 @@ body.menu-open::after {
     background-size: cover !important;
 }
 
+.hero-content h1 {
+    font-size: 2rem; 
+    line-height: 1.2;
+}
+
 
 body.menu-open { overflow: hidden !important; }
 
 html, body {
     height: auto !important;
-    overflow-x: hidden !important; /* තිරස් ස්ක්‍රෝල් වීම වැළැක්වීමට */
-    overflow-y: auto !important;   /* සිරස් ස්ක්‍රෝල් වීම අනිවාර්ය කිරීමට */
+    overflow-x: hidden !important; 
+    overflow-y: auto !important;   
 }
 
  /* Lightbox Container - ජංගම දුරකථන වලට ගැලපෙන ලෙස */
