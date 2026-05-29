@@ -1,5 +1,4 @@
 // script.js (පවතින මෙනු කෝඩ් එක වෙනුවට මෙය දමන්න)
-
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -22,10 +21,7 @@ navItems.forEach(item => {
 // මෙනුව විවෘත වූ පසු පිටත (Blur වූ කොටස) ක්ලික් කළ විටද මෙනුව වැසීමට
 document.addEventListener('click', (e) => {
     // මෙනුව විවෘතව ඇත්නම් සහ ක්ලික් කළේ මෙනුව හෝ toggle button එක මත නොවේ නම්
-    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-        toggleMenu();
-    }
-});
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {toggleMenu();}});
 
 // 2. Google Apps Script URL
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz3LB7u6IczMIGri3jzR7mnTT5NhGlLs-obzuHRDWc0_qjm_owM9CROHj-tXXW6PPClCw/exec';
