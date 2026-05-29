@@ -1,269 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Emerland Island Getaways</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="responsive.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<a href="https://wa.me/+94765470061" class="whatsapp">WhatsApp</a>
-
-<header class="hero" id="home">
-<div class="overlay"></div>
-
-<nav class="navbar">
-<div class="logo-box">
-<img src="assets/logo.png">
-<h2>Emerland Island Getaways</h2>
-</div>
-
-<div class="menu-toggle" id="menuToggle">☰</div>
-
-<ul class="nav-links" id="navLinks">
-<div class="close-menu" id="closeMenu" style="position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer;">✕</div>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#destinations">Destinations</a></li>
-<li><a href="#packages">Packages</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#booking">Booking</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-
-<div class="hero-content">
-<h1>Journey Through The Paradise Of Sri Lanka</h1>
-<p>Luxury travel experiences with unforgettable memories and tropical adventures.</p>
-
-<div class="hero-buttons">
-<a href="#packages">Explore Packages</a>
-<a href="#booking">Book Tour</a>
-</div>
-</div>
-</header>
-
-<section class="about" id="about">
-<div class="section-title">
-<h2>About Us</h2>
-<p>Premium Sri Lankan Tourism Experiences</p>
-</div>
-
-<div class="about-grid">
-<div class="about-images">
-<img src="assets/about1.jpg">
-<img src="assets/about2.jpg">
-</div>
-
-<div class="about-text">
-<h3>Luxury Tropical Journeys</h3>
-<p>Emerland Island Getaways provides premium travel experiences across Sri Lanka with personalized tours, safari adventures, luxury transportation and unforgettable memories.</p>
-
-<div class="stats">
-<div><h4>10K+</h4><span>Happy Travelers</span></div>
-<div><h4>500+</h4><span>Tours</span></div>
-<div><h4>50+</h4><span>Destinations</span></div>
-<div><h4>24/7</h4><span>Support</span></div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="packages" id="packages">
-<div class="section-title">
-<h2>Luxury Packages</h2>
-</div>
-
-<div class="card-grid">
-
-<div class="tour-card">
-<img src="assets/Ella.jpg">
-<div class="tour-content">
-<h3>Ella Scenic Journey</h3>
-<p>Tea plantations, Nine Arch Bridge and mountain adventures.</p>
-<span>Rs 60,000.00 • 5 Days</span>
-<a href="#booking"><button>Book Now</button></a>
-</div>
-</div>
-
-<div class="tour-card">
-<img src="assets/Sigiriya.jpg">
-<div class="tour-content">
-<h3>Cultural Triangle Tour</h3>
-<p>Sigiriya, Dambulla and ancient Sri Lankan history.</p>
-<span>Rs 5,500.00 • 7 Days</span>
-<a href="#booking"><button>Book Now</button></a>
-</div>
-</div>
-
-<div class="tour-card">
-<img src="assets/Mirissa.jpg">
-<div class="tour-content">
-<h3>Southern Beach Escape</h3>
-<p>Mirissa, Bentota and luxury beach resorts.</p>
-<span>Rs 70,000.00 • 6 Days</span>
-<a href="#booking"><button>Book Now</button></a>
-</div>
-</div>
-
-</div>
-</section>
-
-<section class="destinations" id="destinations">
-<div class="section-title">
-<h2>Popular Destinations</h2>
-</div>
-
-<div class="destination-grid">
-
-<div class="destination-card"><img src="assets/Sigiriya.jpg"><div class="overlay-card"><h3>Sigiriya</h3><p>Ancient rock fortress.</p></div></div>
-<div class="destination-card"><img src="assets/Ella.jpg"><div class="overlay-card"><h3>Ella</h3><p>Scenic mountain views.</p></div></div>
-<div class="destination-card"><img src="assets/Kandy.jpg"><div class="overlay-card"><h3>Kandy</h3><p>Cultural capital city.</p></div></div>
-<div class="destination-card"><img src="assets/Galle.jpg"><div class="overlay-card"><h3>Galle</h3><p>Historic coastal fort.</p></div></div>
-<div class="destination-card"><img src="assets/Mirissa.jpg"><div class="overlay-card"><h3>Mirissa</h3><p>Tropical beach paradise.</p></div></div>
-<div class="destination-card"><img src="assets/Nuwara Eliya.jpg"><div class="overlay-card"><h3>Nuwara Eliya</h3><p>Tea country luxury.</p></div></div>
-
-</div>
-</section>
-
-<!--6a1643645130812a42437897fa8f60c5-->
-    <section class="gallery" id="gallery">
-    <div class="section-title">
-        <h2>Travel Gallery</h2>
-    </div>
-
-    <div class="gallery-wrapper">
-        <div class="gallery-grid">
-            <img src="assets/WhatsApp Image trayinimg.jpeg">
-            <img src="assets/IMG-20260524-WA0028.jpg">
-            <img src="assets/IMG-20260524-WA0030.jpg">
-            <img src="assets/hero.jpg">
-            <img src="assets/about1.jpg">
-            <img src="assets/IMG-20260524-WA0033.jpg">
-            <img src="assets/about1.jpg">
-            <img src="assets/about2.jpg">
-            
-            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
-                <span>+</span>
-                <input type="file" id="fileInput" style="display:none" onchange="addNewImage(event)">
-            </div>
-        </div>
-    </div>
-
-        
-<div id="lightbox" class="lightbox">
-    <span class="close-btn" onclick="closeLightbox()">&times;</span>
-    <img src="" id="lightbox-img">
-    <div class="nav-btns">
-        <button onclick="prevImg()">❮</button>
-        <button onclick="nextImg()">❯</button>
-    </div>
-</div>
-        
-</section>
-
-        
-
-<section class="reviews" id="reviews">
-<div class="section-title">
-<h2>Traveler Reviews</h2>
-</div>
-
-<div class="review-grid">
-<div class="review-card">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>"Amazing luxury experience in Sri Lanka!"</p>
-<span>- Emily, UK</span>
-</div>
-
-<div class="review-card">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>"Professional service and beautiful destinations."</p>
-<span>- Daniel, Germany</span>
-</div>
-
-<div class="review-card">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>"Best travel agency for Sri Lanka tours."</p>
-<span>- Sophia, Australia</span>
-</div>
-</div>
-</section>
-
-
-<section class="booking" id="booking">
-<div class="section-title">
-<h2>Book Your Tour</h2>
-</div>
-<form class="booking-form" id="bookingForm">
-    <input type="text" name="Name" placeholder="Your Name" required>
-    <input type="email" name="Email" placeholder="Email Address" required>
-    <input type="date" name="Date" required>
-    <input type="number" name="Phone_Number" placeholder="Phone Number" required>
-    <input type="number" name="Number_of_Guests" placeholder="Number of Guests" min="1" required>
-    <input type="number" name="Number_of_Days" placeholder="Number of Days (e.g., 5)" min="1" required>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Emerland Island Getaways</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="responsive.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    </head>
     
-    <div class="form-group" style="margin: 20px 0; padding: 15px; background: #fff; border-radius: 10px; border: 1px solid #ddd;">
-        <label style="display: block; margin-bottom: 15px; font-weight: bold; color: #2d5a27;">Select Destinations:</label>
-        <div class="checkbox-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <label><input type="checkbox" name="Select_Destinations" value="Sigiriya"> Sigiriya</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Kandy"> Kandy</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Ella"> Ella</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Galle"> Galle</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Nuwara Eliya"> Nuwara Eliya</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Yala"> Yala</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Polonnaruwa"> Polonnaruwa</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Anuradhapura"> Anuradhapura</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Mirissa"> Mirissa</label>
-            <label><input type="checkbox" name="Select_Destinations" value="Adams Peak"> Adam's Peak</label>
+    <body>
+        <a href="https://wa.me/+94765470061" class="whatsapp">WhatsApp</a>
+        <header class="hero" id="home">
+            <div class="overlay"></div>
+<!--Navbar-->
+            <nav class="navbar">
+                <div class="logo-box">
+                    <img src="assets/logo.png">
+                    <h2>Emerland Island Getaways</h2>
+                </div>
+
+                <div class="menu-toggle" id="menuToggle">☰</div>
+
+                <ul class="nav-links" id="navLinks">
+                    <div class="close-menu" id="closeMenu" style="position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer;">✕</div>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero-content">
+                <h1>Journey Through The Paradise Of Sri Lanka</h1>
+                <p>Luxury travel experiences with unforgettable memories and tropical adventures.</p>
+
+                <div class="hero-buttons">
+                    <a href="#packages">Explore Packages</a>
+                    <a href="#booking">Book Tour</a>
+                </div>
+            </div>
+        </header>
+
+<!--About-->
+        <section class="about" id="about">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Premium Sri Lankan Tourism Experiences</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-images">
+                    <img src="assets/about1.jpg">
+                    <img src="assets/about2.jpg">
+                </div>
+
+                <div class="about-text">
+                     <h3>Luxury Tropical Journeys</h3>
+                     <p>Emerland Island Getaways provides premium travel experiences across Sri Lanka with personalized tours, safari adventures, luxury transportation and unforgettable memories.</p>
+                    
+                    <div class="stats">
+                        <div><h4>10K+</h4><span>Happy Travelers</span></div>
+                         <div><h4>500+</h4><span>Tours</span></div>
+                         <div><h4>50+</h4><span>Destinations</span></div>
+                         <div><h4>24/7</h4><span>Support</span></div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+<!--Packages-->
+        <section class="packages" id="packages">
+            <div class="section-title">
+                <h2>Luxury Packages</h2>
+            </div>
+
+            <div class="card-grid">
+                <div class="tour-card">
+                    <img src="assets/Ella.jpg">
+                    <div class="tour-content">
+                        <h3>Ella Scenic Journey</h3>
+                        <p>Tea plantations, Nine Arch Bridge and mountain adventures.</p>
+                        <span>Rs 60,000.00 • 5 Days</span>
+                        <a href="#booking"><button>Book Now</button></a>
+                    </div>
+                </div>
+
+                <div class="tour-card">
+                    <img src="assets/Sigiriya.jpg">
+                    <div class="tour-content">
+                        <h3>Cultural Triangle Tour</h3>
+                        <p>Sigiriya, Dambulla and ancient Sri Lankan history.</p>
+                        <span>Rs 5,500.00 • 7 Days</span>
+                        <a href="#booking"><button>Book Now</button></a>
+                    </div>
+                </div>
+        
+                <div class="tour-card">
+                    <img src="assets/Mirissa.jpg">
+                    <div class="tour-content">
+                        <h3>Southern Beach Escape</h3>
+                        <p>Mirissa, Bentota and luxury beach resorts.</p>
+                        <span>Rs 70,000.00 • 6 Days</span>
+                        <a href="#booking"><button>Book Now</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!--Destination-->
+        <section class="destinations" id="destinations">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+            </div>
+
+            <div class="destination-grid">
+                <div class="destination-card"><img src="assets/Sigiriya.jpg"><div class="overlay-card"><h3>Sigiriya</h3><p>Ancient rock fortress.</p></div></div>
+                <div class="destination-card"><img src="assets/Ella.jpg"><div class="overlay-card"><h3>Ella</h3><p>Scenic mountain views.</p></div></div>
+                <div class="destination-card"><img src="assets/Kandy.jpg"><div class="overlay-card"><h3>Kandy</h3><p>Cultural capital city.</p></div></div>
+                <div class="destination-card"><img src="assets/Galle.jpg"><div class="overlay-card"><h3>Galle</h3><p>Historic coastal fort.</p></div></div>
+                <div class="destination-card"><img src="assets/Mirissa.jpg"><div class="overlay-card"><h3>Mirissa</h3><p>Tropical beach paradise.</p></div></div>
+                <div class="destination-card"><img src="assets/Nuwara Eliya.jpg"><div class="overlay-card"><h3>Nuwara Eliya</h3><p>Tea country luxury.</p></div></div>
+            </div>         
+        </section>
+
+<!--Gallery-->
+<!--6a1643645130812a42437897fa8f60c5--> 
+        <section class="gallery" id="gallery">
+            <div class="section-title">
+                <h2>Travel Gallery</h2>
+            </div>
+            
+            <div class="gallery-wrapper">
+                <div class="gallery-grid">
+                    <img src="assets/WhatsApp Image trayinimg.jpeg">
+                    <img src="assets/IMG-20260524-WA0028.jpg">
+                    <img src="assets/IMG-20260524-WA0030.jpg">
+                    <img src="assets/hero.jpg">
+                    <img src="assets/about1.jpg">
+                    <img src="assets/IMG-20260524-WA0033.jpg">
+                    <img src="assets/about1.jpg">
+                    <img src="assets/about2.jpg">
+            
+                    <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                         <span>+</span>
+                         <input type="file" id="fileInput" style="display:none" onchange="addNewImage(event)">
+                    </div>
+                </div>
+            </div>
+
+            <div id="lightbox" class="lightbox">
+                <span class="close-btn" onclick="closeLightbox()">&times;</span>
+                <img src="" id="lightbox-img">
+                <div class="nav-btns">
+                    <button onclick="prevImg()">❮</button>
+                    <button onclick="nextImg()">❯</button>
+                </div>
+            </div>
+        </section>
+
+<!--Reviws-->
+        <section class="reviews" id="reviews">
+            <div class="section-title">
+                <h2>Traveler Reviews</h2>
+            </div>
+
+            <div class="review-grid">
+                <div class="review-card">
+                    <h3>⭐⭐⭐⭐⭐</h3>
+                    <p>"Amazing luxury experience in Sri Lanka!"</p>
+                    <span>- Emily, UK</span>
+                </div>
+
+                <div class="review-card">
+                    <h3>⭐⭐⭐⭐⭐</h3>
+                    <p>"Professional service and beautiful destinations."</p>
+                    <span>- Daniel, Germany</span>
+                </div>
+
+                <div class="review-card">
+                    <h3>⭐⭐⭐⭐⭐</h3>
+                    <p>"Best travel agency for Sri Lanka tours."</p>
+                    <span>- Sophia, Australia</span>
+                </div>
+            </div>
+        </section>
+
+<!--Booking-->    
+        <section class="booking" id="booking">
+            <div class="section-title">
+                <h2>Book Your Tour</h2>
+            </div>
+            
+            <form class="booking-form" id="bookingForm">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Email Address" required>
+                <input type="date" name="Date" required>
+                <input type="number" name="Phone_Number" placeholder="Phone Number" required>
+                <input type="number" name="Number_of_Guests" placeholder="Number of Guests" min="1" required>
+                <input type="number" name="Number_of_Days" placeholder="Number of Days (e.g., 5)" min="1" required>
+    
+                <div class="form-group" style="margin: 20px 0; padding: 15px; background: #fff; border-radius: 10px; border: 1px solid #ddd;">
+                    <label style="display: block; margin-bottom: 15px; font-weight: bold; color: #2d5a27;">Select Destinations:</label>
+                    <div class="checkbox-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <label><input type="checkbox" name="Select_Destinations" value="Sigiriya"> Sigiriya</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Kandy"> Kandy</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Ella"> Ella</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Galle"> Galle</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Nuwara Eliya"> Nuwara Eliya</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Yala"> Yala</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Polonnaruwa"> Polonnaruwa</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Anuradhapura"> Anuradhapura</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Mirissa"> Mirissa</label>
+                        <label><input type="checkbox" name="Select_Destinations" value="Adams Peak"> Adam's Peak</label>
+                    </div>
+                </div>
+                
+                <textarea name="Message" placeholder="Your Message"></textarea>
+                <button type="submit">Send Booking Request</button>
+            </form>
+        </section>
+
+        <div id="notification">
+            <h3>Booking Received!</h3>
+            <p>Thank you! Our team will contact you soon.</p>
+            <button onclick="closeNotification()">Close</button>
         </div>
-    </div>
-    <textarea name="Message" placeholder="Your Message"></textarea>
-    <button type="submit">Send Booking Request</button>
-</form>
-</section>
 
-<div id="notification">
-        <h3>Booking Received!</h3>
-        <p>Thank you! Our team will contact you soon.</p>
-        <button onclick="closeNotification()">Close</button>
-    </div>
-
-<footer id="contact">   
-<div class="footer-grid">
-<div>
-<img src="assets/logo.png" class="footer-logo">
-<p>Luxury tropical travel experiences in Sri Lanka.</p>
-</div>
+        <footer id="contact">   
+            <div class="footer-grid">
+                <div>
+                    <img src="assets/logo.png" class="footer-logo">
+                    <p>Luxury tropical travel experiences in Sri Lanka.</p>
+                </div>
 
 <!-- Quick Links කොටස -->
-<div>
-    <h3>Quick Links</h3>
-    <ul style="list-style: none;">
-        <li><a href="#about" style="color:white; text-decoration:none;">About</a></li>
-        <li><a href="#packages" style="color:white; text-decoration:none;">Packages</a></li>
-        <li><a href="#reviews" style="color:white; text-decoration:none;">Reviews</a></li>
-        <li><a href="#booking" style="color:white; text-decoration:none;">Booking</a></li>
-    </ul>
-</div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#about" style="color:white; text-decoration:none;">About</a></li>
+                        <li><a href="#packages" style="color:white; text-decoration:none;">Packages</a></li>
+                        <li><a href="#reviews" style="color:white; text-decoration:none;">Reviews</a></li>
+                        <li><a href="#booking" style="color:white; text-decoration:none;">Booking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact info</h3>
+                    <p>Email: <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRwQngzDTksTMdpXHFgqGRGtgvfdcwnTstrgjsDbsFDVtDCHRhRrBJNXNRZGZbnsWMfJJZlg">emerlandislandgetaways@gmail.com</p></a>
+                    <p>Phone: <a href="tel:+94765470061" style="color:white; text-decoration:none;">+94 76 547 0061</a></p>
+                    <p>Address: Kokilanwatte Weweldeniya, <br> Nittambuwa, Sri Lanka, 71600</p>
+                </div>
+            </div>
+            
+            <p class="copyright">© 2026 Emerland Island Getaways</p>
+        </footer>
 
-
-    <div>
-    <h3>Contact info</h3>
-    <p>Email: <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRwQngzDTksTMdpXHFgqGRGtgvfdcwnTstrgjsDbsFDVtDCHRhRrBJNXNRZGZbnsWMfJJZlg">emerlandislandgetaways@gmail.com</p></a>
-    <p>Phone: <a href="tel:+94765470061" style="color:white; text-decoration:none;">+94 76 547 0061</a></p>
-    <p>Address: Kokilanwatte Weweldeniya, <br> Nittambuwa, Sri Lanka, 71600</p>
-</div>
-    
-</div>
-
-<p class="copyright">© 2026 Emerland Island Getaways</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
