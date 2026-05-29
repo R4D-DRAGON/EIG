@@ -343,6 +343,12 @@ section{
   gap:20px;
 }
 
+.booking-form input,.booking-form select,.booking-form textarea{
+  padding:18px;
+  border-radius:15px;
+  border:1px solid #ccc;
+}
+
 .booking-form textarea{
   height:100px;
 }
@@ -542,8 +548,33 @@ body.blur-active #notification {
   color: white; font-size: 40px; cursor: pointer;
 }
 
-.nav-btns { position: absolute; bottom: 50px; display: flex; gap: 50px; }
-.nav-btns button { width: 10px; height: 10px; cursor: pointer; border-radius: 50%; background: #25D366 !important; }
+/*.nav-btns { position: absolute; bottom: 50px; display: flex; gap: 50px; }
+.nav-btns button { width: 10px; height: 10px; cursor: pointer; border-radius: 50%; background: #25D366 !important; }*/
+
+.nav-btns { 
+  position: absolute; 
+  bottom: 20px;           
+  display: flex;           
+  justify-content: center; 
+  gap: 40px;               
+  width: 100%;           
+}
+
+.nav-btns button { 
+  cursor: pointer; 
+  border: none;   
+  background: #25D366 !important; 
+  color: white;          
+  width: 50px;       
+  height: 50px;            
+  border-radius: 50%;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;        
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+  transition: transform 0.2s;
+}
 
 .nav-btns button:hover {
   background: #128C7E !important;
