@@ -268,32 +268,4 @@ html, body {
 .stats {
     grid-template-columns: 1fr; /* තනි තනිව ස්ටැට්ස් පෙන්වීමට */
 }
-
-/* Destinations කොටස Mobile සඳහා */
-.destinations .destination-grid {
-    display: grid;
-    /* පේළි 3ක් සෑදීමට */
-    grid-template-rows: repeat(3, 1fr); 
-    /* තීරු ලෙස ස්ක්‍රෝල් වීමට */
-    grid-auto-flow: column;
-    grid-auto-columns: 150px; /* එක් පින්තූරයක පළල */
-    gap: 5px;
-    overflow-x: auto; /* වමේ සිට දකුණට ස්ක්‍රෝල් වීමට */
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory; /* ස්ක්‍රෝල් වන විට පින්තූරය හරියටම නතර වීමට */
-}
-
-.destination-card {
-    scroll-snap-align: start;
-    width: 150px;
-}
-
-/* Scroll bar එක ලස්සන කිරීමට (Optional) */
-.destination-grid::-webkit-scrollbar {
-    height: 5px;
-}
-.destination-grid::-webkit-scrollbar-thumb {
-    background: #ff7b00;
-    border-radius: 10px;
-}
 }
