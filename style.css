@@ -45,13 +45,15 @@ body{
   padding: 5px 14px;
   border-radius: 0.9rem;
   border: 2px solid transparent;
+  font-weight: 500;
+  display: inline-block;
 }
 
 .navbar a:hover{
   background-color: rgba(255, 188, 106, 0.3); /* ලා තැඹිලි විනිවිද පෙනෙන ස්ථරය */
   border: 2px solid #ffbc6a; /* ලස්සන බෝඩර් එකක් මතු වේ  */
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   transition: 0.60s all linear;
 }
 
