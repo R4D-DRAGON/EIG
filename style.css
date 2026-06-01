@@ -458,28 +458,24 @@ footer {
   100% { transform: rotate(360deg); }
 }
 
-/* බ්ලර් එෆෙක්ට් එක - මේ විදිහට දැම්මම සියලුම දේවල් අනිවාර්යයෙන් බ්ලර් වෙනවා */
 body.blur-active > * {
   filter: blur(8px);
   pointer-events: none;
   transition: filter 0.3s ease;
 }
 
-/* හැබැයි notification එකට බ්ලර් එක බලපාන්න එපා */
 body.blur-active #notification {
   filter: none !important;
   pointer-events: auto !important;
 }
 
-/* බටන් එකේ මූලික ස්ටයිල් එක - !important දාන්න එපා මෙතනට */
 .booking-form button {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important
+  transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important
   cursor: pointer;
   border: none;
   display: inline-block;
 }
 
-/* මවුස් එක උඩ තියද්දී ලොකු වෙන්න */
 .booking-form button:hover {
   transform: scale(1.05) !important; 
 }
@@ -585,23 +581,21 @@ body.blur-active #notification {
   
 }
 .tour-card button {
-  padding: 12px 0;
-  border: none;
   border-radius: 20px;
   border: none !important;
 }
 
 .packages .card-grid {
-  display: flex; /* පේළියක් ලෙස ගැනීමට */
+  display: flex; 
   gap:30px;
-  overflow-x: auto; /* වම්-දකුණු Scroll සඳහා */
+  overflow-x: auto; 
   padding: 20px 0;
   width: 100%;
-  scrollbar-width: thin; /* Scroll bar එක සිහින් කිරීමට */
+  scrollbar-width: thin;
 }
 
 .tour-card {
-  flex: 0 0 300px; /* සෑම කාඩ් එකක්ම 300px පළල වේ */
+  flex: 0 0 300px; 
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
