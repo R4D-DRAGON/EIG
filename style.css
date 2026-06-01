@@ -45,16 +45,14 @@ body{
   padding: 5px 14px;
   border-radius: 0.9rem;
   border: 2px solid transparent;
-  font-weight: 500;
-  display: inline-block;
 }
 
 .navbar a:hover{
   background-color: rgba(255, 188, 106, 0.3); /* ලා තැඹිලි විනිවිද පෙනෙන ස්ථරය */
   border: 2px solid #ffbc6a; /* ලස්සන බෝඩර් එකක් මතු වේ  */
   color: #fff;
-  font-weight: 500;
-  transition: 0.60s all linear;
+  font-weight: 600;
+  transition: 0.58s all linear;
 }
 
 .logo-box{
@@ -187,7 +185,7 @@ section{
   border-radius:25px;
   overflow:hidden;
   box-shadow:0 10px 30px rgba(0,0,0,.15);
-  transition:0.4s;
+  transition:.4s;
   background:#fff;
 }
 
@@ -458,31 +456,35 @@ footer {
   100% { transform: rotate(360deg); }
 }
 
+/* බ්ලර් එෆෙක්ට් එක - මේ විදිහට දැම්මම සියලුම දේවල් අනිවාර්යයෙන් බ්ලර් වෙනවා */
 body.blur-active > * {
   filter: blur(8px);
   pointer-events: none;
   transition: filter 0.3s ease;
 }
 
+/* හැබැයි notification එකට බ්ලර් එක බලපාන්න එපා */
 body.blur-active #notification {
   filter: none !important;
   pointer-events: auto !important;
 }
 
+/* බටන් එකේ මූලික ස්ටයිල් එක - !important දාන්න එපා මෙතනට */
 .booking-form button {
-  transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important
   cursor: pointer;
   border: none;
   display: inline-block;
 }
 
+/* මවුස් එක උඩ තියද්දී ලොකු වෙන්න */
 .booking-form button:hover {
   transform: scale(1.05) !important; 
 }
 
 /* ක්ලික් කරනකොට පොඩි වෙන්න */
 .booking-form button:active {
-  transform: scale(0.2) !important;
+  transform: scale(0.95) !important;
 }
 
 .my-btn {
@@ -578,54 +580,26 @@ body.blur-active #notification {
   background: #128C7E !important;
   transform: scale(1.1);
 }
-  
+
 .tour-card button {
-  border-radius: 20px;
-  border: none !important;
-  width: 100%;
-  padding: 12px;
-  background: #ff7b00;
   border: none !important;
 }
 
 .packages .card-grid {
-  display: flex; 
-  gap:30px;
-  overflow-x: auto; 
+  display: flex; /* පේළියක් ලෙස ගැනීමට */
+  gap: 20px;
+  overflow-x: auto; /* වම්-දකුණු Scroll සඳහා */
   padding: 20px 0;
   width: 100%;
-  scrollbar-width: thin;
+  scrollbar-width: thin; /* Scroll bar එක සිහින් කිරීමට */
 }
 
 .tour-card {
-  flex: 0 0 300px;
-  height: 400px;       
-  display: flex;
-  flex-direction: column;  
-  padding: 20px;          
-  background: #fff;
+  flex: 0 0 300px; /* සෑම කාඩ් එකක්ම 300px පළල වේ */
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  background: #fff;
   overflow: hidden;
-}
-
-.tour-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;       
-}
-
-.tour-content a {
-  margin-top: auto;       
-  height: 100%;
-  padding-top: 15px;    
-  width: 100%;
-}
-
-.tour-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
 }
 
 .card-grid::-webkit-scrollbar { height: 6px; }
