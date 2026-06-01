@@ -585,6 +585,16 @@ body.blur-active #notification {
 
 .tour-card button {
   border: none !important;
+  .tour-card button;
+  
+}
+.tour-card button {
+    margin-top: auto;        /* මේකෙන් අනිත් අකුරු වලට පස්සේ ඉතිරි ඉඩ බට්න් එකට ලැබෙනවා */
+    width: calc(100% - 40px); /* 20px (වම) + 20px (දකුණ) ඉඩ අඩු කරලා සම්පූර්ණ පළල ගන්න */
+    margin-left: 0;          /* Padding 20px තියෙන නිසා මේක 0 උනාම හරියටම මැද වෙයි */
+    padding: 12px 0;
+    border: none;
+    border-radius: 20px;
 }
 
 .packages .card-grid {
@@ -602,6 +612,18 @@ body.blur-active #notification {
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
   overflow: hidden;
+  padding: 20px;
+}
+
+.tour-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;       
+}
+
+.tour-content a {
+  margin-top: auto;       /* මෙය තමයි රහස: ඉතිරි සියලු ඉඩ බට්න් එකට උඩින් තබයි */
+  width: 100%;
 }
 
 .card-grid::-webkit-scrollbar { height: 6px; }
