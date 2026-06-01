@@ -484,7 +484,7 @@ body.blur-active #notification {
 
 /* ක්ලික් කරනකොට පොඩි වෙන්න */
 .booking-form button:active {
-  transform: scale(0.95) !important;
+  transform: scale(0.2) !important;
 }
 
 .my-btn {
