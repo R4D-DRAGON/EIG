@@ -612,7 +612,6 @@ body.blur-active #notification {
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
   overflow: hidden;
-  padding: 20px;
 }
 
 .tour-content {
