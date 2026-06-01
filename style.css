@@ -582,16 +582,13 @@ body.blur-active #notification {
   background: #128C7E !important;
   transform: scale(1.1);
 }
-
-.tour-card button {
-  border: none !important;
-  .tour-card button;
   
 }
 .tour-card button {
-    padding: 12px 0;
-    border: none;
-    border-radius: 20px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 20px;
+  border: none !important;
 }
 
 .packages .card-grid {
