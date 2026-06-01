@@ -241,12 +241,7 @@ section{
 }
 
 .gallery-grid::-webkit-scrollbar-track {
-  background: #F0F8FF; /* Scroll bar එකේ පසුබිම */
-  border-radius: 10px;
-}
-
-.gallery-grid::-webkit-scrollbar-thumb {
-  background: #25D366; /* Scroll bar එකේ පාට (WhatsApp කොළ පාට වගේ) */
+  background: #F0F8FF; 
   border-radius: 10px;
 }
 
