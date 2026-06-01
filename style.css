@@ -579,7 +579,6 @@ body.blur-active #notification {
   transform: scale(1.1);
 }
   
-}
 .tour-card button {
   border-radius: 20px;
   border: none !important;
