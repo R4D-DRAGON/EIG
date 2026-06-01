@@ -589,7 +589,7 @@ body.blur-active #notification {
 
 .packages .card-grid {
   display: flex; /* පේළියක් ලෙස ගැනීමට */
-  gap: 20px;
+  gap:30px;
   overflow-x: auto; /* වම්-දකුණු Scroll සඳහා */
   padding: 20px 0;
   width: 100%;
