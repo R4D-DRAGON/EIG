@@ -504,18 +504,17 @@ body.blur-active #notification {
   text-decoration: none;
   z-index: 999;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-   /* මෙතන තමයි ඇනිමේෂන් එකේ රහස තියෙන්නේ */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .whatsapp:hover {
-  background: #128C7E;      /* මවුස් එක උඩ තියද්දී පාට වෙනස් වෙනවා */
-  transform: scale(1.15);   /* 15% කින් ලොකු වෙනවා */
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); /* ලස්සන Glow එකක් එනවා */
+  background: #128C7E;     
+  transform: scale(1.15);  
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); 
 }
 
 .whatsapp:active {
-  transform: scale(0.95);   /* ක්ලික් කරනකොට පොඩ්ඩක් තද වෙනවා */
+  transform: scale(0.95);   
 }
 
 .lightbox {
@@ -577,6 +576,9 @@ body.blur-active #notification {
 
 .tour-card button {
   border: none !important;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
 }
 
 .packages .card-grid {
@@ -585,11 +587,10 @@ body.blur-active #notification {
   overflow-x: auto; 
   padding: 20px 0;
   width: 100%;
-  box-shadow: none !important;
 }
 
 .tour-card {
-  flex: 0 0 300px; 
+  flex: 0 0 280px; 
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
