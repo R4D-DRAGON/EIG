@@ -580,16 +580,16 @@ body.blur-active #notification {
 }
 
 .packages .card-grid {
-  display: flex; /* පේළියක් ලෙස ගැනීමට */
+  display: flex; 
   gap: 20px;
-  overflow-x: auto; /* වම්-දකුණු Scroll සඳහා */
+  overflow-x: auto; 
   padding: 20px 0;
   width: 100%;
-  scrollbar-width: thin; /* Scroll bar එක සිහින් කිරීමට */
+  box-shadow: none !important;
 }
 
 .tour-card {
-  flex: 0 0 300px; /* සෑම කාඩ් එකක්ම 300px පළල වේ */
+  flex: 0 0 300px; 
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
