@@ -595,6 +595,7 @@ body.blur-active #notification {
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
   overflow: hidden;
+  position: relative;
 }
 
 /*.card-grid::-webkit-scrollbar { height: 8px; }
