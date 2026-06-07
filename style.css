@@ -580,16 +580,20 @@ body.blur-active #notification {
   overflow-x: auto; 
   padding: 20px 0;
   width: 100%;
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth;      
+  padding: 20px 50vw 20px 20px;
 }
 
 .tour-card {
-  flex: 0 0 300px; 
+  flex: 0 0 270px; 
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
   background: #fff;
   overflow: hidden;
   position: relative;
   padding-bottom: 45px;
+  scroll-snap-align: center;
 }
 
 /*.card-grid::-webkit-scrollbar { height: 8px; }
