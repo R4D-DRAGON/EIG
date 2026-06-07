@@ -229,7 +229,7 @@
             <form class="booking-form" id="bookingForm">
                 <input type="text" name="Name" placeholder="Your Name" required>
                 <input type="email" name="Email" placeholder="Email Address" required>
-                <input type="date" name="Date" required>
+                <input type="text" name="Date" placeholder="Date (YYYY/MM/DD)" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
                 <input type="number" name="Phone_Number" placeholder="Phone Number" required>
                 <input type="number" name="Number_of_Guests" placeholder="Number of Guests" min="1" required>
                 <input type="number" name="Number_of_Days" placeholder="Number of Days (e.g., 5)" min="1" required>
