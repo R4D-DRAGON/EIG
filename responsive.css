@@ -219,7 +219,8 @@ html, body {
 .prev { left: 0; border-radius: 0 50px 50px 0; }
 .next { right: 0; border-radius: 50px 0 0 50px; }
 
-.booking-form input, .booking-form select, .booking-form textarea{
+.booking-form input:not([type="checkbox"]), 
+.booking-form textarea {
   width: 100%; /* මේක අලුතින් එකතු කරන්න - අනිත් බොක්ස් වගේම දිගට එන්න */
   display: block; /* බොක්ස් එක සම්පූර්ණ පේළියම ගන්නවා කියලා සහතික කරන්න */
     }
