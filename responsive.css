@@ -126,7 +126,7 @@ body.menu-open::after {
 
 .gallery-grid { 
     display: grid !important;                /* මෙහි grid ලෙස දාන්න */
-    grid-template-columns: repeat(2, 1fr) !important; /* පේළි දෙකක් සෑදීමට */
+    grid-template-columns: repeat(100, 1fr) !important; /* පේළි දෙකක් සෑදීමට */
     gap: 10px !important;                    /* පින්තූර අතර පරතරය */
     overflow-x: auto;         
 }
