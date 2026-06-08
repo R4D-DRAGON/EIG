@@ -221,9 +221,44 @@ html, body {
 
 .booking-form input:not([type="checkbox"]), 
 .booking-form textarea {
-  width: 100%; /* මේක අලුතින් එකතු කරන්න - අනිත් බොක්ස් වගේම දිගට එන්න */
-  display: block; /* බොක්ස් එක සම්පූර්ණ පේළියම ගන්නවා කියලා සහතික කරන්න */
-    }
+    width: 100%; /* මේක අලුතින් එකතු කරන්න - අනිත් බොක්ස් වගේම දිගට එන්න */
+    display: block; /* බොක්ස් එක සම්පූර්ණ පේළියම ගන්නවා කියලා සහතික කරන්න */
+}
+
+/* ===================================================
+       BOOKING MODAL - MOBILE ADJUSTMENTS (900px)
+    =================================================== */
+.status-modal {
+    padding: 15px !important; /* ෆෝන් එකේ දාර වලට තද නොවී ඉඩ තැබීමට */
+}
+
+.modal-content {
+    max-width: 95% !important; /* ෆෝන් එකේ ස්ක්‍රීන් එකෙන් 95%ක්ම පළල ගැනීමට */
+    padding: 25px 15px !important; /* ඇතුළත ඉඩ මදක් අඩු කිරීම */
+    border-radius: 12px !important; 
+}
+
+.modal-state h3 {
+    font-size: 20px !important; /* අකුරු ෆෝන් එකට ගැළපෙන සේ කුඩා කිරීම */
+    margin: 10px 0 !important;
+}
+
+.modal-state p {
+    font-size: 14px !important;
+    margin-bottom: 15px !important;
+}
+
+.spinner {
+    width: 50px !important; /* Loading රවුම මදක් කුඩා කිරීම */
+    height: 50px !important;
+    border-width: 5px !important;
+}
+
+.modal-btn {
+    padding: 12px !important;
+    font-size: 15px !important;
+    border-radius: 6px !important;
+}
     
 }
 
