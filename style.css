@@ -599,22 +599,22 @@ body.blur-active #notification {
 /*.card-grid::-webkit-scrollbar { height: 8px; }
 .card-grid::-webkit-scrollbar-thumb { background: #ff7b00; border-radius: 10px; }*/
 
-/* Professional Status Modal Styles */
+/* --- SUPER COMPACT & SLEEK MODAL STYLE --- */
 .status-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     display: none; 
     justify-content: center;
     align-items: center;
-    z-index: 3000; /* හැමදේටම උඩින් පෙනෙන්න */
+    z-index: 3000;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
 }
 
 .status-modal.show {
@@ -624,15 +624,15 @@ body.blur-active #notification {
 
 .modal-content {
     background: #ffffff;
-    padding: 30px 24px; /* පෑඩින් අඩු කරලා සයිස් එක පොඩි කරා */
-    border-radius: 16px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    padding: 22px 18px; /* කොටුවේ ඇතුළත ඉඩ (Padding) තවත් අඩු කරා */
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     text-align: center;
-    max-width: 340px; /* සයිස් එක ලස්සනට කුඩා කරා (3 වෙනි ෆොටෝ එක වගේ) */
-    width: 85%;
-    transform: scale(0.85);
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* සුපිරි Bounce Effect එකක් */
-    overflow: hidden; /* කිසිම දෙයක් කොටුවෙන් පිට පනින්නේ නැති වෙන්න */
+    max-width: 290px; /* මුළු කොටුවම තවත් ලස්සනට කුඩා කරා */
+    width: 82%;
+    transform: scale(0.88);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
     box-sizing: border-box;
 }
 
@@ -646,23 +646,23 @@ body.blur-active #notification {
 
 .modal-state.active {
     display: block;
-    animation: modalFadeIn 0.4s ease forwards;
+    animation: modalFadeIn 0.25s ease forwards;
 }
 
 @keyframes modalFadeIn {
-    from { opacity: 0; transform: translateY(15px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Professional Spinner */
+/* කැරකෙන Spinner එක ගොඩක් පොඩි කරා */
 .spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #2d5a27; /* ඔයාගේ සයිට් එකේ තීම් කලර් එක */
+    width: 36px;       /* 48px සිට 36px දක්වා කුඩා කරා */
+    height: 36px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2d5a27;
     border-radius: 50%;
-    margin: 0 auto 20px;
-    animation: spin 1s linear infinite;
+    margin: 0 auto 12px;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -670,34 +670,39 @@ body.blur-active #notification {
     100% { transform: rotate(360deg); }
 }
 
+/* ප්‍රධාන මාතෘකාව (Heading) */
 .modal-content h3 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 16px;   /* 19px සිට 16px දක්වා කුඩා කරා */
+    color: #222;
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
+/* විස්තරය (Paragraph text) */
 .modal-content p {
-    font-size: 14px;
+    font-size: 12px;   /* 13.5px සිට 12px දක්වා සියුම් කරා */
     color: #666;
-    margin-bottom: 25px;
-    line-height: 1.5;
+    margin-bottom: 16px;
+    line-height: 1.4;
 }
 
-/* Modal Buttons */
+/* බටන් එක (Close Button) */
 .modal-btn {
-    padding: 12px 35px;
+    padding: 8px 20px; /* බටන් එකේ උස සහ පළල සියුම් ලෙස අඩු කරා */
     border: none;
-    border-radius: 25px;
+    border-radius: 18px;
     color: white;
-    font-size: 15px;
+    font-size: 13px;   /* අකුරු 13px දක්වා කුඩා කරා */
     font-weight: 500;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%; 
+    box-sizing: border-box;
 }
 
 .modal-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
 }
 
 .btn-success { background: #28a745; }
@@ -706,41 +711,33 @@ body.blur-active #notification {
 .btn-error { background: #dc3545; }
 .btn-error:hover { background: #c82333; }
 
-/* SVG Animated Icons (Check & Cross) */
+/* හරි/වැරදි අයිකන (Icons) */
 .icon-success, .icon-error {
-    width: 75px;
-    height: 75px;
-    margin: 0 auto 20px;
+    width: 46px;       /* 60px සිට 46px දක්වා Cute සයිස් එකකට කුඩා කරා */
+    height: 46px;
+    margin: 0 auto 12px;
 }
 
 .icon-circle {
     stroke-dasharray: 166;
     stroke-dashoffset: 166;
-    stroke-width: 3;
+    stroke-width: 3.5;
     stroke-miterlimit: 10;
-    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
 .icon-success .icon-circle { stroke: #28a745; }
 .icon-error .icon-circle { stroke: #dc3545; }
 
-.icon-check {
+.icon-check, .icon-cross {
     transform-origin: 50% 50%;
     stroke-dasharray: 48;
     stroke-dashoffset: 48;
-    stroke-width: 3;
-    stroke: #28a745;
-    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+    stroke-width: 3.5;
+    animation: stroke 0.25s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
 }
-
-.icon-cross {
-    transform-origin: 50% 50%;
-    stroke-dasharray: 48;
-    stroke-dashoffset: 48;
-    stroke-width: 3;
-    stroke: #dc3545;
-    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
-}
+.icon-check { stroke: #28a745; }
+.icon-cross { stroke: #dc3545; }
 
 @keyframes stroke {
     100% { stroke-dashoffset: 0; }
