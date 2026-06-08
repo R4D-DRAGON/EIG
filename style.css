@@ -217,9 +217,9 @@ section{
 /* පින්තූර ටික තියෙන Grid එකේ scroll bar එක ලස්සන කරන හැටි */
 .gallery-grid {
   display: grid;
-  grid-template-rows: repeat(2, 200px);
+  grid-template-rows: repeat(2, 165px);
   grid-auto-flow: column;
-  gap: 20px;
+  gap: 15px;
   overflow-x: auto; /* මේකෙන් තමයි Scroll වෙන්නේ */
   padding-bottom: 20px; /* Scroll bar එකට ඉඩ තියන්න */
   flex-shrink: 0;
