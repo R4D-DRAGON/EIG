@@ -1,4 +1,4 @@
-// script.js (සම්පූර්ණ කෝඩ් එක)
+// script.js (සම්පූර්ණ සහ යාවත්කාලීන කරන ලද කෝඩ් එක)
 
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
@@ -28,7 +28,7 @@ document.addEventListener('click', (e) => {
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz3LB7u6IczMIGri3jzR7mnTT5NhGlLs-obzuHRDWc0_qjm_owM9CROHj-tXXW6PPClCw/exec';
 
 
-// 3. Booking Form එක පාලනය කිරීම (With Modern Loading Modal) - සංශෝධිත කොටස
+// 3. Booking Form එක පාලනය කිරීම (With Modern Loading Modal)
 const bookingForm = document.getElementById('bookingForm');
 const bookingModal = document.getElementById('bookingModal');
 const modalLoading = document.getElementById('modalLoading');
@@ -97,6 +97,20 @@ function closeBookingModal() {
     if(bookingModal) bookingModal.classList.remove('show');
 }
 
+// බ්ලර් වෙච්ච Background (Overlay) එක ක්ලික් කරපුහම මොඩල් එක වහන්න එකතු කළ කොටස
+if (bookingModal) {
+    bookingModal.addEventListener('click', function(e) {
+        // ක්ලික් කළේ පිටත කළු පසුබිමට නම් සහ දැනට Loading දුවන්නේ නැත්නම් පමණක් වසන්න
+        if (e.target === bookingModal && modalLoading && !modalLoading.classList.contains('active')) {
+            closeBookingModal();
+        }
+    });
+}
+
+// බ්‍රව්සර් Console එකෙන් කෙළින්ම චෙක් කිරීමට හැකිතාක් Scope එක විවෘත කිරීම
+window.showModalState = showModalState;
+window.closeBookingModal = closeBookingModal;
+
 
 // 4. පින්තූර Upload කිරීම (Gallery)
 function createGalleryItem(imageUrl) {
@@ -164,47 +178,5 @@ const lightboxImg = document.getElementById('lightbox-img');
 galleryImages.forEach((img, index) => {
     img.addEventListener('click', () => {
         currentImgIndex = index;
-        lightboxImg.src = img.src;
-        lightbox.style.display = 'flex';
-    });
-});
-
-// වහන පහසුකම
-function closeLightbox() {
-    lightbox.style.display = 'none';
-}
-
-// ඊළඟ පින්තූරයට යාම (Next)
-function nextImg() {
-    currentImgIndex++;
-    if (currentImgIndex >= galleryImages.length) {
-        currentImgIndex = 0; // ආපහු මුල් පින්තූරයට එනවා
-    }
-    lightboxImg.src = galleryImages[currentImgIndex].src;
-}
-
-// පෙර පින්තූරයට යාම (Previous)
-function prevImg() {
-    currentImgIndex--;
-    if (currentImgIndex < 0) {
-        currentImgIndex = galleryImages.length - 1; // ආපහු අන්තිම පින්තූරයට යනවා
-    }
-    lightboxImg.src = galleryImages[currentImgIndex].src;
-}
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-lightbox.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-lightbox.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) nextImg(); // වමට ස්වයිප් කළොත් ඊළඟට
-    if (touchEndX > touchStartX + 50) prevImg(); // දකුණට ස්වයිප් කළොත් කලින් එකට
-}
+        lightboxImg.src = img
+        
