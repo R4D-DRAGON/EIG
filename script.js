@@ -1,4 +1,5 @@
-// script.js (පවතින මෙනු කෝඩ් එක වෙනුවට මෙය දමන්න)
+// script.js (සම්පූර්ණ කෝඩ් එක)
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -26,22 +27,24 @@ document.addEventListener('click', (e) => {
 // 2. Google Apps Script URL
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz3LB7u6IczMIGri3jzR7mnTT5NhGlLs-obzuHRDWc0_qjm_owM9CROHj-tXXW6PPClCw/exec';
 
-// 3. Booking Form එක පාලනය කිරීම
+
+// 3. Booking Form එක පාලනය කිරීම (With Modern Loading Modal) - සංශෝධිත කොටස
 const bookingForm = document.getElementById('bookingForm');
-const overlayModal = document.getElementById('overlayModal');
-const loaderContent = document.getElementById('loaderContent');
-const successContent = document.getElementById('successContent');
+const bookingModal = document.getElementById('bookingModal');
+const modalLoading = document.getElementById('modalLoading');
+const modalSuccess = document.getElementById('modalSuccess');
+const modalError = document.getElementById('modalError');
 
 if (bookingForm) {
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Loading එක පෙන්වන්න
-        if (overlayModal) {
-            overlayModal.style.display = 'flex';
-            loaderContent.style.display = 'block';
-            successContent.style.display = 'none';
-        }
+        // Double Click වළක්වන්න සබ්මිට් බටන් එක ලොක් (Disable) කිරීම
+        const submitBtn = bookingForm.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        // Loading ස්ටේට් එක Modal එකට දමා පෙන්වීම
+        showModalState(modalLoading);
 
         const formData = new FormData(bookingForm);
 
@@ -53,40 +56,47 @@ if (bookingForm) {
         formData.delete('Select_Destinations'); 
         formData.append('Select_Destinations', selected); 
 
-        // Google Script එකට යැවීම
+        // Google Script එකට දත්ත යැවීම
         fetch(WEB_APP_URL, {
             method: 'POST',
             body: formData
         })
-        .then(res => res.text())
+        .then(res => res.json()) // Google Apps Script එකෙන් එන JSON Output එක කියවීම
         .then(data => {
-            if (overlayModal) {
-                loaderContent.style.display = 'none';
-                successContent.style.display = 'block';
+            if (data.result === "success") {
+                // බුකින් එක සාර්ථක නම් Success ස්ටේට් එක පෙන්වීම
+                showModalState(modalSuccess);
+                bookingForm.reset();
             } else {
-                // ඔබ ඉල්ලූ Notification පෙන්වීම
-                document.getElementById('notification').style.display = 'block';
+                // Google එකෙන් Error එකක් ආවොත් Error ස්ටේට් එක පෙන්වීම
+                showModalState(modalError);
             }
-            bookingForm.reset();
+            if (submitBtn) submitBtn.disabled = false;
         })
         .catch(err => {
             console.error(err);
-            alert("Error sending booking. Please try again.");
-            if (overlayModal) overlayModal.style.display = 'none';
+            // ඉන්ටර්නෙට් නැති වුණොත් හෝ මැසේජ් එක නොගියොත් Error ස්ටේට් එක පෙන්වීම
+            showModalState(modalError);
+            if (submitBtn) submitBtn.disabled = false;
         });
     });
 }
 
-// Notification සහ Modal වැසීමට
-function closeNotification() {
-    document.getElementById('notification').style.display = 'none';
+// Modal එක ඇතුළේ වෙනස් වෙන ස්ටේට්ස් (Loading, Success, Error) පාලනය කරන ශ්‍රිතය
+function showModalState(activeState) {
+    if(modalLoading) modalLoading.classList.remove('active');
+    if(modalSuccess) modalSuccess.classList.remove('active');
+    if(modalError) modalError.classList.remove('active');
+    
+    if(activeState) activeState.classList.add('active');
+    if(bookingModal) bookingModal.classList.add('show');
 }
 
-function closeModal() {
-    if (overlayModal) {
-        overlayModal.style.display = 'none';
-    }
+// Modal එක වසා දැමීමට
+function closeBookingModal() {
+    if(bookingModal) bookingModal.classList.remove('show');
 }
+
 
 // 4. පින්තූර Upload කිරීම (Gallery)
 function createGalleryItem(imageUrl) {
