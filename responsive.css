@@ -122,7 +122,14 @@ body.menu-open::after {
 }
 
  /*.footer-grid { grid-template-columns: 1fr !important; text-align: center; white-space: normal; max-width: 100% !important; padding: 0 15px !important;}*/
-.gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }
+/*.gallery-grid { grid-template-rows: 150px !important; display: flex !important; overflow-x: auto; }*/
+
+.gallery-grid { 
+    display: grid !important;                /* මෙහි grid ලෙස දාන්න */
+    grid-template-columns: repeat(2, 1fr) !important; /* පේළි දෙකක් සෑදීමට */
+    gap: 10px !important;                    /* පින්තූර අතර පරතරය */
+    overflow-x: auto;         
+}
 
 .footer-grid {
     display: flex !important;
