@@ -598,3 +598,147 @@ body.blur-active #notification {
 
 /*.card-grid::-webkit-scrollbar { height: 8px; }
 .card-grid::-webkit-scrollbar-thumb { background: #ff7b00; border-radius: 10px; }*/
+
+/* Professional Status Modal Styles */
+.status-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* පිටුපස Blur වන සුපිරි Effect එක */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 2500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.status-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.status-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-state {
+    display: none;
+}
+
+.modal-state.active {
+    display: block;
+    animation: modalFadeIn 0.4s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Professional Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #2d5a27; /* ඔයාගේ සයිට් එකේ තීම් කලර් එක */
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal-content h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Modal Buttons */
+.modal-btn {
+    padding: 12px 35px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.modal-btn:active {
+    transform: scale(0.95);
+}
+
+.btn-success { background: #28a745; }
+.btn-success:hover { background: #218838; }
+
+.btn-error { background: #dc3545; }
+.btn-error:hover { background: #c82333; }
+
+/* SVG Animated Icons (Check & Cross) */
+.icon-success, .icon-error {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+}
+
+.icon-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.icon-success .icon-circle { stroke: #28a745; }
+.icon-error .icon-circle { stroke: #dc3545; }
+
+.icon-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 3;
+    stroke: #28a745;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+.icon-cross {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 3;
+    stroke: #dc3545;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes stroke {
+    100% { stroke-dashoffset: 0; }
+}
