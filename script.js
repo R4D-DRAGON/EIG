@@ -1,11 +1,12 @@
-// script.js (සම්පූර්ණ සහ යාවත්කාලීන කරන ලද කෝඩ් එක)
-
+// ========================================================
+// 1. MENU TOGGLE SYSTEM (With Crash Protection)
+// ========================================================
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
 // මෙනුව Toggle කරන ශ්‍රිතය (Open/Close)
 function toggleMenu() {
-    navLinks.classList.toggle('active');
+    if (navLinks) navLinks.classList.toggle('active');
     document.body.classList.toggle('menu-open'); // Blur Effect එක සහ ස්ක්‍රෝල් වීම වැළැක්වීමට
 }
 
@@ -21,14 +22,27 @@ navItems.forEach(item => {
 
 // මෙනුව විවෘත වූ පසු පිටත (Blur වූ කොටස) ක්ලික් කළ විටද මෙනුව වැසීමට
 document.addEventListener('click', (e) => {
-    // මෙනුව විවෘතව ඇත්නම් සහ ක්ලික් කළේ මෙනුව හෝ toggle button එක මත නොවේ නම්
-    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {toggleMenu();}});
+    // [FIXED] navLinks සහ menuToggle පේජ් එකේ තියෙනවා නම් විතරක් ක්‍රියාත්මක වන ලෙස ආරක්ෂා කරා
+    if (navLinks && menuToggle && navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        toggleMenu();
+    }
+});
 
-// 2. Google Apps Script URL
+const closeMenu = document.getElementById('closeMenu');
+if (closeMenu) {
+    closeMenu.addEventListener('click', toggleMenu);
+}
+
+
+// ========================================================
+// 2. GOOGLE APPS SCRIPT URL
+// ========================================================
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz3LB7u6IczMIGri3jzR7mnTT5NhGlLs-obzuHRDWc0_qjm_owM9CROHj-tXXW6PPClCw/exec';
 
 
-// 3. Booking Form එක පාලනය කිරීම (With Modern Loading Modal)
+// ========================================================
+// 3. BOOKING FORM & MODERN MODAL SYSTEM
+// ========================================================
 const bookingForm = document.getElementById('bookingForm');
 const bookingModal = document.getElementById('bookingModal');
 const modalLoading = document.getElementById('modalLoading');
@@ -97,7 +111,7 @@ function closeBookingModal() {
     if(bookingModal) bookingModal.classList.remove('show');
 }
 
-// බ්ලර් වෙච්ච Background (Overlay) එක ක්ලික් කරපුහම මොඩල් එක වහන්න එකතු කළ කොටස
+// బ్ලර් වෙච්ච Background (Overlay) එක ක්ලික් කරපුහම මොඩල් එක වහන්න
 if (bookingModal) {
     bookingModal.addEventListener('click', function(e) {
         // ක්ලික් කළේ පිටත කළු පසුබිමට නම් සහ දැනට Loading දුවන්නේ නැත්නම් පමණක් වසන්න
@@ -107,15 +121,23 @@ if (bookingModal) {
     });
 }
 
-// බ්‍රව්සර් Console එකෙන් කෙළින්ම චෙක් කිරීමට හැකිතාක් Scope එක විවෘත කිරීම
+// [FIXED] HTML එකේ onclick එක වැඩ නොකරතොත් කෙළින්ම JS වලින් Close බටන් වලට වහන්න නියෝග කිරීම
+document.querySelectorAll('.modal-btn').forEach(btn => {
+    btn.addEventListener('click', closeBookingModal);
+});
+
+// බ්‍රව්සර් Console එකෙන් කෙළින්ම චෙක් කිරීමට Scope එක විවෘත කිරීම
 window.showModalState = showModalState;
 window.closeBookingModal = closeBookingModal;
 
 
-// 4. පින්තූර Upload කිරීම (Gallery)
+// ========================================================
+// 4. GALLERY & LIGHTBOX SYSTEM (With Complete Logic)
+// ========================================================
 function createGalleryItem(imageUrl) {
     const gallery = document.querySelector('.gallery-grid');
     const uploadBox = document.querySelector('.upload-box');
+    if (!gallery || !uploadBox) return; // Guard
     
     const container = document.createElement('div');
     container.style.position = 'relative';
@@ -160,23 +182,25 @@ function addNewImage(event) {
         reader.readAsDataURL(file);
     }
 }
-
-// script.js හි අගට එකතු කරන්න
-const closeMenu = document.getElementById('closeMenu');
-if (closeMenu) {
-    closeMenu.addEventListener('click', toggleMenu);
-}
-
+window.addNewImage = addNewImage;
 
 let currentImgIndex = 0;
-// ගැලරියේ ඇති සියලුම පින්තූර එකතු කරගැනීම
 const galleryImages = document.querySelectorAll('.gallery-grid img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-// පින්තූරයක් ක්ලික් කළ විට Lightbox විවෘත කිරීම
-galleryImages.forEach((img, index) => {
-    img.addEventListener('click', () => {
-        currentImgIndex = index;
-        lightboxImg.src = img
-        
+// [FIXED] පින්තූරයක් ක්ලික් කළ විට Lightbox විවෘත කිරීමේ කැඩිලා තිබ්බ කොටස සම්පූර්ණ කරා
+if (galleryImages.length > 0 && lightbox && lightboxImg) {
+    galleryImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            currentImgIndex = index;
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+}
+
+function closeLightbox() {
+    if (lightbox) lightbox.style.display = 'none';
+}
+window.closeLightbox = closeLightbox;
