@@ -176,7 +176,7 @@ section{
 }
 
 .destinations-grid .card {
-  flex: 0 0 300px;
+  flex: 0 0 300px !important;
 }
 
 .card-grid,.destination-grid,.review-grid{
