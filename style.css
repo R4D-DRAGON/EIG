@@ -179,10 +179,18 @@ section{
   flex: 0 0 300px !important;
 }
 
-.card-grid,.destination-grid,.review-grid{
+.card-grid,.review-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
+}
+
+.destination-grid{
+  display: flex !important;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 .tour-card,.review-card,.destination-card{
