@@ -175,6 +175,10 @@ section{
   text-align:center;
 }
 
+.destinations-grid .card {
+  flex: 0 0 300px;
+}
+
 .card-grid,.destination-grid,.review-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -741,4 +745,12 @@ body.blur-active #notification {
 
 @keyframes stroke {
     100% { stroke-dashoffset: 0; }
+}
+
+.scroll-container {
+  display: flex; /* පින්තූර එක පෙළට තියන්න */
+  overflow-x: auto; /* පින්තූර වැඩි වුණාම ස්ක්‍රෝල් වෙන්න */
+  gap: 20px; /* පින්තූර අතර පරතරය */
+  padding-bottom: 10px; /* ස්ක්‍රෝල් බාර් එකට ඉඩ තියන්න */
+  scroll-behavior: smooth; /* ස්ක්‍රෝල් එකේදී සුමට බවක් දෙන්න */
 }
