@@ -179,7 +179,7 @@ section{
   flex: 0 0 300px !important;
 }
 
-.card-grid,.review-grid{
+.card-grid,.destination-grid,.review-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
